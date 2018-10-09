@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DP2
 {
-    public partial class Form1 : Form
+    public partial class FormSalesTransaction : Form
     {
-        public Form1()
+        public FormSalesTransaction()
         {
             InitializeComponent();
         }
