@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace DP2
 {
-    public partial class inventory : Form
+    public partial class formInventory : Form
     {
-        public inventory()
+        public formInventory()
         {
             InitializeComponent();
+        }
+
+        private void dataGridInventory_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
