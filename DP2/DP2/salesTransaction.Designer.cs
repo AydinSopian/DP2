@@ -52,6 +52,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.panel1.Controls.Add(this.buttonDashboard);
             this.panel1.Controls.Add(this.buttonInventoryWindow);
             this.panel1.Controls.Add(this.buttonSalesTransactionWindow);
@@ -63,7 +64,7 @@
             // 
             // buttonDashboard
             // 
-            this.buttonDashboard.Location = new System.Drawing.Point(74, 238);
+            this.buttonDashboard.Location = new System.Drawing.Point(52, 346);
             this.buttonDashboard.Name = "buttonDashboard";
             this.buttonDashboard.Size = new System.Drawing.Size(75, 23);
             this.buttonDashboard.TabIndex = 2;
@@ -72,7 +73,7 @@
             // 
             // buttonInventoryWindow
             // 
-            this.buttonInventoryWindow.Location = new System.Drawing.Point(74, 162);
+            this.buttonInventoryWindow.Location = new System.Drawing.Point(0, 317);
             this.buttonInventoryWindow.Name = "buttonInventoryWindow";
             this.buttonInventoryWindow.Size = new System.Drawing.Size(75, 23);
             this.buttonInventoryWindow.TabIndex = 1;
@@ -81,15 +82,20 @@
             // 
             // buttonSalesTransactionWindow
             // 
-            this.buttonSalesTransactionWindow.Location = new System.Drawing.Point(49, 100);
+            this.buttonSalesTransactionWindow.FlatAppearance.BorderSize = 0;
+            this.buttonSalesTransactionWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSalesTransactionWindow.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSalesTransactionWindow.ForeColor = System.Drawing.Color.White;
+            this.buttonSalesTransactionWindow.Location = new System.Drawing.Point(0, 133);
             this.buttonSalesTransactionWindow.Name = "buttonSalesTransactionWindow";
-            this.buttonSalesTransactionWindow.Size = new System.Drawing.Size(75, 23);
+            this.buttonSalesTransactionWindow.Size = new System.Drawing.Size(194, 99);
             this.buttonSalesTransactionWindow.TabIndex = 0;
-            this.buttonSalesTransactionWindow.Text = "button1";
+            this.buttonSalesTransactionWindow.Text = "SALES TRANSACTION";
             this.buttonSalesTransactionWindow.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.panel2.Controls.Add(this.buttonMinimize);
             this.panel2.Controls.Add(this.buttonClose);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -100,21 +106,25 @@
             // 
             // buttonMinimize
             // 
-            this.buttonMinimize.Location = new System.Drawing.Point(444, 3);
+            this.buttonMinimize.FlatAppearance.BorderSize = 0;
+            this.buttonMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMinimize.ForeColor = System.Drawing.Color.White;
+            this.buttonMinimize.Location = new System.Drawing.Point(852, 0);
             this.buttonMinimize.Name = "buttonMinimize";
-            this.buttonMinimize.Size = new System.Drawing.Size(75, 23);
+            this.buttonMinimize.Size = new System.Drawing.Size(66, 42);
             this.buttonMinimize.TabIndex = 7;
-            this.buttonMinimize.Text = "button1";
             this.buttonMinimize.UseVisualStyleBackColor = true;
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(525, 0);
+            this.buttonClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.buttonClose.FlatAppearance.BorderSize = 0;
+            this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClose.Location = new System.Drawing.Point(916, 0);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(75, 23);
+            this.buttonClose.Size = new System.Drawing.Size(66, 42);
             this.buttonClose.TabIndex = 6;
-            this.buttonClose.Text = "button1";
-            this.buttonClose.UseVisualStyleBackColor = true;
+            this.buttonClose.UseVisualStyleBackColor = false;
             // 
             // panel3
             // 
@@ -125,6 +135,7 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(982, 100);
             this.panel3.TabIndex = 2;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // labelSalesTransactionTotal
             // 
@@ -197,6 +208,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.Chocolate;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormSalesTransaction";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.FormSalesTransaction_Load);

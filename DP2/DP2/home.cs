@@ -10,19 +10,14 @@ using System.Windows.Forms;
 
 namespace DP2
 {
-    public partial class FormSalesTransaction : Form
+    public partial class formHome : Form
     {
-        public FormSalesTransaction()
+        public formHome()
         {
             InitializeComponent();
         }
 
-        private void FormSalesTransaction_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
+        private void home_Load(object sender, EventArgs e)
         {
 
         }
