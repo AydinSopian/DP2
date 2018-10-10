@@ -16,5 +16,10 @@ namespace DP2
         {
             InitializeComponent();
         }
+
+        private void FormSalesTransaction_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
