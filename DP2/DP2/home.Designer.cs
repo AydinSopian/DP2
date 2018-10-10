@@ -189,7 +189,6 @@
             this.Name = "formHome";
             this.Text = "home";
             this.Load += new System.EventHandler(this.home_Load);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.formHome_MouseDown);
             this.navigationBar.ResumeLayout(false);
             this.titleBar.ResumeLayout(false);
             this.ResumeLayout(false);
