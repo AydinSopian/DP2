@@ -18,7 +18,7 @@ namespace DP2
         {
             InitializeComponent();
             log = RequestLog.Instance;
-            log.GetQuery(1, "*", "Inventory"); //display all inventory items in datagridview
+            log.GetRequestedQuery(1, "*", "Inventory"); //display all inventory items in datagridview
         }
 
         private void dataGridInventory_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -30,8 +30,7 @@ namespace DP2
         {
             string values = textInventoryItem.Text + ", " + textInventoryCost.Text + ", " + textInventoryPrice.Text + ", " + textInventoryQty.Text;
 
-            log.GetQuery(3, "Inventory", "itemName, costPerUnitBought, pricePerUnitSold, quantity", values);
-
+            log.GetRequestedQuery(3, "Inventory", "itemName, costPerUnitBought, pricePerUnitSold, quantity", values);
         }
 
     }

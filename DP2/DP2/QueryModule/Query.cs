@@ -8,56 +8,56 @@ namespace DP2
 {
     class Query : IQueryPlan
     {
-        private string queryKeyword, queryTables, queryValues, queryColumns, queryWhere;
+        private string keyword, tables, values, columns, where;
 
         public void SetColumns(string columns)
         {
-            queryColumns = columns;
+            this.columns = columns;
         }
 
-        public string QueryColumns
+        public string GetColumns
         {
-            get { return this.queryColumns; }
+            get { return this.columns; }
         }
 
         public void SetWhere(string where)
         {
-            queryWhere = where;
+            this.where = where;
         }
 
-        public string QueryWhere
+        public string GetWhere
         {
-            get { return this.queryWhere; }
+            get { return this.where; }
         }
 
         public void SetKeyword(string keyword)
         {
-            queryKeyword = keyword;
+            this.keyword = keyword;
         }
 
-        public string QueryKeyword
+        public string GetKeyword
         {
-            get { return this.queryKeyword; }
+            get { return this.keyword; }
         }
 
         public void SetTables(string tables)
         {
-            queryTables = tables;
+            this.tables = tables;
         }
 
-        public string QueryTables
+        public string GetTables
         {
-            get { return this.queryTables; }
+            get { return this.tables; }
         }
 
         public void SetValues(string values)
         {
-            queryValues = values;
+            this.values = values;
         }
 
-        public string QueryValues
+        public string GetValues
         {
-            get { return this.queryValues; }
+            get { return this.values; }
         }
     }
 }

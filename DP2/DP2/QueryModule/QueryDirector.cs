@@ -63,7 +63,7 @@ namespace DP2
         /// <summary>
         /// Returns a query.
         /// </summary>
-        public string Query
+        public string GetQuery
         {
             get { return this.queryBuilder.GetQuery(); }
         }

@@ -29,7 +29,11 @@ namespace DP2
         {
             //INSERT into Sales Table dataTime & Total
 
-            //foreach row in dataGridSales, Insert into ProductsSold dateTime, productId, Qty
+            //foreach row in dataGridSales, Insert into ProductsSold (dateTime, productId, Qty)
+
+            //Clear dataGridSales
+
+            //reset Incrmenters
         }
 
         private void buttonSalesAdd_Click(object sender, EventArgs e)

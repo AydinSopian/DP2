@@ -18,7 +18,7 @@ namespace DP2
         private QueryBuilderFactory qFactory;
 
         private string query;
-        public string Query
+        public string GetQuery
         {
             get { return this.query; }
         }
@@ -60,33 +60,33 @@ namespace DP2
         }
 
         /// <summary>
-        /// Gets the user requested Query
+        /// Gets the user requested GetQuery
         /// </summary>
         /// <param name="id"></param>
         /// <param name="columnsCondition"></param>
         /// <param name="tables"></param>
-        public void GetQuery(int id, string columnsCondition, string tables)
+        public void GetRequestedQuery(int id, string columnsCondition, string tables)
         {
             QueryDirector qDirector = new QueryDirector(qFactory.CreateQueryBuilder(id));
 
             qDirector.MakeQuery(tables, columnsCondition);
 
-            query = qDirector.Query;
+            query = qDirector.GetQuery;
         }
 
         /// <summary>
-        /// Gets the user requested Query
+        /// Gets the user requested GetQuery
         /// </summary>
         /// <param name="id"></param>
         /// <param name="columnsCondition"></param>
         /// <param name="tables"></param>
-        public void GetQuery(int id, string tables, string columnsCondition, string values)
+        public void GetRequestedQuery(int id, string tables, string columnsCondition, string values)
         {
             QueryDirector qDirector = new QueryDirector(qFactory.CreateQueryBuilder(id));
 
             qDirector.MakeQuery(tables, columnsCondition, values);
 
-            query = qDirector.Query;
+            query = qDirector.GetQuery;
         }
 
     }

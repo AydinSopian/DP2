@@ -42,7 +42,7 @@ namespace DP2
 
         public string GetQuery()
         {
-            return query.QueryKeyword + query.QueryTables + query.QueryWhere;
+            return query.GetKeyword + query.GetTables + query.GetWhere;
         }
     }
 }

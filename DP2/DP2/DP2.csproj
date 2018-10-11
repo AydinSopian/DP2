@@ -46,18 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UIComponents\confirmation1.cs">
+    <Compile Include="UIComponents\UIConfirmation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UIComponents\confirmation1.Designer.cs">
-      <DependentUpon>confirmation1.cs</DependentUpon>
+    <Compile Include="UIComponents\UIConfirmation.Designer.cs">
+      <DependentUpon>UIConfirmation.cs</DependentUpon>
     </Compile>
     <Compile Include="QueryModule\DeleteQueryBuilder.cs" />
-    <Compile Include="UIComponents\home.cs">
+    <Compile Include="UIComponents\UIHome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UIComponents\home.Designer.cs">
-      <DependentUpon>home.cs</DependentUpon>
+    <Compile Include="UIComponents\UIHome.Designer.cs">
+      <DependentUpon>UIHome.cs</DependentUpon>
     </Compile>
     <Compile Include="QueryModule\InsertQueryBuilder.cs" />
     <Compile Include="QueryModule\IQueryBuilder.cs" />
@@ -66,34 +66,33 @@
     <Compile Include="QueryModule\QueryDirector.cs" />
     <Compile Include="QueryModule\QueryFactory.cs" />
     <Compile Include="QueryModule\RequestLog.cs" />
-    <Compile Include="UIComponents\salesTransaction.cs">
+    <Compile Include="UIComponents\UISalesTransaction.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UIComponents\salesTransaction.Designer.cs">
-      <DependentUpon>salesTransaction.cs</DependentUpon>
+    <Compile Include="UIComponents\UISalesTransaction.Designer.cs">
+      <DependentUpon>UISalesTransaction.cs</DependentUpon>
     </Compile>
-    <Compile Include="UIComponents\inventory.cs">
+    <Compile Include="UIComponents\UIInventory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UIComponents\inventory.Designer.cs">
-      <DependentUpon>inventory.cs</DependentUpon>
+    <Compile Include="UIComponents\UIInventory.Designer.cs">
+      <DependentUpon>UIInventory.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryModule\SelectQueryBuilder.cs" />
-    <Compile Include="QueryModule\Table.cs" />
     <Compile Include="QueryModule\UpdateQueryBuilder.cs" />
-    <EmbeddedResource Include="UIComponents\confirmation1.resx">
-      <DependentUpon>confirmation1.cs</DependentUpon>
+    <EmbeddedResource Include="UIComponents\UIConfirmation.resx">
+      <DependentUpon>UIConfirmation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UIComponents\home.resx">
-      <DependentUpon>home.cs</DependentUpon>
+    <EmbeddedResource Include="UIComponents\UIHome.resx">
+      <DependentUpon>UIHome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UIComponents\inventory.resx">
-      <DependentUpon>inventory.cs</DependentUpon>
+    <EmbeddedResource Include="UIComponents\UIInventory.resx">
+      <DependentUpon>UIInventory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UIComponents\salesTransaction.resx">
-      <DependentUpon>salesTransaction.cs</DependentUpon>
+    <EmbeddedResource Include="UIComponents\UISalesTransaction.resx">
+      <DependentUpon>UISalesTransaction.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
