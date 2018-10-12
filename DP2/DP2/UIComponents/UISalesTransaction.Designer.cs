@@ -36,7 +36,6 @@
             this.textSalesItem = new System.Windows.Forms.TextBox();
             this.labelSalesQty = new System.Windows.Forms.Label();
             this.textSalesQty = new System.Windows.Forms.TextBox();
-            this.buttonSalesAdd = new System.Windows.Forms.Button();
             this.dataGridSales = new System.Windows.Forms.DataGridView();
             this.salesNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.salesItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,6 +46,7 @@
             this.labelSalesTotal = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonSalesCheckout = new System.Windows.Forms.Button();
+            this.buttonSalesAdd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSales)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -94,25 +94,6 @@
             this.textSalesQty.Name = "textSalesQty";
             this.textSalesQty.Size = new System.Drawing.Size(138, 19);
             this.textSalesQty.TabIndex = 7;
-            // 
-            // buttonSalesAdd
-            // 
-            this.buttonSalesAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
-            this.buttonSalesAdd.FlatAppearance.BorderSize = 0;
-            this.buttonSalesAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSalesAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSalesAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.buttonSalesAdd.Image = global::DP2.Properties.Resources.icons8_plus_math_20;
-            this.buttonSalesAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSalesAdd.Location = new System.Drawing.Point(723, 39);
-            this.buttonSalesAdd.Name = "buttonSalesAdd";
-            this.buttonSalesAdd.Size = new System.Drawing.Size(121, 47);
-            this.buttonSalesAdd.TabIndex = 9;
-            this.buttonSalesAdd.Text = "ADD ITEM";
-            this.buttonSalesAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonSalesAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.buttonSalesAdd.UseVisualStyleBackColor = false;
-            this.buttonSalesAdd.Click += new System.EventHandler(this.buttonSalesAdd_Click);
             // 
             // dataGridSales
             // 
@@ -251,6 +232,25 @@
             this.buttonSalesCheckout.UseVisualStyleBackColor = false;
             this.buttonSalesCheckout.Click += new System.EventHandler(this.buttonSalesCheckout_Click);
             // 
+            // buttonSalesAdd
+            // 
+            this.buttonSalesAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
+            this.buttonSalesAdd.FlatAppearance.BorderSize = 0;
+            this.buttonSalesAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSalesAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSalesAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.buttonSalesAdd.Image = global::DP2.Properties.Resources.icons8_plus_math_20;
+            this.buttonSalesAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSalesAdd.Location = new System.Drawing.Point(723, 39);
+            this.buttonSalesAdd.Name = "buttonSalesAdd";
+            this.buttonSalesAdd.Size = new System.Drawing.Size(121, 47);
+            this.buttonSalesAdd.TabIndex = 9;
+            this.buttonSalesAdd.Text = "ADD ITEM";
+            this.buttonSalesAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonSalesAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.buttonSalesAdd.UseVisualStyleBackColor = false;
+            this.buttonSalesAdd.Click += new System.EventHandler(this.buttonSalesAdd_Click);
+            // 
             // formSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -267,6 +267,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "formSales";
             this.Text = "salesTransaction";
+            this.Load += new System.EventHandler(this.formSales_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSales)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

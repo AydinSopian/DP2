@@ -62,6 +62,7 @@ namespace DP2
 
         private void buttonClose_Click(object sender, EventArgs e)
         {
+            Application.Exit();
             this.Close();
         }
 
@@ -71,8 +72,13 @@ namespace DP2
             this.WindowState = FormWindowState.Minimized;
         }
 
+        private void content_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
 
         //Movable title bar
-        
+
     }
 }

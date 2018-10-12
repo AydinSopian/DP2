@@ -66,6 +66,12 @@
     <Compile Include="QueryModule\QueryDirector.cs" />
     <Compile Include="QueryModule\QueryFactory.cs" />
     <Compile Include="QueryModule\RequestLog.cs" />
+    <Compile Include="UIComponents\UILogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIComponents\UILogin.Designer.cs">
+      <DependentUpon>UILogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="UIComponents\UISalesTransaction.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UIComponents\UIInventory.resx">
       <DependentUpon>UIInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIComponents\UILogin.resx">
+      <DependentUpon>UILogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UIComponents\UISalesTransaction.resx">
       <DependentUpon>UISalesTransaction.cs</DependentUpon>

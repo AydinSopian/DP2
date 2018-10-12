@@ -32,13 +32,13 @@
             this.navigationBar = new System.Windows.Forms.Panel();
             this.logoPanel = new System.Windows.Forms.Panel();
             this.navIndicator = new System.Windows.Forms.Panel();
+            this.titleBar = new System.Windows.Forms.Panel();
+            this.content = new System.Windows.Forms.Panel();
+            this.buttonMinimize = new System.Windows.Forms.Button();
+            this.buttonClose = new System.Windows.Forms.Button();
             this.buttonNavDashboard = new System.Windows.Forms.Button();
             this.buttonNavInventory = new System.Windows.Forms.Button();
             this.buttonNavSales = new System.Windows.Forms.Button();
-            this.titleBar = new System.Windows.Forms.Panel();
-            this.buttonMinimize = new System.Windows.Forms.Button();
-            this.buttonClose = new System.Windows.Forms.Button();
-            this.content = new System.Windows.Forms.Panel();
             this.navigationBar.SuspendLayout();
             this.titleBar.SuspendLayout();
             this.SuspendLayout();
@@ -72,6 +72,53 @@
             this.navIndicator.Name = "navIndicator";
             this.navIndicator.Size = new System.Drawing.Size(25, 150);
             this.navIndicator.TabIndex = 3;
+            // 
+            // titleBar
+            // 
+            this.titleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.titleBar.Controls.Add(this.buttonMinimize);
+            this.titleBar.Controls.Add(this.buttonClose);
+            this.titleBar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.titleBar.Location = new System.Drawing.Point(266, 0);
+            this.titleBar.Name = "titleBar";
+            this.titleBar.Size = new System.Drawing.Size(1041, 29);
+            this.titleBar.TabIndex = 1;
+            // 
+            // content
+            // 
+            this.content.Cursor = System.Windows.Forms.Cursors.Default;
+            this.content.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.content.Location = new System.Drawing.Point(266, 29);
+            this.content.Name = "content";
+            this.content.Size = new System.Drawing.Size(1041, 729);
+            this.content.TabIndex = 2;
+            this.content.Paint += new System.Windows.Forms.PaintEventHandler(this.content_Paint);
+            // 
+            // buttonMinimize
+            // 
+            this.buttonMinimize.FlatAppearance.BorderSize = 0;
+            this.buttonMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMinimize.Image = global::DP2.Properties.Resources.icons8_horizontal_line_15;
+            this.buttonMinimize.Location = new System.Drawing.Point(955, 0);
+            this.buttonMinimize.Name = "buttonMinimize";
+            this.buttonMinimize.Size = new System.Drawing.Size(42, 29);
+            this.buttonMinimize.TabIndex = 2;
+            this.buttonMinimize.UseVisualStyleBackColor = true;
+            this.buttonMinimize.Click += new System.EventHandler(this.buttonMinimize_Click);
+            // 
+            // buttonClose
+            // 
+            this.buttonClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.buttonClose.Cursor = System.Windows.Forms.Cursors.Default;
+            this.buttonClose.FlatAppearance.BorderSize = 0;
+            this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClose.Image = global::DP2.Properties.Resources.icons8_multiply_28;
+            this.buttonClose.Location = new System.Drawing.Point(999, 0);
+            this.buttonClose.Name = "buttonClose";
+            this.buttonClose.Size = new System.Drawing.Size(42, 29);
+            this.buttonClose.TabIndex = 1;
+            this.buttonClose.UseVisualStyleBackColor = false;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
             // buttonNavDashboard
             // 
@@ -129,52 +176,6 @@
             this.buttonNavSales.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonNavSales.UseVisualStyleBackColor = false;
             this.buttonNavSales.Click += new System.EventHandler(this.buttonNavSales_Click);
-            // 
-            // titleBar
-            // 
-            this.titleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.titleBar.Controls.Add(this.buttonMinimize);
-            this.titleBar.Controls.Add(this.buttonClose);
-            this.titleBar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.titleBar.Location = new System.Drawing.Point(266, 0);
-            this.titleBar.Name = "titleBar";
-            this.titleBar.Size = new System.Drawing.Size(1041, 29);
-            this.titleBar.TabIndex = 1;
-            // 
-            // buttonMinimize
-            // 
-            this.buttonMinimize.FlatAppearance.BorderSize = 0;
-            this.buttonMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonMinimize.Image = global::DP2.Properties.Resources.icons8_horizontal_line_15;
-            this.buttonMinimize.Location = new System.Drawing.Point(955, 0);
-            this.buttonMinimize.Name = "buttonMinimize";
-            this.buttonMinimize.Size = new System.Drawing.Size(42, 29);
-            this.buttonMinimize.TabIndex = 2;
-            this.buttonMinimize.UseVisualStyleBackColor = true;
-            this.buttonMinimize.Click += new System.EventHandler(this.buttonMinimize_Click);
-            // 
-            // buttonClose
-            // 
-            this.buttonClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.buttonClose.Cursor = System.Windows.Forms.Cursors.Default;
-            this.buttonClose.FlatAppearance.BorderSize = 0;
-            this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonClose.Image = global::DP2.Properties.Resources.icons8_multiply_28;
-            this.buttonClose.Location = new System.Drawing.Point(999, 0);
-            this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(42, 29);
-            this.buttonClose.TabIndex = 1;
-            this.buttonClose.UseVisualStyleBackColor = false;
-            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
-            // 
-            // content
-            // 
-            this.content.Cursor = System.Windows.Forms.Cursors.Default;
-            this.content.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.content.Location = new System.Drawing.Point(266, 29);
-            this.content.Name = "content";
-            this.content.Size = new System.Drawing.Size(1041, 729);
-            this.content.TabIndex = 2;
             // 
             // formHome
             // 

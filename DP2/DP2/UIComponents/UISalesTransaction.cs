@@ -36,6 +36,11 @@ namespace DP2
             //reset Incrmenters
         }
 
+        private void formSales_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void buttonSalesAdd_Click(object sender, EventArgs e)
         {
             productsSoldIncrement++;
