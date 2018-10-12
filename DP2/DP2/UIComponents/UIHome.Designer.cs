@@ -103,6 +103,7 @@
             this.buttonMinimize.Name = "buttonMinimize";
             this.buttonMinimize.Size = new System.Drawing.Size(42, 29);
             this.buttonMinimize.TabIndex = 2;
+            this.buttonMinimize.TabStop = false;
             this.buttonMinimize.UseVisualStyleBackColor = true;
             this.buttonMinimize.Click += new System.EventHandler(this.buttonMinimize_Click);
             // 
@@ -117,6 +118,8 @@
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(42, 29);
             this.buttonClose.TabIndex = 1;
+            this.buttonClose.TabStop = false;
+            this.buttonClose.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
@@ -133,7 +136,8 @@
             this.buttonNavDashboard.Name = "buttonNavDashboard";
             this.buttonNavDashboard.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.buttonNavDashboard.Size = new System.Drawing.Size(266, 150);
-            this.buttonNavDashboard.TabIndex = 2;
+            this.buttonNavDashboard.TabIndex = 3;
+            this.buttonNavDashboard.TabStop = false;
             this.buttonNavDashboard.Text = "    Dashboard";
             this.buttonNavDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonNavDashboard.UseVisualStyleBackColor = false;
@@ -152,7 +156,8 @@
             this.buttonNavInventory.Name = "buttonNavInventory";
             this.buttonNavInventory.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.buttonNavInventory.Size = new System.Drawing.Size(266, 150);
-            this.buttonNavInventory.TabIndex = 1;
+            this.buttonNavInventory.TabIndex = 2;
+            this.buttonNavInventory.TabStop = false;
             this.buttonNavInventory.Text = "   Inventory";
             this.buttonNavInventory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonNavInventory.UseVisualStyleBackColor = false;
@@ -171,7 +176,8 @@
             this.buttonNavSales.Name = "buttonNavSales";
             this.buttonNavSales.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.buttonNavSales.Size = new System.Drawing.Size(266, 150);
-            this.buttonNavSales.TabIndex = 0;
+            this.buttonNavSales.TabIndex = 1;
+            this.buttonNavSales.TabStop = false;
             this.buttonNavSales.Text = "   Sales Transaction";
             this.buttonNavSales.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonNavSales.UseVisualStyleBackColor = false;
@@ -188,6 +194,7 @@
             this.Controls.Add(this.navigationBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "formHome";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "home";
             this.Load += new System.EventHandler(this.home_Load);
             this.navigationBar.ResumeLayout(false);

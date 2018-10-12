@@ -185,6 +185,7 @@
             this.Controls.Add(this.textLoginPassword);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UILogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UILogin";
             this.Load += new System.EventHandler(this.UILogin_Load);
             this.panel1.ResumeLayout(false);
