@@ -12,7 +12,6 @@ namespace DP2
 {
     public partial class formHome : Form
     {
-        
         public formHome()
         {
             InitializeComponent();
