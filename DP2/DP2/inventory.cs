@@ -21,5 +21,10 @@ namespace DP2
         {
 
         }
+
+        private void textInventoryCost_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
