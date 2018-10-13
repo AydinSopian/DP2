@@ -29,11 +29,11 @@ namespace DP2.UIComponents
             if (confirmation.isConfirmed)
             {
                 this.Close();
-
+                _parentForm.rowNum = 0;
                 //Show change
                 UIChange change = new UIChange();
                 change.ShowDialog();
-
+            
                 //INSERT into Sales Table dataTime & Total
 
                 //foreach row in dataGridSales, Insert into ProductsSold (dateTime, productId, Qty)
