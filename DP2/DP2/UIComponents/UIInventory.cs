@@ -28,9 +28,21 @@ namespace DP2
 
         private void buttonInventoryAdd_Click(object sender, EventArgs e)
         {
-            string values = textInventoryItem.Text + ", " + textInventoryCost.Text + ", " + textInventoryPrice.Text + ", " + textInventoryQty.Text;
+            confirmation1 confirmation = new confirmation1();
+            confirmation.ShowDialog();
 
-            log.GetRequestedQuery(3, "Inventory", "itemName, costPerUnitBought, pricePerUnitSold, quantity", values);
+            if (confirmation.isConfirmed)
+            {
+                this.Close();
+                string values = textInventoryItem.Text + ", " + textInventoryCost.Text + ", " + textInventoryPrice.Text + ", " + textInventoryQty.Text;
+
+                log.GetRequestedQuery(3, "Inventory", "itemName, costPerUnitBought, pricePerUnitSold, quantity", values);
+            }
+            else
+            {
+                this.Close();
+            }
+            
         }
 
     }

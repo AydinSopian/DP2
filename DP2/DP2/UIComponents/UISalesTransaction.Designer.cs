@@ -160,6 +160,7 @@
             this.dataGridSales.Size = new System.Drawing.Size(828, 446);
             this.dataGridSales.TabIndex = 10;
             this.dataGridSales.TabStop = false;
+            this.dataGridSales.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridSales_CellContentClick);
             // 
             // panel1
             // 

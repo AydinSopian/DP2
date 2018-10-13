@@ -146,7 +146,7 @@
             this.buttonClose.FlatAppearance.BorderSize = 0;
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClose.Image = global::DP2.Properties.Resources.icons8_multiply_28;
-            this.buttonClose.Location = new System.Drawing.Point(322, 0);
+            this.buttonClose.Location = new System.Drawing.Point(322, 1);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(42, 29);
             this.buttonClose.TabIndex = 3;

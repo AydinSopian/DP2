@@ -16,6 +16,11 @@ namespace DP2
         private DataGridViewRow row;
         private int productsSoldIncrement, rowIncrement;
 
+        public void ClearData()
+        {
+            dataGridSales.Rows.Clear();
+        }
+
         public formSales()
         {
             InitializeComponent();
@@ -28,11 +33,16 @@ namespace DP2
         private void buttonSalesCheckout_Click(object sender, EventArgs e)
         {
             //Open payment window
-            UIComponents.UIPayment paymentWindow = new UIComponents.UIPayment();
-            paymentWindow.Show();
+            UIComponents.UIPayment paymentWindow = new UIComponents.UIPayment(this);
+            paymentWindow.ShowDialog();
         }
 
         private void formSales_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridSales_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

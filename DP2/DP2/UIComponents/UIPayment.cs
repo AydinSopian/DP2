@@ -12,25 +12,41 @@ namespace DP2.UIComponents
 {
     public partial class UIPayment : Form
     {
-        public UIPayment()
+        private formSales _parentForm;
+
+        public UIPayment(formSales parentForm)
         {
             InitializeComponent();
+            _parentForm = parentForm;
         }
 
         private void buttonPaymentConfirm_Click(object sender, EventArgs e)
         {
-            //Show change
-            this.Close();
-            UIChange change = new UIChange();
-            change.Show();
+            
+            confirmation1 confirmation = new confirmation1();
+            confirmation.ShowDialog();
 
-            //INSERT into Sales Table dataTime & Total
+            if (confirmation.isConfirmed)
+            {
+                this.Close();
 
-            //foreach row in dataGridSales, Insert into ProductsSold (dateTime, productId, Qty)
+                //Show change
+                UIChange change = new UIChange();
+                change.ShowDialog();
 
-            //Clear dataGridSales
+                //INSERT into Sales Table dataTime & Total
 
-            //reset Incrmenters
+                //foreach row in dataGridSales, Insert into ProductsSold (dateTime, productId, Qty)
+
+                //Clear dataGridSales
+
+                //reset Incrmenters
+
+                //Clear dataGridSales
+                _parentForm.ClearData();
+            }
+
+
         }
 
         private void buttonClose_Click(object sender, EventArgs e)

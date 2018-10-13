@@ -41,7 +41,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Open Sans", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.label1.Location = new System.Drawing.Point(39, 67);
+            this.label1.Location = new System.Drawing.Point(39, 87);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(107, 28);
             this.label1.TabIndex = 16;
@@ -53,7 +53,7 @@
             this.labelChangeChange.AutoSize = true;
             this.labelChangeChange.Font = new System.Drawing.Font("Open Sans", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelChangeChange.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.labelChangeChange.Location = new System.Drawing.Point(39, 116);
+            this.labelChangeChange.Location = new System.Drawing.Point(39, 129);
             this.labelChangeChange.Name = "labelChangeChange";
             this.labelChangeChange.Size = new System.Drawing.Size(44, 28);
             this.labelChangeChange.TabIndex = 17;
@@ -67,7 +67,7 @@
             this.buttonPaymentConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPaymentConfirm.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonPaymentConfirm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.buttonPaymentConfirm.Location = new System.Drawing.Point(131, 180);
+            this.buttonPaymentConfirm.Location = new System.Drawing.Point(136, 203);
             this.buttonPaymentConfirm.Name = "buttonPaymentConfirm";
             this.buttonPaymentConfirm.Size = new System.Drawing.Size(87, 52);
             this.buttonPaymentConfirm.TabIndex = 18;
@@ -82,7 +82,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(350, 30);
+            this.panel1.Size = new System.Drawing.Size(364, 30);
             this.panel1.TabIndex = 19;
             // 
             // buttonClose
@@ -92,7 +92,7 @@
             this.buttonClose.FlatAppearance.BorderSize = 0;
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClose.Image = global::DP2.Properties.Resources.icons8_multiply_28;
-            this.buttonClose.Location = new System.Drawing.Point(308, 1);
+            this.buttonClose.Location = new System.Drawing.Point(322, 1);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(42, 29);
             this.buttonClose.TabIndex = 3;
@@ -106,13 +106,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.ClientSize = new System.Drawing.Size(350, 262);
+            this.ClientSize = new System.Drawing.Size(364, 305);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonPaymentConfirm);
             this.Controls.Add(this.labelChangeChange);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UIChange";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UIChange";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

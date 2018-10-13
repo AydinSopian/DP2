@@ -64,6 +64,7 @@
             this.buttonConfirmationCancel.TabIndex = 1;
             this.buttonConfirmationCancel.Text = "Cancel";
             this.buttonConfirmationCancel.UseVisualStyleBackColor = false;
+            this.buttonConfirmationCancel.Click += new System.EventHandler(this.buttonConfirmationCancel_Click);
             // 
             // labelConfirmationAreYouSure
             // 
@@ -113,6 +114,7 @@
             this.Controls.Add(this.buttonConfirmationContinue);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "confirmation1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Are you sure?";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
