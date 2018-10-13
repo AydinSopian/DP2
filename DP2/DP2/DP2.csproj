@@ -186,5 +186,8 @@
   <ItemGroup>
     <None Include="Resources\icons8-plus-math-20.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\icons8-trash-25.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
