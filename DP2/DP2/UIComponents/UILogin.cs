@@ -50,12 +50,14 @@ namespace DP2.UIComponents
 
             if(textLoginUsername.Text == userAdmin && textLoginPassword.Text == passwordAdmin)
             {
+                //hide login screen and open Home window upon verification
                 this.Hide();
-                formHome ss = new formHome();
-                ss.Show();
+                formHome home = new formHome();
+                home.Show();
             }
             else
             {
+                //show error message upon invalid credentials
                 MessageBox.Show("Wrong Username or Password");
             }
 

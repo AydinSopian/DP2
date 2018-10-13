@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DP2
+namespace DP2.UIComponents
 {
-    public partial class confirmation1 : Form
+    public partial class UIChange : Form
     {
-        public confirmation1()
+        public UIChange()
         {
             InitializeComponent();
         }
@@ -22,9 +22,9 @@ namespace DP2
             this.Close();
         }
 
-        private void buttonConfirmationContinue_Click(object sender, EventArgs e)
+        private void buttonPaymentConfirm_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

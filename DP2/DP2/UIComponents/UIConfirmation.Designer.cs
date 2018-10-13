@@ -32,7 +32,6 @@
             this.buttonConfirmationCancel = new System.Windows.Forms.Button();
             this.labelConfirmationAreYouSure = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.buttonMinimize = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -50,6 +49,7 @@
             this.buttonConfirmationContinue.TabIndex = 0;
             this.buttonConfirmationContinue.Text = "Continue";
             this.buttonConfirmationContinue.UseVisualStyleBackColor = false;
+            this.buttonConfirmationContinue.Click += new System.EventHandler(this.buttonConfirmationContinue_Click);
             // 
             // buttonConfirmationCancel
             // 
@@ -80,25 +80,12 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.panel1.Controls.Add(this.buttonMinimize);
             this.panel1.Controls.Add(this.buttonClose);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(274, 30);
             this.panel1.TabIndex = 7;
-            // 
-            // buttonMinimize
-            // 
-            this.buttonMinimize.FlatAppearance.BorderSize = 0;
-            this.buttonMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonMinimize.Image = global::DP2.Properties.Resources.icons8_horizontal_line_15;
-            this.buttonMinimize.Location = new System.Drawing.Point(188, 1);
-            this.buttonMinimize.Name = "buttonMinimize";
-            this.buttonMinimize.Size = new System.Drawing.Size(42, 29);
-            this.buttonMinimize.TabIndex = 4;
-            this.buttonMinimize.UseVisualStyleBackColor = true;
-            this.buttonMinimize.Click += new System.EventHandler(this.buttonMinimize_Click);
             // 
             // buttonClose
             // 
@@ -139,7 +126,6 @@
         private System.Windows.Forms.Button buttonConfirmationCancel;
         private System.Windows.Forms.Label labelConfirmationAreYouSure;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button buttonMinimize;
         private System.Windows.Forms.Button buttonClose;
     }
 }

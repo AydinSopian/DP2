@@ -27,13 +27,9 @@ namespace DP2
 
         private void buttonSalesCheckout_Click(object sender, EventArgs e)
         {
-            //INSERT into Sales Table dataTime & Total
-
-            //foreach row in dataGridSales, Insert into ProductsSold (dateTime, productId, Qty)
-
-            //Clear dataGridSales
-
-            //reset Incrmenters
+            //Open payment window
+            UIComponents.UIPayment paymentWindow = new UIComponents.UIPayment();
+            paymentWindow.Show();
         }
 
         private void formSales_Load(object sender, EventArgs e)

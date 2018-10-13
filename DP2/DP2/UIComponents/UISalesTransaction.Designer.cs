@@ -40,8 +40,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelSalesTotal = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.buttonSalesCheckout = new System.Windows.Forms.Button();
-            this.buttonSalesAdd = new System.Windows.Forms.Button();
             this.textSalesCategory = new System.Windows.Forms.TextBox();
             this.labelSalesCategory = new System.Windows.Forms.Label();
             this.salesNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +48,9 @@
             this.salesQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.salesPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.salesSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salesAction = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.buttonSalesAdd = new System.Windows.Forms.Button();
+            this.buttonSalesCheckout = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSales)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -57,11 +58,11 @@
             // labelSalesItem
             // 
             this.labelSalesItem.AutoSize = true;
-            this.labelSalesItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSalesItem.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSalesItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.labelSalesItem.Location = new System.Drawing.Point(375, 39);
+            this.labelSalesItem.Location = new System.Drawing.Point(351, 42);
             this.labelSalesItem.Name = "labelSalesItem";
-            this.labelSalesItem.Size = new System.Drawing.Size(49, 20);
+            this.labelSalesItem.Size = new System.Drawing.Size(52, 22);
             this.labelSalesItem.TabIndex = 6;
             this.labelSalesItem.Text = "Item :";
             // 
@@ -71,7 +72,7 @@
             this.textSalesItem.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textSalesItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textSalesItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.textSalesItem.Location = new System.Drawing.Point(379, 64);
+            this.textSalesItem.Location = new System.Drawing.Point(355, 67);
             this.textSalesItem.Name = "textSalesItem";
             this.textSalesItem.Size = new System.Drawing.Size(223, 19);
             this.textSalesItem.TabIndex = 2;
@@ -79,11 +80,11 @@
             // labelSalesQty
             // 
             this.labelSalesQty.AutoSize = true;
-            this.labelSalesQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSalesQty.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSalesQty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.labelSalesQty.Location = new System.Drawing.Point(630, 39);
+            this.labelSalesQty.Location = new System.Drawing.Point(606, 42);
             this.labelSalesQty.Name = "labelSalesQty";
-            this.labelSalesQty.Size = new System.Drawing.Size(41, 20);
+            this.labelSalesQty.Size = new System.Drawing.Size(44, 22);
             this.labelSalesQty.TabIndex = 8;
             this.labelSalesQty.Text = "Qty :";
             // 
@@ -93,7 +94,7 @@
             this.textSalesQty.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textSalesQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textSalesQty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.textSalesQty.Location = new System.Drawing.Point(634, 64);
+            this.textSalesQty.Location = new System.Drawing.Point(610, 67);
             this.textSalesQty.Name = "textSalesQty";
             this.textSalesQty.Size = new System.Drawing.Size(138, 19);
             this.textSalesQty.TabIndex = 3;
@@ -122,7 +123,8 @@
             this.salesItem,
             this.salesQty,
             this.salesPrice,
-            this.salesSubtotal});
+            this.salesSubtotal,
+            this.salesAction});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -174,62 +176,24 @@
             // labelSalesTotal
             // 
             this.labelSalesTotal.AutoSize = true;
-            this.labelSalesTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSalesTotal.Font = new System.Drawing.Font("Open Sans", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSalesTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.labelSalesTotal.Location = new System.Drawing.Point(265, 33);
+            this.labelSalesTotal.Location = new System.Drawing.Point(630, 29);
             this.labelSalesTotal.Name = "labelSalesTotal";
-            this.labelSalesTotal.Size = new System.Drawing.Size(45, 25);
+            this.labelSalesTotal.Size = new System.Drawing.Size(44, 28);
             this.labelSalesTotal.TabIndex = 2;
             this.labelSalesTotal.Text = "RM";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Open Sans", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.label1.Location = new System.Drawing.Point(172, 33);
+            this.label1.Location = new System.Drawing.Point(537, 29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 25);
+            this.label1.Size = new System.Drawing.Size(87, 28);
             this.label1.TabIndex = 1;
             this.label1.Text = "TOTAL :";
-            // 
-            // buttonSalesCheckout
-            // 
-            this.buttonSalesCheckout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.buttonSalesCheckout.FlatAppearance.BorderSize = 0;
-            this.buttonSalesCheckout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSalesCheckout.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSalesCheckout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.buttonSalesCheckout.Image = global::DP2.Properties.Resources.icons8_right_35;
-            this.buttonSalesCheckout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSalesCheckout.Location = new System.Drawing.Point(849, 0);
-            this.buttonSalesCheckout.Name = "buttonSalesCheckout";
-            this.buttonSalesCheckout.Size = new System.Drawing.Size(191, 89);
-            this.buttonSalesCheckout.TabIndex = 0;
-            this.buttonSalesCheckout.Text = "CHECKOUT";
-            this.buttonSalesCheckout.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonSalesCheckout.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.buttonSalesCheckout.UseVisualStyleBackColor = false;
-            this.buttonSalesCheckout.Click += new System.EventHandler(this.buttonSalesCheckout_Click);
-            // 
-            // buttonSalesAdd
-            // 
-            this.buttonSalesAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
-            this.buttonSalesAdd.FlatAppearance.BorderSize = 0;
-            this.buttonSalesAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSalesAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSalesAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.buttonSalesAdd.Image = global::DP2.Properties.Resources.icons8_plus_math_20;
-            this.buttonSalesAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSalesAdd.Location = new System.Drawing.Point(814, 39);
-            this.buttonSalesAdd.Name = "buttonSalesAdd";
-            this.buttonSalesAdd.Size = new System.Drawing.Size(121, 47);
-            this.buttonSalesAdd.TabIndex = 4;
-            this.buttonSalesAdd.Text = "ADD ITEM";
-            this.buttonSalesAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonSalesAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.buttonSalesAdd.UseVisualStyleBackColor = false;
-            this.buttonSalesAdd.Click += new System.EventHandler(this.buttonSalesAdd_Click);
             // 
             // textSalesCategory
             // 
@@ -237,7 +201,7 @@
             this.textSalesCategory.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textSalesCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textSalesCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.textSalesCategory.Location = new System.Drawing.Point(134, 64);
+            this.textSalesCategory.Location = new System.Drawing.Point(110, 67);
             this.textSalesCategory.Name = "textSalesCategory";
             this.textSalesCategory.Size = new System.Drawing.Size(215, 19);
             this.textSalesCategory.TabIndex = 12;
@@ -245,11 +209,11 @@
             // labelSalesCategory
             // 
             this.labelSalesCategory.AutoSize = true;
-            this.labelSalesCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSalesCategory.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSalesCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.labelSalesCategory.Location = new System.Drawing.Point(130, 39);
+            this.labelSalesCategory.Location = new System.Drawing.Point(106, 42);
             this.labelSalesCategory.Name = "labelSalesCategory";
-            this.labelSalesCategory.Size = new System.Drawing.Size(81, 20);
+            this.labelSalesCategory.Size = new System.Drawing.Size(86, 22);
             this.labelSalesCategory.TabIndex = 13;
             this.labelSalesCategory.Text = "Category :";
             // 
@@ -288,6 +252,51 @@
             this.salesSubtotal.FillWeight = 79.5434F;
             this.salesSubtotal.HeaderText = "SUBTOTAL";
             this.salesSubtotal.Name = "salesSubtotal";
+            // 
+            // salesAction
+            // 
+            this.salesAction.HeaderText = "ACTION";
+            this.salesAction.Name = "salesAction";
+            this.salesAction.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.salesAction.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // buttonSalesAdd
+            // 
+            this.buttonSalesAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
+            this.buttonSalesAdd.FlatAppearance.BorderSize = 0;
+            this.buttonSalesAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSalesAdd.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSalesAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.buttonSalesAdd.Image = global::DP2.Properties.Resources.icons8_plus_math_20;
+            this.buttonSalesAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSalesAdd.Location = new System.Drawing.Point(814, 39);
+            this.buttonSalesAdd.Name = "buttonSalesAdd";
+            this.buttonSalesAdd.Size = new System.Drawing.Size(121, 47);
+            this.buttonSalesAdd.TabIndex = 4;
+            this.buttonSalesAdd.Text = "ADD ITEM";
+            this.buttonSalesAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonSalesAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.buttonSalesAdd.UseVisualStyleBackColor = false;
+            this.buttonSalesAdd.Click += new System.EventHandler(this.buttonSalesAdd_Click);
+            // 
+            // buttonSalesCheckout
+            // 
+            this.buttonSalesCheckout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.buttonSalesCheckout.FlatAppearance.BorderSize = 0;
+            this.buttonSalesCheckout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSalesCheckout.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSalesCheckout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.buttonSalesCheckout.Image = global::DP2.Properties.Resources.icons8_right_35;
+            this.buttonSalesCheckout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSalesCheckout.Location = new System.Drawing.Point(849, 0);
+            this.buttonSalesCheckout.Name = "buttonSalesCheckout";
+            this.buttonSalesCheckout.Size = new System.Drawing.Size(191, 89);
+            this.buttonSalesCheckout.TabIndex = 0;
+            this.buttonSalesCheckout.Text = "CHECKOUT";
+            this.buttonSalesCheckout.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonSalesCheckout.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.buttonSalesCheckout.UseVisualStyleBackColor = false;
+            this.buttonSalesCheckout.Click += new System.EventHandler(this.buttonSalesCheckout_Click);
             // 
             // formSales
             // 
@@ -329,13 +338,14 @@
         private System.Windows.Forms.Button buttonSalesCheckout;
         private System.Windows.Forms.Label labelSalesTotal;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textSalesCategory;
+        private System.Windows.Forms.Label labelSalesCategory;
         private System.Windows.Forms.DataGridViewTextBoxColumn salesNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn salesCategory;
         private System.Windows.Forms.DataGridViewTextBoxColumn salesItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn salesQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn salesPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn salesSubtotal;
-        private System.Windows.Forms.TextBox textSalesCategory;
-        private System.Windows.Forms.Label labelSalesCategory;
+        private System.Windows.Forms.DataGridViewButtonColumn salesAction;
     }
 }
