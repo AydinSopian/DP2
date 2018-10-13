@@ -58,6 +58,12 @@ namespace DP2
         {
             navIndicator.Height = buttonNavDashboard.Height;
             navIndicator.Top = buttonNavDashboard.Top;
+
+            UIComponents.UIDashboard uiDashboard = new UIComponents.UIDashboard();
+            uiDashboard.TopLevel = false;
+            content.Controls.Clear();
+            content.Controls.Add(uiDashboard);
+            uiDashboard.Show();
         }
 
         private void buttonClose_Click(object sender, EventArgs e)

@@ -60,6 +60,12 @@
       <DependentUpon>UIConfirmation.cs</DependentUpon>
     </Compile>
     <Compile Include="QueryModule\DeleteQueryBuilder.cs" />
+    <Compile Include="UIComponents\UIDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIComponents\UIDashboard.Designer.cs">
+      <DependentUpon>UIDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="UIComponents\UIHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UIComponents\UIConfirmation.resx">
       <DependentUpon>UIConfirmation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIComponents\UIDashboard.resx">
+      <DependentUpon>UIDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UIComponents\UIHome.resx">
       <DependentUpon>UIHome.cs</DependentUpon>
