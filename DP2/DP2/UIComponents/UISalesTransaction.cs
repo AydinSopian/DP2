@@ -112,8 +112,7 @@ namespace DP2
             bool itemIsValid = dataValidation.ValidateString(textSalesItem.Text);
             bool qtyIsValid = dataValidation.ValidateInteger(textSalesQty.Text);
 
-            //UPDATE FIELDS
-            _colNum++;
+            //UPDATE FIELDS      
             //_colPricePerUnit = ???
 
             //IF DATA IS VALID, STORE THEM IN RESPECTIVE VARIABLES
@@ -136,6 +135,7 @@ namespace DP2
             //IF ALL DATA IS VALID, ADD NEW ROW TO DATAGRIDVIEW
             if (categoryIsValid && itemIsValid && qtyIsValid)
             {
+                _colNum++;
                 salesTransactionBindingSource.Add(new Classes.salesTransaction()
                 {
                     number = _colNum,
@@ -145,18 +145,19 @@ namespace DP2
                     //, pricePerUnit = colPricePerUnit,
                     //subtotal = colSubtotal
                 });
-            } else
-            {
+
+                //set cursor focus to category upon adding item AND clear text boxes
+                textSalesCategory.Clear();
+                textSalesItem.Clear();
+                textSalesQty.Clear();
+                textSalesCategory.Focus();
 
             }
-            
-
-            //set cursor focus to category upon adding item AND clear text boxes
-            textSalesCategory.Clear();
-            textSalesItem.Clear();
-            textSalesQty.Clear();
-            textSalesCategory.Focus();
-
+            else
+            {
+                UIComponents.UIError errorMessage = new UIComponents.UIError("Invalid Input. Please try again.", "Okay");
+                errorMessage.ShowDialog();
+            }
         }
 
         private void textSalesCategory_Enter(object sender, EventArgs e)

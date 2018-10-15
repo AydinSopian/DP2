@@ -47,7 +47,7 @@ namespace DP2
             navIndicator.Height = buttonNavInventory.Height;
             navIndicator.Top = buttonNavInventory.Top;
 
-            formInventory formInventory = new formInventory();
+            UIInventory formInventory = new UIInventory();
             formInventory.TopLevel = false;
             content.Controls.Clear();
             content.Controls.Add(formInventory);

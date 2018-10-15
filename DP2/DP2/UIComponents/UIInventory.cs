@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace DP2
 {
-    public partial class formInventory : Form
+    public partial class UIInventory : Form
     {
         private RequestLog log;
 
-        public formInventory()
+        public UIInventory()
         {
             InitializeComponent();
             log = RequestLog.Instance;
@@ -33,14 +33,14 @@ namespace DP2
 
             if (confirmation.isConfirmed)
             {
-                this.Close();
+                confirmation.Close();
                 string values = textInventoryItem.Text + ", " + textInventoryCost.Text + ", " + textInventoryPrice.Text + ", " + textInventoryQty.Text;
 
                 log.GetRequestedQuery(3, "Inventory", "itemName, costPerUnitBought, pricePerUnitSold, quantity", values);
             }
             else
             {
-                this.Close();
+                confirmation.Close();
             }
             
         }

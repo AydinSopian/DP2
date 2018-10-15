@@ -12,9 +12,11 @@ namespace DP2.UIComponents
 {
     public partial class UIError : Form
     {
-        public UIError()
+        public UIError(string message, string ok)
         {
             InitializeComponent();
+            this.labelError.Text = message;
+            this.buttonErrorOK.Text = ok;
         }
 
         private void buttonErrorOK_Click(object sender, EventArgs e)

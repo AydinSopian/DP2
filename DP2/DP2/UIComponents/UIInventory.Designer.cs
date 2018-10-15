@@ -1,6 +1,6 @@
 ﻿namespace DP2
 {
-    partial class formInventory
+    partial class UIInventory
     {
         /// <summary>
         /// Required designer variable.

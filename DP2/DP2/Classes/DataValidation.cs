@@ -8,23 +8,33 @@ namespace DP2.Classes
 {
     class DataValidation
     {
+        bool _validString = false;
+        bool _validInt = false;
+        bool _validDouble = false;
+
         public DataValidation()
         {
         }
 
         public bool ValidateString(string stringToValidate)
         {
-            return true; 
+            _validString = true;
+            return _validString; 
         }
 
         public bool ValidateInteger(string intToValidate)
         {
-            return true;
+            int x = 0;
+            if(Int32.TryParse(intToValidate, out x))
+            {
+                _validInt = true;
+            }
+            return _validInt;
         }
 
         public bool ValidateDouble(string doubleToValidate)
         {
-            return true;
+            return _validDouble;
         }
 
     }
