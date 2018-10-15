@@ -29,7 +29,7 @@ namespace DP2.UIComponents
             if (confirmation.isConfirmed)
             {
                 this.Close();
-                _parentForm.rowNum = 0;
+                _parentForm.ColNum = 0;
                 //Show change
                 UIChange change = new UIChange();
                 change.ShowDialog();

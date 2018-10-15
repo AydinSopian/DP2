@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\DataValidation.cs" />
     <Compile Include="Classes\salesTransaction.cs" />
     <Compile Include="UIComponents\UIChange.cs">
       <SubType>Form</SubType>

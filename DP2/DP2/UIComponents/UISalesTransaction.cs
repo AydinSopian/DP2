@@ -13,24 +13,70 @@ namespace DP2
     public partial class formSales: Form
     {
         private RequestLog log;
-        private int colNum;
 
+        //declaring field variables
+        private int _colNum, _colQty;
+        private string _colCategory, _colItem;
+        private double _colPricePerUnit, _colSubtotal, _salesTotal;
+
+
+        //getters and setters for Form Data
         public void ClearData()
         {
             dataGridSales.Rows.Clear();
         }
 
-        public int rowNum
+        public int ColNum
         {
-            get { return colNum; }
-            set { colNum = value; }
+            get { return _colNum; }
+            set { _colNum = value; }
         }
+
+        public int ColQty
+        {
+            get { return _colQty; }
+            set { _colQty = value; }
+        }
+
+        public string ColCategory
+        {
+            get { return _colCategory; }
+            set { _colCategory = value; }
+        }
+
+        public string ColItem
+        {
+            get { return _colItem; }
+            set { _colItem = value; }
+        }
+
+        public double ColPricePerUnit
+        {
+            get { return _colPricePerUnit; }
+            set { _colPricePerUnit = value; }
+        }
+
+        public double ColSubtotal
+        {
+            get { return _colSubtotal; }
+            set { _colSubtotal = value; }
+        }
+
+        public double SalesTotal
+        {
+            get { return _salesTotal; }
+        }
+
+        
+        /******************************************************************/
+
+
 
         public formSales()
         {
             InitializeComponent();
             log = RequestLog.Instance;
-            colNum = 0;
+            _colNum = 0;
 
         }
 
@@ -56,30 +102,35 @@ namespace DP2
 
         private void buttonSalesAdd_Click(object sender, EventArgs e)
         {
-            //set cursor focus to category upon adding item
-            textSalesCategory.Focus();
+            //VERIFY DATA
+            Classes.DataValidation dataValidation = new Classes.DataValidation();
 
-            //declaring field variables
-            String colCategory, colItem;
-            int colQty;
-            Double colPricePerUnit, colSubtotal;
+            dataValidation.ValidateString(textSalesCategory.Text);
+            dataValidation.ValidateString(textSalesItem.Text);
+            dataValidation.ValidateInteger(textSalesQty.Text);
 
             //filling field variables
-            colNum++;
-            colCategory = textSalesCategory.Text;
-            colItem = textSalesItem.Text;
-            colQty = int.Parse(textSalesQty.Text);
+            _colNum++;
+            _colCategory = textSalesCategory.Text;
+            _colItem = textSalesItem.Text;
+            _colQty = int.Parse(textSalesQty.Text);
             //RETRIEVE PRICE PER UNIT FROM DATABASE
             //subtotal = qty * pricePerUnit;
 
             //ADD ROW TO DataGridView
-            salesTransactionBindingSource.Add(new Classes.salesTransaction() { number = colNum,
-                category = colCategory,
-                item = colItem,
-                qty = colQty
+            salesTransactionBindingSource.Add(new Classes.salesTransaction() { number = _colNum,
+                category = _colCategory,
+                item = _colItem,
+                qty = _colQty
                 //, pricePerUnit = colPricePerUnit,
                 //subtotal = colSubtotal
             });
+
+            //set cursor focus to category upon adding item AND clear text boxes
+            textSalesCategory.Clear();
+            textSalesItem.Clear();
+            textSalesQty.Clear();
+            textSalesCategory.Focus();
 
         }
 
