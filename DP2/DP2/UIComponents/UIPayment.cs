@@ -12,9 +12,9 @@ namespace DP2.UIComponents
 {
     public partial class UIPayment : Form
     {
-        private formSales _parentForm;
+        private UISalesTransaction _parentForm;
 
-        public UIPayment(formSales parentForm)
+        public UIPayment(UISalesTransaction parentForm)
         {
             InitializeComponent();
             _parentForm = parentForm;

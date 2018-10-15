@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace DP2
 {
-    public partial class formSales: Form
+    public partial class UISalesTransaction: Form
     {
         private RequestLog log;
 
@@ -75,7 +75,7 @@ namespace DP2
 
 
 
-        public formSales()
+        public UISalesTransaction()
         {
             InitializeComponent();
             log = RequestLog.Instance;

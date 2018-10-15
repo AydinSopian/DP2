@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DP2
 {
-    public partial class formHome : Form
+    public partial class UIHome: Form
     {
-        public formHome()
+        public UIHome()
         {
             InitializeComponent();
             navIndicator.Height = buttonNavSales.Height;
@@ -21,7 +21,7 @@ namespace DP2
 
         private void home_Load(object sender, EventArgs e)
         {
-            formSales formSales = new formSales();
+            UISalesTransaction formSales = new UISalesTransaction();
             formSales.TopLevel = false;
             content.Controls.Clear();
             content.Controls.Add(formSales);
@@ -33,7 +33,7 @@ namespace DP2
             navIndicator.Height = buttonNavSales.Height;
             navIndicator.Top = buttonNavSales.Top;
 
-            formSales formSales = new formSales();
+            UISalesTransaction formSales = new UISalesTransaction();
             formSales.TopLevel = false;
             content.Controls.Clear();
             content.Controls.Add(formSales);

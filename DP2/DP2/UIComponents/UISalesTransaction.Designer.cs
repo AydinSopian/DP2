@@ -1,6 +1,6 @@
 ﻿namespace DP2
 {
-    partial class formSales
+    partial class UISalesTransaction
     {
         /// <summary>
         /// Required designer variable.

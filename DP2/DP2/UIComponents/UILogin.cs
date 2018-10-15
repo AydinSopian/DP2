@@ -52,7 +52,7 @@ namespace DP2.UIComponents
             {
                 //hide login screen and open Home window upon verification
                 this.Hide();
-                formHome home = new formHome();
+                UIHome home = new UIHome();
                 home.Show();
             }
             else
