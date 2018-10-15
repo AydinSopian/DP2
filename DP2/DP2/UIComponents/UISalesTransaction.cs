@@ -92,6 +92,10 @@ namespace DP2
 
         private void formSales_Load(object sender, EventArgs e)
         {
+            //Load dummy data into comboboxes
+            textSalesCategory.Items.Add("Equipment");
+            textSalesItem.Items.Add("Medicine");
+
             
         }
 
@@ -147,8 +151,8 @@ namespace DP2
                 });
 
                 //set cursor focus to category upon adding item AND clear text boxes
-                textSalesCategory.Clear();
-                textSalesItem.Clear();
+                textSalesCategory.Items.Clear();
+                textSalesItem.Items.Clear();
                 textSalesQty.Clear();
                 textSalesCategory.Focus();
 

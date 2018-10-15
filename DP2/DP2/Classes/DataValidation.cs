@@ -18,7 +18,15 @@ namespace DP2.Classes
 
         public bool ValidateString(string stringToValidate)
         {
-            _validString = true;
+            if(stringToValidate != "")
+            {
+                _validString = true;
+            }
+            else
+            {
+                _validString = false;
+            }
+            
             return _validString; 
         }
 
