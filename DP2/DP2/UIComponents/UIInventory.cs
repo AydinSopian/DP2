@@ -28,7 +28,7 @@ namespace DP2
 
         private void buttonInventoryAdd_Click(object sender, EventArgs e)
         {
-            confirmation1 confirmation = new confirmation1();
+            UIConfirmation confirmation = new UIConfirmation();
             confirmation.ShowDialog();
 
             if (confirmation.isConfirmed)

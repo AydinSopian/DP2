@@ -10,37 +10,46 @@ using System.Windows.Forms;
 
 namespace DP2
 {
-    public partial class confirmation1 : Form
+    public partial class UIConfirmation : Form
     {
-        private Boolean confirmed;
+        private Boolean _confirmed;
 
-        public confirmation1()
+        public UIConfirmation()
         {
             InitializeComponent();
-            confirmed = false;
+            _confirmed = false;
+        }
+
+        public UIConfirmation(string message, string yes, string no)
+        {
+            InitializeComponent();
+            _confirmed = false;
+            this.labelConfirmation.Text = message;
+            this.buttonConfirmationContinue.Text = yes;
+            this.buttonConfirmationCancel.Text = no;
         }
 
         public Boolean isConfirmed
         {
-            get { return confirmed; }
-            set { confirmed = value; }
+            get { return _confirmed; }
+            set { _confirmed = value; }
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
         {
-            confirmed = false;
+            _confirmed = false;
             this.Close();
         }
 
         private void buttonConfirmationContinue_Click(object sender, EventArgs e)
         {
-            confirmed = true;
+            _confirmed = true;
             this.Close();
         }
 
         private void buttonConfirmationCancel_Click(object sender, EventArgs e)
         {
-            confirmed = false;
+            _confirmed = false;
             this.Close();
         }
     }

@@ -23,7 +23,7 @@ namespace DP2.UIComponents
         private void buttonPaymentConfirm_Click(object sender, EventArgs e)
         {
             
-            confirmation1 confirmation = new confirmation1();
+            UIConfirmation confirmation = new UIConfirmation("Do you want to continue?", "Continue", "Cancel");
             confirmation.ShowDialog();
 
             if (confirmation.isConfirmed)

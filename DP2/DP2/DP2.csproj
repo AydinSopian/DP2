@@ -67,6 +67,12 @@
     <Compile Include="UIComponents\UIDashboard.Designer.cs">
       <DependentUpon>UIDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="UIComponents\UIError.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIComponents\UIError.Designer.cs">
+      <DependentUpon>UIError.cs</DependentUpon>
+    </Compile>
     <Compile Include="UIComponents\UIHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UIComponents\UIDashboard.resx">
       <DependentUpon>UIDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIComponents\UIError.resx">
+      <DependentUpon>UIError.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UIComponents\UIHome.resx">
       <DependentUpon>UIHome.cs</DependentUpon>

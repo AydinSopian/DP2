@@ -1,6 +1,6 @@
 ﻿namespace DP2
 {
-    partial class confirmation1
+    partial class UIConfirmation
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.buttonConfirmationContinue = new System.Windows.Forms.Button();
             this.buttonConfirmationCancel = new System.Windows.Forms.Button();
-            this.labelConfirmationAreYouSure = new System.Windows.Forms.Label();
+            this.labelConfirmation = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonClose = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -66,17 +66,17 @@
             this.buttonConfirmationCancel.UseVisualStyleBackColor = false;
             this.buttonConfirmationCancel.Click += new System.EventHandler(this.buttonConfirmationCancel_Click);
             // 
-            // labelConfirmationAreYouSure
+            // labelConfirmation
             // 
-            this.labelConfirmationAreYouSure.AutoSize = true;
-            this.labelConfirmationAreYouSure.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelConfirmationAreYouSure.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.labelConfirmationAreYouSure.Location = new System.Drawing.Point(33, 58);
-            this.labelConfirmationAreYouSure.Name = "labelConfirmationAreYouSure";
-            this.labelConfirmationAreYouSure.Size = new System.Drawing.Size(205, 22);
-            this.labelConfirmationAreYouSure.TabIndex = 6;
-            this.labelConfirmationAreYouSure.Text = "Do you want to Continue?";
-            this.labelConfirmationAreYouSure.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelConfirmation.AutoSize = true;
+            this.labelConfirmation.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelConfirmation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.labelConfirmation.Location = new System.Drawing.Point(33, 58);
+            this.labelConfirmation.Name = "labelConfirmation";
+            this.labelConfirmation.Size = new System.Drawing.Size(205, 22);
+            this.labelConfirmation.TabIndex = 6;
+            this.labelConfirmation.Text = "Do you want to Continue?";
+            this.labelConfirmation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 
@@ -102,18 +102,18 @@
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
-            // confirmation1
+            // UIConfirmation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.ClientSize = new System.Drawing.Size(274, 193);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.labelConfirmationAreYouSure);
+            this.Controls.Add(this.labelConfirmation);
             this.Controls.Add(this.buttonConfirmationCancel);
             this.Controls.Add(this.buttonConfirmationContinue);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "confirmation1";
+            this.Name = "UIConfirmation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Are you sure?";
             this.panel1.ResumeLayout(false);
@@ -126,7 +126,7 @@
 
         private System.Windows.Forms.Button buttonConfirmationContinue;
         private System.Windows.Forms.Button buttonConfirmationCancel;
-        private System.Windows.Forms.Label labelConfirmationAreYouSure;
+        private System.Windows.Forms.Label labelConfirmation;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button buttonClose;
     }

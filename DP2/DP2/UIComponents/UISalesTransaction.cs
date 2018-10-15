@@ -32,6 +32,12 @@ namespace DP2
             set { _colNum = value; }
         }
 
+        public double SalesTotal
+        {
+            get { return _salesTotal; }
+        }
+
+        /*
         public int ColQty
         {
             get { return _colQty; }
@@ -61,11 +67,8 @@ namespace DP2
             get { return _colSubtotal; }
             set { _colSubtotal = value; }
         }
-
-        public double SalesTotal
-        {
-            get { return _salesTotal; }
-        }
+        
+        
 
         
         /******************************************************************/
@@ -102,29 +105,51 @@ namespace DP2
 
         private void buttonSalesAdd_Click(object sender, EventArgs e)
         {
-            //VERIFY DATA
+            //VALIDATE DATA
             Classes.DataValidation dataValidation = new Classes.DataValidation();
 
-            dataValidation.ValidateString(textSalesCategory.Text);
-            dataValidation.ValidateString(textSalesItem.Text);
-            dataValidation.ValidateInteger(textSalesQty.Text);
+            bool categoryIsValid = dataValidation.ValidateString(textSalesCategory.Text);
+            bool itemIsValid = dataValidation.ValidateString(textSalesItem.Text);
+            bool qtyIsValid = dataValidation.ValidateInteger(textSalesQty.Text);
 
-            //filling field variables
+            //UPDATE FIELDS
             _colNum++;
-            _colCategory = textSalesCategory.Text;
-            _colItem = textSalesItem.Text;
-            _colQty = int.Parse(textSalesQty.Text);
-            //RETRIEVE PRICE PER UNIT FROM DATABASE
-            //subtotal = qty * pricePerUnit;
+            //_colPricePerUnit = ???
 
-            //ADD ROW TO DataGridView
-            salesTransactionBindingSource.Add(new Classes.salesTransaction() { number = _colNum,
-                category = _colCategory,
-                item = _colItem,
-                qty = _colQty
-                //, pricePerUnit = colPricePerUnit,
-                //subtotal = colSubtotal
-            });
+            //IF DATA IS VALID, STORE THEM IN RESPECTIVE VARIABLES
+            if (categoryIsValid)
+            {
+                _colCategory = textSalesCategory.Text;
+            }
+
+            if (itemIsValid)
+            {
+                _colItem = textSalesItem.Text;
+            }
+
+            if (qtyIsValid)
+            {
+                _colQty = int.Parse(textSalesQty.Text);
+                //_colSubtotal = _colQty * _colPricePerUnit;
+            }
+
+            //IF ALL DATA IS VALID, ADD NEW ROW TO DATAGRIDVIEW
+            if (categoryIsValid && itemIsValid && qtyIsValid)
+            {
+                salesTransactionBindingSource.Add(new Classes.salesTransaction()
+                {
+                    number = _colNum,
+                    category = _colCategory,
+                    item = _colItem,
+                    qty = _colQty
+                    //, pricePerUnit = colPricePerUnit,
+                    //subtotal = colSubtotal
+                });
+            } else
+            {
+
+            }
+            
 
             //set cursor focus to category upon adding item AND clear text boxes
             textSalesCategory.Clear();
