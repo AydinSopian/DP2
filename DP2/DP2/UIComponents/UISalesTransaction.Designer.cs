@@ -226,7 +226,7 @@
             this.buttonSalesAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.buttonSalesAdd.Image = global::DP2.Properties.Resources.icons8_plus_math_20;
             this.buttonSalesAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSalesAdd.Location = new System.Drawing.Point(814, 39);
+            this.buttonSalesAdd.Location = new System.Drawing.Point(814, 45);
             this.buttonSalesAdd.Name = "buttonSalesAdd";
             this.buttonSalesAdd.Size = new System.Drawing.Size(121, 47);
             this.buttonSalesAdd.TabIndex = 4;

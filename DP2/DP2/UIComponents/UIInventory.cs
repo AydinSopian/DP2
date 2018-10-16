@@ -37,6 +37,13 @@ namespace DP2
                 string values = textInventoryItem.Text + ", " + textInventoryCost.Text + ", " + textInventoryPrice.Text + ", " + textInventoryQty.Text;
 
                 log.GetRequestedQuery(3, "Inventory", "itemName, costPerUnitBought, pricePerUnitSold, quantity", values);
+
+                //set cursor focus to category upon adding item AND clear text boxes
+                textInventoryItem.Clear();
+                textInventoryCost.Clear();
+                textInventoryPrice.Clear();
+                textInventoryQty.Clear();
+                textInventoryItem.Focus();
             }
             else
             {
