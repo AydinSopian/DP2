@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data;
+using MySql.Data.MySqlClient;
+using System.IO;
 
 namespace DP2.UIComponents
 {
@@ -17,8 +20,40 @@ namespace DP2.UIComponents
             InitializeComponent();
         }
 
+        MySqlConnection cn;
+        MySqlDataAdapter da;
+        DataSet ds;
+        DataTable dt;
+
         private void buttonDashboardGenerate_Click(object sender, EventArgs e)
         {
+            cn = new MySqlConnection("server=localhost;uid=root;pwd=;database=kuhchingtest;sslmode=none");
+            da = new MySqlDataAdapter("select * from inventory", cn);
+            ds = new DataSet();
+            dt = new DataTable();
+
+            da.Fill(ds, "invt");
+            dt = ds.Tables["invt"];
+            string filename = OpenSavefileDialog();
+            dt.ToCSV(filename);
+        }
+
+        private string OpenSavefileDialog()
+        {
+            string Filename = null;
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "csv File|*.csv";
+            saveFileDialog.Title = "Save Report";
+            DialogResult dialogResult = saveFileDialog.ShowDialog();
+
+            if (dialogResult == DialogResult.OK)
+            {
+                Filename = saveFileDialog.FileName;
+
+            }
+
+            return Filename;
+
 
         }
     }
