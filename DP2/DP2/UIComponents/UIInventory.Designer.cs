@@ -47,6 +47,8 @@
             this.inventoryPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inventoryQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonInventoryAdd = new System.Windows.Forms.Button();
+            this.labelInventoryCategory = new System.Windows.Forms.Label();
+            this.textInventoryCategory = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridInventory)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,9 +58,9 @@
             this.textInventoryItem.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textInventoryItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textInventoryItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.textInventoryItem.Location = new System.Drawing.Point(43, 68);
+            this.textInventoryItem.Location = new System.Drawing.Point(265, 68);
             this.textInventoryItem.Name = "textInventoryItem";
-            this.textInventoryItem.Size = new System.Drawing.Size(317, 19);
+            this.textInventoryItem.Size = new System.Drawing.Size(201, 19);
             this.textInventoryItem.TabIndex = 0;
             // 
             // textInventoryCost
@@ -67,9 +69,9 @@
             this.textInventoryCost.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textInventoryCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textInventoryCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.textInventoryCost.Location = new System.Drawing.Point(386, 68);
+            this.textInventoryCost.Location = new System.Drawing.Point(486, 68);
             this.textInventoryCost.Name = "textInventoryCost";
-            this.textInventoryCost.Size = new System.Drawing.Size(145, 19);
+            this.textInventoryCost.Size = new System.Drawing.Size(117, 19);
             this.textInventoryCost.TabIndex = 1;
             // 
             // textInventoryPrice
@@ -78,9 +80,9 @@
             this.textInventoryPrice.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textInventoryPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textInventoryPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.textInventoryPrice.Location = new System.Drawing.Point(556, 68);
+            this.textInventoryPrice.Location = new System.Drawing.Point(621, 68);
             this.textInventoryPrice.Name = "textInventoryPrice";
-            this.textInventoryPrice.Size = new System.Drawing.Size(145, 19);
+            this.textInventoryPrice.Size = new System.Drawing.Size(117, 19);
             this.textInventoryPrice.TabIndex = 2;
             // 
             // textInventoryQty
@@ -89,9 +91,9 @@
             this.textInventoryQty.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textInventoryQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textInventoryQty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.textInventoryQty.Location = new System.Drawing.Point(727, 68);
+            this.textInventoryQty.Location = new System.Drawing.Point(758, 68);
             this.textInventoryQty.Name = "textInventoryQty";
-            this.textInventoryQty.Size = new System.Drawing.Size(101, 19);
+            this.textInventoryQty.Size = new System.Drawing.Size(71, 19);
             this.textInventoryQty.TabIndex = 3;
             // 
             // labelInventoryItem
@@ -99,7 +101,7 @@
             this.labelInventoryItem.AutoSize = true;
             this.labelInventoryItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelInventoryItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.labelInventoryItem.Location = new System.Drawing.Point(39, 39);
+            this.labelInventoryItem.Location = new System.Drawing.Point(261, 39);
             this.labelInventoryItem.Name = "labelInventoryItem";
             this.labelInventoryItem.Size = new System.Drawing.Size(49, 20);
             this.labelInventoryItem.TabIndex = 4;
@@ -110,7 +112,7 @@
             this.labelInventoryCost.AutoSize = true;
             this.labelInventoryCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelInventoryCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.labelInventoryCost.Location = new System.Drawing.Point(382, 39);
+            this.labelInventoryCost.Location = new System.Drawing.Point(482, 39);
             this.labelInventoryCost.Name = "labelInventoryCost";
             this.labelInventoryCost.Size = new System.Drawing.Size(111, 20);
             this.labelInventoryCost.TabIndex = 5;
@@ -121,7 +123,7 @@
             this.labelInventoryPrice.AutoSize = true;
             this.labelInventoryPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelInventoryPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.labelInventoryPrice.Location = new System.Drawing.Point(552, 39);
+            this.labelInventoryPrice.Location = new System.Drawing.Point(617, 39);
             this.labelInventoryPrice.Name = "labelInventoryPrice";
             this.labelInventoryPrice.Size = new System.Drawing.Size(113, 20);
             this.labelInventoryPrice.TabIndex = 6;
@@ -132,7 +134,7 @@
             this.labelInventoryQty.AutoSize = true;
             this.labelInventoryQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelInventoryQty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.labelInventoryQty.Location = new System.Drawing.Point(723, 39);
+            this.labelInventoryQty.Location = new System.Drawing.Point(754, 39);
             this.labelInventoryQty.Name = "labelInventoryQty";
             this.labelInventoryQty.Size = new System.Drawing.Size(41, 20);
             this.labelInventoryQty.TabIndex = 7;
@@ -242,6 +244,28 @@
             this.buttonInventoryAdd.UseVisualStyleBackColor = false;
             this.buttonInventoryAdd.Click += new System.EventHandler(this.buttonInventoryAdd_Click);
             // 
+            // labelInventoryCategory
+            // 
+            this.labelInventoryCategory.AutoSize = true;
+            this.labelInventoryCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelInventoryCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.labelInventoryCategory.Location = new System.Drawing.Point(40, 39);
+            this.labelInventoryCategory.Name = "labelInventoryCategory";
+            this.labelInventoryCategory.Size = new System.Drawing.Size(81, 20);
+            this.labelInventoryCategory.TabIndex = 11;
+            this.labelInventoryCategory.Text = "Category :";
+            // 
+            // textInventoryCategory
+            // 
+            this.textInventoryCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.textInventoryCategory.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textInventoryCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textInventoryCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.textInventoryCategory.Location = new System.Drawing.Point(44, 68);
+            this.textInventoryCategory.Name = "textInventoryCategory";
+            this.textInventoryCategory.Size = new System.Drawing.Size(201, 19);
+            this.textInventoryCategory.TabIndex = 10;
+            // 
             // UIInventory
             // 
             this.AcceptButton = this.buttonInventoryAdd;
@@ -249,6 +273,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.ClientSize = new System.Drawing.Size(1040, 729);
+            this.Controls.Add(this.labelInventoryCategory);
+            this.Controls.Add(this.textInventoryCategory);
             this.Controls.Add(this.dataGridInventory);
             this.Controls.Add(this.buttonInventoryAdd);
             this.Controls.Add(this.labelInventoryQty);
@@ -286,5 +312,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn inventoryCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn inventoryPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn inventoryQty;
+        private System.Windows.Forms.Label labelInventoryCategory;
+        private System.Windows.Forms.TextBox textInventoryCategory;
     }
 }

@@ -16,5 +16,10 @@ namespace DP2.UIComponents
         {
             InitializeComponent();
         }
+
+        private void buttonDashboardGenerate_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

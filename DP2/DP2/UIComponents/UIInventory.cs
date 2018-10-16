@@ -19,6 +19,7 @@ namespace DP2
             InitializeComponent();
             log = RequestLog.Instance;
             log.GetRequestedQuery(1, "*", "Inventory"); //display all inventory items in datagridview
+
         }
 
         private void dataGridInventory_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -39,11 +40,12 @@ namespace DP2
                 log.GetRequestedQuery(3, "Inventory", "itemName, costPerUnitBought, pricePerUnitSold, quantity", values);
 
                 //set cursor focus to category upon adding item AND clear text boxes
+                textInventoryCategory.Clear();
                 textInventoryItem.Clear();
                 textInventoryCost.Clear();
                 textInventoryPrice.Clear();
                 textInventoryQty.Clear();
-                textInventoryItem.Focus();
+                textInventoryCategory.Focus();
             }
             else
             {

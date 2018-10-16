@@ -42,6 +42,11 @@ namespace DP2.Classes
 
         public bool ValidateDouble(string doubleToValidate)
         {
+            double x;
+            if(Double.TryParse(doubleToValidate, out x))
+            {
+                _validDouble = true;
+            }
             return _validDouble;
         }
 
