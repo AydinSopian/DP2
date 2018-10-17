@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Configuration;
+using MySql.Data.MySqlClient;
 using System.Data;
 
 namespace DP2
@@ -12,8 +14,14 @@ namespace DP2
     {
         private static RequestLog instance = null;
 
-        private SqlConnection conn;
-        private SqlDataAdapter adp;
+        private MySqlConnection dbConnect;
+        private string connectionString;
+
+        private DataSet output;
+
+        private MySqlDataAdapter adp;
+
+        private MySqlCommand command;
 
         private QueryBuilderFactory qFactory;
 
@@ -25,9 +33,10 @@ namespace DP2
 
         private RequestLog()
         {
-            //conn = new SqlConnection("ConnectionString");
-            adp = new SqlDataAdapter();
             qFactory = new QueryBuilderFactory();
+            connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=dp2;";
+            dbConnect = new MySqlConnection(connectionString);
+            output = new DataSet();
         }
 
         /// <summary>
@@ -48,45 +57,84 @@ namespace DP2
         }
 
         /// <summary>
-        /// Runs requested query
-        /// </summary>
-        public void RunQuery()
-        {
-            using (conn)
-            using (adp)
-            {
-
-            }
-        }
-
-        /// <summary>
-        /// Gets the user requested GetQuery
+        /// Runs the requested Query
         /// </summary>
         /// <param name="id"></param>
         /// <param name="columnsCondition"></param>
         /// <param name="tables"></param>
-        public void GetRequestedQuery(int id, string columnsCondition, string tables)
+        /// <returns></returns>
+        public DataTable RunQuery(int id, string columnsCondition, string tables)
         {
+            DataTable dt = new DataTable();
+
             QueryDirector qDirector = new QueryDirector(qFactory.CreateQueryBuilder(id));
 
-            qDirector.MakeQuery(tables, columnsCondition);
+            qDirector.MakeQuery(columnsCondition, tables);
 
             query = qDirector.GetQuery;
+
+            using (dbConnect)
+            using (command = new MySqlCommand(query, dbConnect))
+            using (adp = new MySqlDataAdapter(command))
+            {
+                if (query[0] == 'S')
+                {
+                    adp.Fill(output, "outputData");
+                }
+                else
+                {
+                    command.ExecuteNonQuery();
+                }
+            }
+
+            dt = output.Tables["outputData"];
+
+            return dt;
         }
 
         /// <summary>
-        /// Gets the user requested GetQuery
+        /// Runs the requested Query
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="columnsCondition"></param>
         /// <param name="tables"></param>
-        public void GetRequestedQuery(int id, string tables, string columnsCondition, string values)
+        /// <param name="columnsCondition"></param>
+        /// <param name="values"></param>
+        /// <returns></returns>
+        public DataTable RunQuery(int id, string tables, string columnsCondition, string values)
         {
+            DataTable dt = new DataTable();
+
             QueryDirector qDirector = new QueryDirector(qFactory.CreateQueryBuilder(id));
 
             qDirector.MakeQuery(tables, columnsCondition, values);
 
             query = qDirector.GetQuery;
+
+            using (dbConnect)
+            using (command = new MySqlCommand(query, dbConnect))
+            using (adp = new MySqlDataAdapter(command))
+            {
+                if (query[0] == 'S')
+                {
+                    adp.Fill(output, "outputData");
+                }
+                else
+                {
+
+                    if (dbConnect.State == ConnectionState.Closed)
+                    {
+                        dbConnect.Open();
+                    }
+                    command.ExecuteNonQuery();
+
+                    dbConnect.Close();
+
+                }
+            }
+
+            dt = output.Tables["outputData"];
+
+            return dt;
         }
 
     }

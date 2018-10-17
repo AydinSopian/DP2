@@ -13,13 +13,51 @@ namespace DP2
     public partial class UIInventory : Form
     {
         private RequestLog log;
+        private DataRow dr;
+        private DataTable dt;
 
         public UIInventory()
         {
             InitializeComponent();
-            log = RequestLog.Instance;
-            log.GetRequestedQuery(1, "*", "Inventory"); //display all inventory items in datagridview
+            BindColumns();
 
+            log = RequestLog.Instance;
+
+            ViewInventory();
+        }
+
+        private void ViewInventory()
+        {
+            if(!(dt is null))
+            {
+                dt.Clear();
+            }
+           
+            dt = log.RunQuery(1, "*", "Inventory"); //display all inventory items in datagridview
+            
+            dr = dt.Rows[0];
+
+            dataGridInventory.DataSource = dt;
+        }
+
+        private void BindColumns()
+        {
+            dataGridInventory.ColumnCount = 6;
+
+            dataGridInventory.AutoGenerateColumns = false;
+
+            dataGridInventory.Columns[0].Name = "NO.";
+            dataGridInventory.Columns[0].DataPropertyName = "itemId";
+            dataGridInventory.Columns[1].Name = "ITEM";
+            dataGridInventory.Columns[1].DataPropertyName = "itemName";
+            dataGridInventory.Columns[2].Name = "COST PER UNIT";
+            dataGridInventory.Columns[2].DataPropertyName = "costPerUnitBought";
+            dataGridInventory.Columns[3].Name = "PRICE PER UNIT";
+            dataGridInventory.Columns[3].DataPropertyName = "pricePerUnitSold";
+            dataGridInventory.Columns[4].Name = "QTY";
+            dataGridInventory.Columns[4].DataPropertyName = "quantity";
+            dataGridInventory.Columns[5].Name = "CATEGORY";
+            dataGridInventory.Columns[5].DataPropertyName = "category";
         }
 
         private void dataGridInventory_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -35,9 +73,11 @@ namespace DP2
             if (confirmation.isConfirmed)
             {
                 confirmation.Close();
-                string values = textInventoryItem.Text + ", " + textInventoryCost.Text + ", " + textInventoryPrice.Text + ", " + textInventoryQty.Text;
+                string values = "\"" + textInventoryCategory.Text + "\"" + ", \"" + textInventoryItem.Text + "\", " + textInventoryCost.Text + ", " + textInventoryPrice.Text + ", " + textInventoryQty.Text;
 
-                log.GetRequestedQuery(3, "Inventory", "itemName, costPerUnitBought, pricePerUnitSold, quantity", values);
+                log.RunQuery(3, "Inventory", "category, itemName, costPerUnitBought, pricePerUnitSold, quantity", values);
+
+                ViewInventory();
 
                 //set cursor focus to category upon adding item AND clear text boxes
                 textInventoryCategory.Clear();
@@ -45,7 +85,7 @@ namespace DP2
                 textInventoryCost.Clear();
                 textInventoryPrice.Clear();
                 textInventoryQty.Clear();
-                textInventoryCategory.Focus();
+                textInventoryItem.Focus();
             }
             else
             {
