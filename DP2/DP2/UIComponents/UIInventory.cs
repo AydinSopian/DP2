@@ -13,7 +13,6 @@ namespace DP2
     public partial class UIInventory : Form
     {
         private RequestLog log;
-        private DataRow dr;
         private DataTable dt;
 
         public UIInventory()
@@ -28,15 +27,7 @@ namespace DP2
 
         private void ViewInventory()
         {
-            if(!(dt is null))
-            {
-                dt.Clear();
-            }
-           
-            dt = log.RunQuery(1, "*", "Inventory"); //display all inventory items in datagridview
-            
-            dr = dt.Rows[0];
-
+            dt = log.RunQuery(1, "*", "Inventory"); //display all inventory items in datagridview 
             dataGridInventory.DataSource = dt;
         }
 

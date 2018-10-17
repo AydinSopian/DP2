@@ -81,6 +81,10 @@ namespace DP2
             log = RequestLog.Instance;
             _colNum = 0;
 
+            textSalesItem.ValueMember = "itemName";
+            textSalesItem.DataSource = log.RunQuery(1, "itemName", "Inventory");
+
+            textSalesItem.SelectedIndex = -1;
         }
 
         private void buttonSalesCheckout_Click(object sender, EventArgs e)
@@ -92,11 +96,7 @@ namespace DP2
 
         private void formSales_Load(object sender, EventArgs e)
         {
-            //Load dummy data into comboboxes
-            textSalesCategory.Items.Add("Equipment");
-            textSalesItem.Items.Add("Medicine");
 
-            
         }
 
         private void dataGridSales_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -105,6 +105,11 @@ namespace DP2
             {
                 salesTransactionBindingSource.RemoveCurrent();
             }
+        }
+
+        private void textSalesItem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void buttonSalesAdd_Click(object sender, EventArgs e)
@@ -162,6 +167,9 @@ namespace DP2
                 UIComponents.UIError errorMessage = new UIComponents.UIError("Invalid Input. Please try again.", "Okay");
                 errorMessage.ShowDialog();
             }
+
+            DataTable dt = new DataTable();
+            
         }
 
         private void textSalesCategory_Enter(object sender, EventArgs e)

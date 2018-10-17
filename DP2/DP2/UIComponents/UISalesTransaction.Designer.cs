@@ -61,22 +61,22 @@
             // labelSalesItem
             // 
             this.labelSalesItem.AutoSize = true;
-            this.labelSalesItem.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSalesItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSalesItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.labelSalesItem.Location = new System.Drawing.Point(351, 42);
             this.labelSalesItem.Name = "labelSalesItem";
-            this.labelSalesItem.Size = new System.Drawing.Size(52, 22);
+            this.labelSalesItem.Size = new System.Drawing.Size(49, 20);
             this.labelSalesItem.TabIndex = 6;
             this.labelSalesItem.Text = "Item :";
             // 
             // labelSalesQty
             // 
             this.labelSalesQty.AutoSize = true;
-            this.labelSalesQty.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSalesQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSalesQty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.labelSalesQty.Location = new System.Drawing.Point(606, 42);
             this.labelSalesQty.Name = "labelSalesQty";
-            this.labelSalesQty.Size = new System.Drawing.Size(44, 22);
+            this.labelSalesQty.Size = new System.Drawing.Size(41, 20);
             this.labelSalesQty.TabIndex = 8;
             this.labelSalesQty.Text = "Qty :";
             // 
@@ -168,22 +168,22 @@
             // labelSalesTotal
             // 
             this.labelSalesTotal.AutoSize = true;
-            this.labelSalesTotal.Font = new System.Drawing.Font("Open Sans", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSalesTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSalesTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.labelSalesTotal.Location = new System.Drawing.Point(630, 29);
             this.labelSalesTotal.Name = "labelSalesTotal";
-            this.labelSalesTotal.Size = new System.Drawing.Size(44, 28);
+            this.labelSalesTotal.Size = new System.Drawing.Size(45, 25);
             this.labelSalesTotal.TabIndex = 2;
             this.labelSalesTotal.Text = "RM";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Open Sans", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.label1.Location = new System.Drawing.Point(537, 29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 28);
+            this.label1.Size = new System.Drawing.Size(92, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "TOTAL :";
             // 
@@ -192,7 +192,7 @@
             this.buttonSalesCheckout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.buttonSalesCheckout.FlatAppearance.BorderSize = 0;
             this.buttonSalesCheckout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSalesCheckout.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSalesCheckout.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSalesCheckout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.buttonSalesCheckout.Image = global::DP2.Properties.Resources.icons8_right_35;
             this.buttonSalesCheckout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -209,11 +209,11 @@
             // labelSalesCategory
             // 
             this.labelSalesCategory.AutoSize = true;
-            this.labelSalesCategory.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSalesCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSalesCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.labelSalesCategory.Location = new System.Drawing.Point(106, 42);
             this.labelSalesCategory.Name = "labelSalesCategory";
-            this.labelSalesCategory.Size = new System.Drawing.Size(86, 22);
+            this.labelSalesCategory.Size = new System.Drawing.Size(81, 20);
             this.labelSalesCategory.TabIndex = 13;
             this.labelSalesCategory.Text = "Category :";
             // 
@@ -222,7 +222,7 @@
             this.buttonSalesAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
             this.buttonSalesAdd.FlatAppearance.BorderSize = 0;
             this.buttonSalesAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSalesAdd.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSalesAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSalesAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.buttonSalesAdd.Image = global::DP2.Properties.Resources.icons8_plus_math_20;
             this.buttonSalesAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -240,25 +240,26 @@
             // 
             this.textSalesCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
             this.textSalesCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.textSalesCategory.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textSalesCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textSalesCategory.ForeColor = System.Drawing.Color.White;
             this.textSalesCategory.FormattingEnabled = true;
             this.textSalesCategory.Location = new System.Drawing.Point(110, 69);
             this.textSalesCategory.Name = "textSalesCategory";
-            this.textSalesCategory.Size = new System.Drawing.Size(215, 23);
+            this.textSalesCategory.Size = new System.Drawing.Size(215, 21);
             this.textSalesCategory.TabIndex = 0;
             // 
             // textSalesItem
             // 
             this.textSalesItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
             this.textSalesItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.textSalesItem.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textSalesItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textSalesItem.ForeColor = System.Drawing.Color.White;
             this.textSalesItem.FormattingEnabled = true;
             this.textSalesItem.Location = new System.Drawing.Point(355, 69);
             this.textSalesItem.Name = "textSalesItem";
-            this.textSalesItem.Size = new System.Drawing.Size(223, 23);
+            this.textSalesItem.Size = new System.Drawing.Size(223, 21);
             this.textSalesItem.TabIndex = 1;
+            this.textSalesItem.SelectedIndexChanged += new System.EventHandler(this.textSalesItem_SelectedIndexChanged);
             // 
             // textSalesQty
             // 

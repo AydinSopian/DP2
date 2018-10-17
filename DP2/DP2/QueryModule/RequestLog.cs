@@ -66,6 +66,7 @@ namespace DP2
         public DataTable RunQuery(int id, string columnsCondition, string tables)
         {
             DataTable dt = new DataTable();
+            output.Clear();
 
             QueryDirector qDirector = new QueryDirector(qFactory.CreateQueryBuilder(id));
 
@@ -77,7 +78,7 @@ namespace DP2
             using (command = new MySqlCommand(query, dbConnect))
             using (adp = new MySqlDataAdapter(command))
             {
-                if (query[0] == 'S')
+                if (id == 1)
                 {
                     adp.Fill(output, "outputData");
                 }
@@ -103,6 +104,7 @@ namespace DP2
         public DataTable RunQuery(int id, string tables, string columnsCondition, string values)
         {
             DataTable dt = new DataTable();
+            output.Clear();
 
             QueryDirector qDirector = new QueryDirector(qFactory.CreateQueryBuilder(id));
 
@@ -114,21 +116,21 @@ namespace DP2
             using (command = new MySqlCommand(query, dbConnect))
             using (adp = new MySqlDataAdapter(command))
             {
-                if (query[0] == 'S')
+                if (id == 1)
                 {
                     adp.Fill(output, "outputData");
                 }
                 else
                 {
-
-                    if (dbConnect.State == ConnectionState.Closed)
+                    
+                    if(dbConnect.State == ConnectionState.Closed)
                     {
                         dbConnect.Open();
                     }
                     command.ExecuteNonQuery();
 
                     dbConnect.Close();
-
+                    
                 }
             }
 
