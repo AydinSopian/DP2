@@ -24,7 +24,7 @@ namespace DP2
         {
             if(condition.Length > 0)
             {
-                query.SetWhere("Where " + condition);
+                query.SetWhere(" WHERE " + condition);
             }
             else
             {
