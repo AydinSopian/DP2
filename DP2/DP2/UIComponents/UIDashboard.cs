@@ -56,5 +56,10 @@ namespace DP2.UIComponents
 
 
         }
+
+        private void dataGridDashboard_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

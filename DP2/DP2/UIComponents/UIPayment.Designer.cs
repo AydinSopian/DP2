@@ -33,10 +33,10 @@
             this.buttonPaymentCancel = new System.Windows.Forms.Button();
             this.buttonPaymentConfirm = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonClose = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.labelPaymentTotal = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.buttonClose = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -104,6 +104,21 @@
             this.panel1.Size = new System.Drawing.Size(364, 30);
             this.panel1.TabIndex = 15;
             // 
+            // buttonClose
+            // 
+            this.buttonClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.buttonClose.Cursor = System.Windows.Forms.Cursors.Default;
+            this.buttonClose.FlatAppearance.BorderSize = 0;
+            this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClose.Image = global::DP2.Properties.Resources.icons8_multiply_28;
+            this.buttonClose.Location = new System.Drawing.Point(322, 1);
+            this.buttonClose.Name = "buttonClose";
+            this.buttonClose.Size = new System.Drawing.Size(42, 29);
+            this.buttonClose.TabIndex = 3;
+            this.buttonClose.TabStop = false;
+            this.buttonClose.UseVisualStyleBackColor = false;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -139,21 +154,6 @@
             this.label1.Text = "TOTAL :";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // buttonClose
-            // 
-            this.buttonClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.buttonClose.Cursor = System.Windows.Forms.Cursors.Default;
-            this.buttonClose.FlatAppearance.BorderSize = 0;
-            this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonClose.Image = global::DP2.Properties.Resources.icons8_multiply_28;
-            this.buttonClose.Location = new System.Drawing.Point(322, 1);
-            this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(42, 29);
-            this.buttonClose.TabIndex = 3;
-            this.buttonClose.TabStop = false;
-            this.buttonClose.UseVisualStyleBackColor = false;
-            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
-            // 
             // UIPayment
             // 
             this.AcceptButton = this.buttonPaymentConfirm;
@@ -171,6 +171,7 @@
             this.Name = "UIPayment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UIPayment";
+            this.Load += new System.EventHandler(this.UIPayment_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

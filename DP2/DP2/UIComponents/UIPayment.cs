@@ -58,5 +58,10 @@ namespace DP2.UIComponents
         {
             this.Close();
         }
+
+        private void UIPayment_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
