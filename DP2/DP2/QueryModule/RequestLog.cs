@@ -35,7 +35,7 @@ namespace DP2
         private RequestLog()
         {
             qFactory = new QueryBuilderFactory();
-            connectionString = "datasource=127.0.0.1;port=3307;username=root;password=;database=dp2;SslMode=none";
+            connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=dp2;SslMode=none";
             dbConnect = new MySqlConnection(connectionString);
             output = new DataSet();
         }
