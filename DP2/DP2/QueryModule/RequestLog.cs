@@ -77,30 +77,30 @@ namespace DP2
 
             query = qDirector.GetQuery;
 
-            try
+            //try
+            //{
+            using (dbConnect)
+            using (command = new MySqlCommand(query, dbConnect))
+            using (adp = new MySqlDataAdapter(command))
             {
-                using (dbConnect)
-                using (command = new MySqlCommand(query, dbConnect))
-                using (adp = new MySqlDataAdapter(command))
+                if (id == 1)
                 {
-                    if (id == 1)
-                    {
-                        adp.Fill(output, "outputData");
-                    }
-                    else
-                    {
-                        dbConnect.Open();
-                        command.ExecuteNonQuery();
-                        dbConnect.Close();
-                    }
+                    adp.Fill(output, "outputData");
                 }
-        }
-            catch (Exception e)
-            {
-                MessageBox.Show("Error, could not connect to server");
+                else
+                {
+                    dbConnect.Open();
+                    command.ExecuteNonQuery();
+                    dbConnect.Close();
+                }
             }
+            //}
+            //catch (Exception e)
+            //{
+            //    MessageBox.Show("Error, could not connect to server");
+            //}
 
-    dt = output.Tables["outputData"];
+            dt = output.Tables["outputData"];
 
             return dt;
         }

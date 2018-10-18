@@ -49,6 +49,7 @@ namespace DP2
             dataGridInventory.Columns[4].DataPropertyName = "quantity";
             dataGridInventory.Columns[5].Name = "CATEGORY";
             dataGridInventory.Columns[5].DataPropertyName = "category";
+
         }
 
         private void dataGridInventory_CellContentClick(object sender, DataGridViewCellEventArgs e)

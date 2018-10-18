@@ -81,8 +81,9 @@ namespace DP2
             log = RequestLog.Instance;
             _colNum = 0;
 
-            textSalesItem.ValueMember = "itemName";
-            textSalesItem.DataSource = log.RunQuery(1, "Inventory", "itemName", "", "");
+            textSalesItem.ValueMember = "itemId";
+            textSalesItem.DisplayMember = "itemName";
+            textSalesItem.DataSource = log.RunQuery(1, "Inventory", "itemId, itemName", "quantity>0", "");
 
             textSalesItem.SelectedIndex = -1;
         }
@@ -168,8 +169,32 @@ namespace DP2
                 errorMessage.ShowDialog();
             }
 
-            DataTable dt = new DataTable();
+
+
+
+            CreateDataTable();
+           
             
+        }
+
+        private void CreateDataTable()
+        {
+            DataTable dt = new DataTable();
+
+            DataColumn column = new DataColumn();
+            column.DataType = Type.GetType("System.Int32");
+            column.ColumnName = "number";
+            column.AutoIncrement = true;
+            column.AutoIncrementSeed = 1;
+            column.AutoIncrementStep = 1;
+
+            dt.Columns.Add(column);
+
+            column = new DataColumn();
+            column.DataType = Type.GetType("System.String");
+            column.ColumnName = "item";
+
+            dataGridSales.DataSource = dt;
         }
 
         private void textSalesCategory_Enter(object sender, EventArgs e)
