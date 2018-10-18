@@ -117,7 +117,6 @@ namespace DP2
             //VALIDATE DATA
             Classes.DataValidation dataValidation = new Classes.DataValidation();
 
-            bool categoryIsValid = dataValidation.ValidateString(textSalesCategory.Text);
             bool itemIsValid = dataValidation.ValidateString(textSalesItem.Text);
             bool qtyIsValid = dataValidation.ValidateInteger(textSalesQty.Text);
 
@@ -125,10 +124,6 @@ namespace DP2
             //_colPricePerUnit = ???
 
             //IF DATA IS VALID, STORE THEM IN RESPECTIVE VARIABLES
-            if (categoryIsValid)
-            {
-                _colCategory = textSalesCategory.Text;
-            }
 
             if (itemIsValid)
             {
@@ -142,7 +137,7 @@ namespace DP2
             }
 
             //IF ALL DATA IS VALID, ADD NEW ROW TO DATAGRIDVIEW
-            if (categoryIsValid && itemIsValid && qtyIsValid)
+            if (itemIsValid && qtyIsValid)
             {
                 _colNum++;
                 salesTransactionBindingSource.Add(new Classes.salesTransaction()
@@ -156,10 +151,8 @@ namespace DP2
                 });
 
                 //set cursor focus to category upon adding item AND clear text boxes
-                textSalesCategory.Items.Clear();
-                textSalesItem.Items.Clear();
                 textSalesQty.Clear();
-                textSalesCategory.Focus();
+                textSalesItem.Focus();
 
             }
             else
@@ -172,11 +165,7 @@ namespace DP2
             
         }
 
-        private void textSalesCategory_Enter(object sender, EventArgs e)
-        {
-            textSalesCategory.SelectionStart = 0;
-            textSalesCategory.SelectionLength = Text.Length;
-        }
+        
 
         private void textSalesItem_Enter(object sender, EventArgs e)
         {

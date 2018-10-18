@@ -97,7 +97,8 @@ namespace DP2
         }
             catch (Exception e)
             {
-                MessageBox.Show("Error, could not connect to server");
+                UIComponents.UIError error = new UIComponents.UIError("Error, could not connect to server","OK");
+                error.ShowDialog();
             }
 
     dt = output.Tables["outputData"];
