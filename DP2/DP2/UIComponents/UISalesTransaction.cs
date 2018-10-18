@@ -81,9 +81,8 @@ namespace DP2
             log = RequestLog.Instance;
             _colNum = 0;
 
-            textSalesItem.ValueMember = "itemId";
-            textSalesItem.DisplayMember = "itemName";
-            textSalesItem.DataSource = log.RunQuery(1, "Inventory", "itemId, itemName", "quantity>0", "");
+            textSalesItem.ValueMember = "itemName";
+            textSalesItem.DataSource = log.RunQuery(1, "Inventory", "itemName", "", "");
 
             textSalesItem.SelectedIndex = -1;
         }
@@ -118,7 +117,6 @@ namespace DP2
             //VALIDATE DATA
             Classes.DataValidation dataValidation = new Classes.DataValidation();
 
-            bool categoryIsValid = dataValidation.ValidateString(textSalesCategory.Text);
             bool itemIsValid = dataValidation.ValidateString(textSalesItem.Text);
             bool qtyIsValid = dataValidation.ValidateInteger(textSalesQty.Text);
 
@@ -126,10 +124,6 @@ namespace DP2
             //_colPricePerUnit = ???
 
             //IF DATA IS VALID, STORE THEM IN RESPECTIVE VARIABLES
-            if (categoryIsValid)
-            {
-                _colCategory = textSalesCategory.Text;
-            }
 
             if (itemIsValid)
             {
@@ -143,7 +137,7 @@ namespace DP2
             }
 
             //IF ALL DATA IS VALID, ADD NEW ROW TO DATAGRIDVIEW
-            if (categoryIsValid && itemIsValid && qtyIsValid)
+            if (itemIsValid && qtyIsValid)
             {
                 _colNum++;
                 salesTransactionBindingSource.Add(new Classes.salesTransaction()
@@ -157,10 +151,8 @@ namespace DP2
                 });
 
                 //set cursor focus to category upon adding item AND clear text boxes
-                textSalesCategory.Items.Clear();
-                textSalesItem.Items.Clear();
                 textSalesQty.Clear();
-                textSalesCategory.Focus();
+                textSalesItem.Focus();
 
             }
             else
@@ -169,39 +161,11 @@ namespace DP2
                 errorMessage.ShowDialog();
             }
 
-
-
-
-            CreateDataTable();
-           
+            DataTable dt = new DataTable();
             
         }
 
-        private void CreateDataTable()
-        {
-            DataTable dt = new DataTable();
-
-            DataColumn column = new DataColumn();
-            column.DataType = Type.GetType("System.Int32");
-            column.ColumnName = "number";
-            column.AutoIncrement = true;
-            column.AutoIncrementSeed = 1;
-            column.AutoIncrementStep = 1;
-
-            dt.Columns.Add(column);
-
-            column = new DataColumn();
-            column.DataType = Type.GetType("System.String");
-            column.ColumnName = "item";
-
-            dataGridSales.DataSource = dt;
-        }
-
-        private void textSalesCategory_Enter(object sender, EventArgs e)
-        {
-            textSalesCategory.SelectionStart = 0;
-            textSalesCategory.SelectionLength = Text.Length;
-        }
+        
 
         private void textSalesItem_Enter(object sender, EventArgs e)
         {

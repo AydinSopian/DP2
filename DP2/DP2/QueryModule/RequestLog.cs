@@ -35,7 +35,7 @@ namespace DP2
         private RequestLog()
         {
             qFactory = new QueryBuilderFactory();
-            connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=dp2;";
+            connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=dp2;SslMode=none";
             dbConnect = new MySqlConnection(connectionString);
             output = new DataSet();
         }
@@ -77,30 +77,31 @@ namespace DP2
 
             query = qDirector.GetQuery;
 
-            //try
-            //{
-            using (dbConnect)
-            using (command = new MySqlCommand(query, dbConnect))
-            using (adp = new MySqlDataAdapter(command))
+            try
             {
-                if (id == 1)
+                using (dbConnect)
+                using (command = new MySqlCommand(query, dbConnect))
+                using (adp = new MySqlDataAdapter(command))
                 {
-                    adp.Fill(output, "outputData");
+                    if (id == 1)
+                    {
+                        adp.Fill(output, "outputData");
+                    }
+                    else
+                    {
+                        dbConnect.Open();
+                        command.ExecuteNonQuery();
+                        dbConnect.Close();
+                    }
                 }
-                else
-                {
-                    dbConnect.Open();
-                    command.ExecuteNonQuery();
-                    dbConnect.Close();
-                }
+        }
+            catch (Exception e)
+            {
+                UIComponents.UIError error = new UIComponents.UIError("Error, could not connect to server","OK");
+                error.ShowDialog();
             }
-            //}
-            //catch (Exception e)
-            //{
-            //    MessageBox.Show("Error, could not connect to server");
-            //}
 
-            dt = output.Tables["outputData"];
+    dt = output.Tables["outputData"];
 
             return dt;
         }
