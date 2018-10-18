@@ -29,35 +29,32 @@ namespace DP2
             this.queryBuilder = queryBuilder;
         }
 
-        public void MakeQuery(string columnsCondition, string tables)
+        public void MakeQuery(string tables, string columns, string condition, string values)
         {
             queryBuilder.BuildKeyword();
             queryBuilder.BuildTables(tables);
 
+            if(!(queryBuilder is InsertQueryBuilder))
+            {
+                queryBuilder.BuildWhere(condition);
+            }
+            
             if(queryBuilder is SelectQueryBuilder)
             {
-                queryBuilder.BuildColumns(columnsCondition);
+                queryBuilder.BuildColumns(columns);
             }
-            else if(queryBuilder is DeleteQueryBuilder)
-            {
-                queryBuilder.BuildWhere(columnsCondition);
-            }
-        }
-
-        public void MakeQuery(string tables, string columnsCondition, string values)
-        {
-            queryBuilder.BuildKeyword();
-            queryBuilder.BuildTables(tables);
-            queryBuilder.BuildValues(values);
 
             if (queryBuilder is InsertQueryBuilder)
             {
-                queryBuilder.BuildColumns(columnsCondition);
+                queryBuilder.BuildColumns(columns);
+                queryBuilder.BuildValues(values);
             }
-            else if(queryBuilder is UpdateQueryBuilder)
+
+            if (queryBuilder is UpdateQueryBuilder)
             {
-                queryBuilder.BuildWhere(columnsCondition);
+                queryBuilder.BuildValues(values);
             }
+
         }
 
         /// <summary>

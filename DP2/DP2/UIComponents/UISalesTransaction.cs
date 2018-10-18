@@ -82,7 +82,7 @@ namespace DP2
             _colNum = 0;
 
             textSalesItem.ValueMember = "itemName";
-            textSalesItem.DataSource = log.RunQuery(1, "itemName", "Inventory");
+            textSalesItem.DataSource = log.RunQuery(1, "Inventory", "itemName", "", "");
 
             textSalesItem.SelectedIndex = -1;
         }
