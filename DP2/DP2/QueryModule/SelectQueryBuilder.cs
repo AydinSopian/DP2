@@ -22,7 +22,15 @@ namespace DP2
 
         public void BuildWhere(string condition)
         {
-            query.SetWhere("Where " + condition);
+            if(condition.Length > 0)
+            {
+                query.SetWhere("Where " + condition);
+            }
+            else
+            {
+                query.SetWhere("");
+            }
+            
         }
 
         public void BuildKeyword()
@@ -42,7 +50,7 @@ namespace DP2
 
         public string GetQuery()
         {
-            return query.GetKeyword + query.GetColumns + query.GetTables;
+            return query.GetKeyword + query.GetColumns + query.GetTables + query.GetWhere;
         }
 
     }

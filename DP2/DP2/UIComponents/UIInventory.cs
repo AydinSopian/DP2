@@ -27,7 +27,7 @@ namespace DP2
 
         private void ViewInventory()
         {
-            dt = log.RunQuery(1, "*", "Inventory"); //display all inventory items in datagridview 
+            dt = log.RunQuery(1, "Inventory", "*", "", ""); 
             dataGridInventory.DataSource = dt;
         }
 
@@ -64,9 +64,10 @@ namespace DP2
             if (confirmation.isConfirmed)
             {
                 confirmation.Close();
+
                 string values = "\"" + textInventoryCategory.Text + "\"" + ", \"" + textInventoryItem.Text + "\", " + textInventoryCost.Text + ", " + textInventoryPrice.Text + ", " + textInventoryQty.Text;
 
-                log.RunQuery(3, "Inventory", "category, itemName, costPerUnitBought, pricePerUnitSold, quantity", values);
+                log.RunQuery(3, "Inventory", "category, itemName, costPerUnitBought, pricePerUnitSold, quantity", "", values);
 
                 ViewInventory();
 
