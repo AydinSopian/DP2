@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Configuration;
 using MySql.Data.MySqlClient;
-using System.Windows.Forms;
 using System.Data;
 
 namespace DP2
@@ -17,19 +16,23 @@ namespace DP2
 
         private MySqlConnection dbConnect;
         private string connectionString;
-
-        private DataSet output;
-
         private MySqlDataAdapter adp;
-
         private MySqlCommand command;
 
         private QueryBuilderFactory qFactory;
-
+        private QueryDirector qDirector;
         private string query;
-        public string GetQuery
+
+        private object outputValue;
+        public object GetOutputValue
         {
-            get { return this.query; }
+            get { return this.outputValue; }
+        }
+
+        private DataSet outputDataSet;
+        public DataSet GetOutputDataSet
+        {
+            get { return this.outputDataSet; }
         }
 
         private RequestLog()
@@ -37,7 +40,7 @@ namespace DP2
             qFactory = new QueryBuilderFactory();
             connectionString = "datasource=127.0.0.1;port=3307;username=root;password=;database=dp2;SslMode=none";
             dbConnect = new MySqlConnection(connectionString);
-            output = new DataSet();
+            outputDataSet = new DataSet();
         }
 
         /// <summary>
@@ -66,12 +69,12 @@ namespace DP2
         /// <param name="condition"></param>
         /// <param name="values"></param>
         /// <returns></returns>
-        public DataTable RunQuery(int id, string tables, string columns, string condition, string values)
+        public void RunQuery(int id, string tables, string columns, string condition, string values)
         {
-            DataTable dt = new DataTable();
-            output.Clear();
+            outputDataSet.Clear();
+            outputValue = null;
 
-            QueryDirector qDirector = new QueryDirector(qFactory.CreateQueryBuilder(id));
+            qDirector = new QueryDirector(qFactory.CreateQueryBuilder(id));
 
             qDirector.MakeQuery(tables, columns, condition, values);
 
@@ -83,27 +86,29 @@ namespace DP2
                 using (command = new MySqlCommand(query, dbConnect))
                 using (adp = new MySqlDataAdapter(command))
                 {
+                    dbConnect.Open();
                     if (id == 1)
                     {
-                        adp.Fill(output, "outputData");
+                        adp.Fill(outputDataSet, "outputDataTable");
+
+                        if (outputDataSet.Tables[0].Rows.Count == 1)
+                        {
+                            outputValue = command.ExecuteScalar();
+                        }
+
                     }
                     else
-                    {
-                        dbConnect.Open();
+                    {                       
                         command.ExecuteNonQuery();
-                        dbConnect.Close();
                     }
+                    dbConnect.Close();
                 }
-        }
+            }
             catch (Exception e)
             {
-                UIComponents.UIError error = new UIComponents.UIError("Error, could not connect to server","OK");
+                UIComponents.UIError error = new UIComponents.UIError("Error, could not connect to server", "OK");
                 error.ShowDialog();
             }
-
-    dt = output.Tables["outputData"];
-
-            return dt;
         }
 
     }

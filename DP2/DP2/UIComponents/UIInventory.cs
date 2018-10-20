@@ -27,7 +27,8 @@ namespace DP2
 
         private void ViewInventory()
         {
-            dt = log.RunQuery(1, "Inventory", "*", "", ""); 
+            log.RunQuery(1, "Inventory", "*", "", "");
+            dt = log.GetOutputDataSet.Tables["outputDataTable"];
             dataGridInventory.DataSource = dt;
         }
 
