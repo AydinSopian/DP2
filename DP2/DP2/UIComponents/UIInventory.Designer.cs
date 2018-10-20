@@ -46,9 +46,9 @@
             this.inventoryCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inventoryPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inventoryQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonInventoryAdd = new System.Windows.Forms.Button();
             this.labelInventoryCategory = new System.Windows.Forms.Label();
             this.textInventoryCategory = new System.Windows.Forms.TextBox();
+            this.buttonInventoryAdd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridInventory)).BeginInit();
             this.SuspendLayout();
             // 
@@ -225,25 +225,6 @@
             this.inventoryQty.HeaderText = "QTY";
             this.inventoryQty.Name = "inventoryQty";
             // 
-            // buttonInventoryAdd
-            // 
-            this.buttonInventoryAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
-            this.buttonInventoryAdd.FlatAppearance.BorderSize = 0;
-            this.buttonInventoryAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonInventoryAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonInventoryAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.buttonInventoryAdd.Image = global::DP2.Properties.Resources.icons8_plus_math_20;
-            this.buttonInventoryAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonInventoryAdd.Location = new System.Drawing.Point(863, 43);
-            this.buttonInventoryAdd.Name = "buttonInventoryAdd";
-            this.buttonInventoryAdd.Size = new System.Drawing.Size(121, 47);
-            this.buttonInventoryAdd.TabIndex = 8;
-            this.buttonInventoryAdd.Text = "ADD ITEM";
-            this.buttonInventoryAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonInventoryAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.buttonInventoryAdd.UseVisualStyleBackColor = false;
-            this.buttonInventoryAdd.Click += new System.EventHandler(this.buttonInventoryAdd_Click);
-            // 
             // labelInventoryCategory
             // 
             this.labelInventoryCategory.AutoSize = true;
@@ -265,6 +246,25 @@
             this.textInventoryCategory.Name = "textInventoryCategory";
             this.textInventoryCategory.Size = new System.Drawing.Size(201, 19);
             this.textInventoryCategory.TabIndex = 10;
+            // 
+            // buttonInventoryAdd
+            // 
+            this.buttonInventoryAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
+            this.buttonInventoryAdd.FlatAppearance.BorderSize = 0;
+            this.buttonInventoryAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInventoryAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonInventoryAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.buttonInventoryAdd.Image = global::DP2.Properties.Resources.icons8_plus_math_20;
+            this.buttonInventoryAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonInventoryAdd.Location = new System.Drawing.Point(863, 43);
+            this.buttonInventoryAdd.Name = "buttonInventoryAdd";
+            this.buttonInventoryAdd.Size = new System.Drawing.Size(121, 47);
+            this.buttonInventoryAdd.TabIndex = 8;
+            this.buttonInventoryAdd.Text = "ADD ITEM";
+            this.buttonInventoryAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonInventoryAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.buttonInventoryAdd.UseVisualStyleBackColor = false;
+            this.buttonInventoryAdd.Click += new System.EventHandler(this.buttonInventoryAdd_Click);
             // 
             // UIInventory
             // 
@@ -289,6 +289,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UIInventory";
             this.Text = "Inventory Managent";
+            this.Load += new System.EventHandler(this.UIInventory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridInventory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -13,6 +13,7 @@ namespace DP2.UIComponents
     public partial class UIPayment : Form
     {
         private UISalesTransaction _parentForm;
+        private double amountPaid;
 
         public UIPayment(UISalesTransaction parentForm)
         {
@@ -22,29 +23,55 @@ namespace DP2.UIComponents
 
         private void buttonPaymentConfirm_Click(object sender, EventArgs e)
         {
-            
-            UIConfirmation confirmation = new UIConfirmation("Do you want to continue?", "Continue", "Cancel");
-            confirmation.ShowDialog();
+            //DATA VALIDATION
+            Classes.DataValidation dataValidation = new Classes.DataValidation();
+            bool amountIsValid = dataValidation.ValidateDouble(textPaymentAmount.Text);
 
-            if (confirmation.isConfirmed)
+            if (amountIsValid)
             {
-                this.Close();
-                _parentForm.ColNum = 0;
-                //Show change
-                UIChange change = new UIChange();
-                change.ShowDialog();
-            
-                //INSERT into Sales Table dataTime & Total
+                amountPaid = Double.Parse(textPaymentAmount.Text);
 
-                //foreach row in dataGridSales, Insert into ProductsSold (dateTime, productId, Qty)
+                //check to see if amountPaid is greater than total
+                if (amountPaid >= _parentForm.SalesTotal)
+                {
+                    UIConfirmation confirmation = new UIConfirmation("Do you want to continue?", "Continue", "Cancel");
+                    confirmation.ShowDialog();
 
-                //Clear dataGridSales
+                    if (confirmation.isConfirmed)
+                    {
 
-                //reset Incrmenters
+                        this.Close();
+                        _parentForm.ColNum = 0;
+                        //Show change
+                        UIChange change = new UIChange();
+                        change.ShowDialog();
 
-                //Clear dataGridSales
-                _parentForm.ClearData();
+                        //INSERT into Sales Table dataTime & Total
+
+                        //foreach row in dataGridSales, Insert into ProductsSold (dateTime, productId, Qty)
+
+                        //Clear dataGridSales
+
+                        //reset Incrmenters
+
+                        //Clear dataGridSales
+                        _parentForm.ClearData();
+                    }
+                    else
+                    {
+                        UIError error = new UIError("Amount paid not sufficient", "OK");
+                        error.ShowDialog();
+                    }
+
+                
+                }
+            } else
+            {
+                UIError error = new UIError("Please enter a valid amount", "OK");
+                error.ShowDialog();
             }
+
+            
 
 
         }

@@ -37,58 +37,26 @@ namespace DP2
             get { return _salesTotal; }
         }
 
-        /*
-        public int ColQty
-        {
-            get { return _colQty; }
-            set { _colQty = value; }
-        }
-
-        public string ColCategory
-        {
-            get { return _colCategory; }
-            set { _colCategory = value; }
-        }
-
-        public string ColItem
-        {
-            get { return _colItem; }
-            set { _colItem = value; }
-        }
-
-        public double ColPricePerUnit
-        {
-            get { return _colPricePerUnit; }
-            set { _colPricePerUnit = value; }
-        }
-
-        public double ColSubtotal
-        {
-            get { return _colSubtotal; }
-            set { _colSubtotal = value; }
-        }
-        
-        
-
-        
-        /******************************************************************/
-
-
 
         public UISalesTransaction()
         {
             InitializeComponent();
             log = RequestLog.Instance;
+           
             _colNum = 0;
 
             textSalesItem.ValueMember = "itemName";
             textSalesItem.DataSource = log.RunQuery(1, "Inventory", "itemName", "", "");
 
             textSalesItem.SelectedIndex = -1;
+            
         }
 
         private void buttonSalesCheckout_Click(object sender, EventArgs e)
         {
+            //set _salesTotal
+            
+
             //Open payment window
             UIComponents.UIPayment paymentWindow = new UIComponents.UIPayment(this);
             paymentWindow.ShowDialog();
@@ -96,8 +64,17 @@ namespace DP2
 
         private void formSales_Load(object sender, EventArgs e)
         {
-
+            foreach(var column in dataGridSales.Columns)
+            {
+                if (column is DataGridViewImageColumn)
+                {
+                    (column as DataGridViewImageColumn).DefaultCellStyle.NullValue = null;
+                }
+                    
+            }
+          
         }
+
 
         private void dataGridSales_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -105,6 +82,13 @@ namespace DP2
             {
                 salesTransactionBindingSource.RemoveCurrent();
             }
+            
+
+        }
+
+        private void dataGridSales_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            
         }
 
         private void textSalesItem_SelectedIndexChanged(object sender, EventArgs e)
@@ -121,12 +105,14 @@ namespace DP2
             bool qtyIsValid = dataValidation.ValidateInteger(textSalesQty.Text);
 
             //UPDATE FIELDS      
-            //_colPricePerUnit = ???
-
             //IF DATA IS VALID, STORE THEM IN RESPECTIVE VARIABLES
 
             if (itemIsValid)
             {
+                string queryCondition = "itemName = " + "\"" + _colItem + "\"";
+                log.RunQuery(1, "Inventory", "costPerUnitBought", queryCondition,"");
+                
+                //_colPricePerUnit = ???
                 _colItem = textSalesItem.Text;
             }
 

@@ -87,5 +87,9 @@ namespace DP2
             
         }
 
+        private void UIInventory_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
