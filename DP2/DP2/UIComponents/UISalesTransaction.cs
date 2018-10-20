@@ -81,9 +81,16 @@ namespace DP2
             log = RequestLog.Instance;
             _colNum = 0;
 
-            textSalesItem.ValueMember = "itemName";
-            textSalesItem.DataSource = log.RunQuery(1, "Inventory", "itemName", "", "");
+            SetComboBox();
+        }
 
+        private void SetComboBox()
+        {
+            textSalesItem.DropDownStyle = ComboBoxStyle.DropDownList;
+            textSalesItem.ValueMember = "itemId";
+            textSalesItem.DisplayMember = "itemName";
+            log.RunQuery(1, "Inventory", "itemName, itemId", "quantity>0", "");
+            textSalesItem.DataSource = log.GetOutputDataSet.Tables["outputDataTable"];
             textSalesItem.SelectedIndex = -1;
         }
 
@@ -107,6 +114,11 @@ namespace DP2
             }
         }
 
+        private void labelSalesTotal_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void textSalesItem_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -120,35 +132,59 @@ namespace DP2
             bool itemIsValid = dataValidation.ValidateString(textSalesItem.Text);
             bool qtyIsValid = dataValidation.ValidateInteger(textSalesQty.Text);
 
-            //UPDATE FIELDS      
-            //_colPricePerUnit = ???
+            string selectedId ="";
 
             //IF DATA IS VALID, STORE THEM IN RESPECTIVE VARIABLES
 
-            if (itemIsValid)
-            {
-                _colItem = textSalesItem.Text;
-            }
+            //if (itemIsValid)
+            //{
+            //    selectedId = textSalesItem.SelectedValue.ToString();
+            //    log.RunQuery(1, "Inventory", "itemName", "itemId=" + selectedId, "");
+            //    _colItem = log.GetOutputValue.ToString();
 
-            if (qtyIsValid)
-            {
-                _colQty = int.Parse(textSalesQty.Text);
-                //_colSubtotal = _colQty * _colPricePerUnit;
-            }
+            //    //UPDATE FIELDS
+            //    log.RunQuery(1, "Inventory", "pricePerUnitSold", "itemId=" + selectedId, "");
+            //    _colPricePerUnit = Convert.ToDouble(log.GetOutputValue);
+            //}
+
+            //if (qtyIsValid)
+            //{
+            //    _colQty = int.Parse(textSalesQty.Text);
+            //    _colSubtotal = _colQty * _colPricePerUnit;
+            //}
 
             //IF ALL DATA IS VALID, ADD NEW ROW TO DATAGRIDVIEW
             if (itemIsValid && qtyIsValid)
             {
+                selectedId = textSalesItem.SelectedValue.ToString();
+                log.RunQuery(1, "Inventory", "itemName", "itemId=" + selectedId, "");
+                _colItem = log.GetOutputValue.ToString();
+
+                //UPDATE FIELDS
+                log.RunQuery(1, "Inventory", "pricePerUnitSold", "itemId=" + selectedId, "");
+                _colPricePerUnit = Convert.ToDouble(log.GetOutputValue);
+
+                _colQty = int.Parse(textSalesQty.Text);
+                _colSubtotal = _colQty * _colPricePerUnit;
+
                 _colNum++;
                 salesTransactionBindingSource.Add(new Classes.salesTransaction()
                 {
                     number = _colNum,
-                    category = _colCategory,
                     item = _colItem,
-                    qty = _colQty
-                    //, pricePerUnit = colPricePerUnit,
-                    //subtotal = colSubtotal
+                    qty = _colQty,
+                    pricePerUnit = _colPricePerUnit,
+                    subtotal = _colSubtotal
                 });
+
+                double total = 0;
+
+                for(int i=0 ; i<dataGridSales.Rows.Count ; i++)
+                {
+                    total += Convert.ToDouble(dataGridSales.Rows[i].Cells[5].Value);
+                }
+
+                labelSalesTotal.Text = "RM" + total.ToString();
 
                 //set cursor focus to category upon adding item AND clear text boxes
                 textSalesQty.Clear();
@@ -161,11 +197,8 @@ namespace DP2
                 errorMessage.ShowDialog();
             }
 
-            DataTable dt = new DataTable();
-            
+            SetComboBox();
         }
-
-        
 
         private void textSalesItem_Enter(object sender, EventArgs e)
         {
