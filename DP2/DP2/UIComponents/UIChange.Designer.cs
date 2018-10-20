@@ -115,6 +115,7 @@
             this.Name = "UIChange";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UIChange";
+            this.Load += new System.EventHandler(this.UIChange_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

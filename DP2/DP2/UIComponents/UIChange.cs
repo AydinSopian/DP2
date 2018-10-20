@@ -12,9 +12,14 @@ namespace DP2.UIComponents
 {
     public partial class UIChange : Form
     {
-        public UIChange()
-        {
+        private UIPayment _parentForm;
+        private decimal _change;
+
+        public UIChange(UIPayment parentForm)
+        {    
             InitializeComponent();
+            _parentForm = parentForm;
+            
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
@@ -25,6 +30,12 @@ namespace DP2.UIComponents
         private void buttonPaymentConfirm_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void UIChange_Load(object sender, EventArgs e)
+        {
+            _change = _parentForm.AmountPaid - _parentForm.SalesTotal;
+            labelChangeChange.Text = "RM " + _change.ToString();
         }
     }
 }

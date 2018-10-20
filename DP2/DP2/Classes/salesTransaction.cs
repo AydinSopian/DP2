@@ -9,10 +9,9 @@ namespace DP2.Classes
     public class salesTransaction
     {
         public int number { get; set; }
-        public string category { get; set; }
         public string item { get; set; }
         public int qty { get; set; }
-        public Double pricePerUnit { get; set; }
-        public Double subtotal { get; set; }
+        public decimal pricePerUnit { get; set; }
+        public decimal subtotal { get; set; }
     }
 }

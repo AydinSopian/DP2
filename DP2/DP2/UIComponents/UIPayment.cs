@@ -13,12 +13,25 @@ namespace DP2.UIComponents
     public partial class UIPayment : Form
     {
         private UISalesTransaction _parentForm;
-        private double amountPaid;
+        private decimal _amountPaid;
+        private decimal _salesTotal;
+
+        //getter for _salesTotal
+        public decimal SalesTotal {
+            get { return _salesTotal; }
+        }
+
+        public decimal AmountPaid
+        {
+            get { return _amountPaid; }
+        }
 
         public UIPayment(UISalesTransaction parentForm)
         {
             InitializeComponent();
             _parentForm = parentForm;
+            _salesTotal = _parentForm.SalesTotal;
+            labelPaymentTotal.Text = "RM " + _parentForm.SalesTotal.ToString();
         }
 
         private void buttonPaymentConfirm_Click(object sender, EventArgs e)
@@ -29,10 +42,10 @@ namespace DP2.UIComponents
 
             if (amountIsValid)
             {
-                amountPaid = Double.Parse(textPaymentAmount.Text);
+                _amountPaid = Decimal.Parse(textPaymentAmount.Text);
 
                 //check to see if amountPaid is greater than total
-                if (amountPaid >= _parentForm.SalesTotal)
+                if (_amountPaid >= _parentForm.SalesTotal)
                 {
                     UIConfirmation confirmation = new UIConfirmation("Do you want to continue?", "Continue", "Cancel");
                     confirmation.ShowDialog();
@@ -40,12 +53,12 @@ namespace DP2.UIComponents
                     if (confirmation.isConfirmed)
                     {
 
-                        this.Close();
+                        
                         _parentForm.ColNum = 0;
                         //Show change
-                        UIChange change = new UIChange();
+                        UIChange change = new UIChange(this);
                         change.ShowDialog();
-
+                        this.Close();
                         //INSERT into Sales Table dataTime & Total
 
                         //foreach row in dataGridSales, Insert into ProductsSold (dateTime, productId, Qty)
@@ -57,15 +70,15 @@ namespace DP2.UIComponents
                         //Clear dataGridSales
                         _parentForm.ClearData();
                     }
-                    else
-                    {
-                        UIError error = new UIError("Amount paid not sufficient", "OK");
-                        error.ShowDialog();
-                    }
-
                 
                 }
-            } else
+                else
+                {
+                    UIError error = new UIError("Amount paid not sufficient", "OK");
+                    error.ShowDialog();
+                }
+            }
+            else
             {
                 UIError error = new UIError("Please enter a valid amount", "OK");
                 error.ShowDialog();
