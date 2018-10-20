@@ -6,13 +6,18 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Configuration;
+using MySql.Data.MySqlClient;
+using System.Windows.Forms;
+
 
 namespace DP2.UIComponents
 {
     public partial class UILogin : Form
     {
+        private string connectionString;
+        private MySqlConnection con;
         public UILogin()
         {
             InitializeComponent();
@@ -26,40 +31,25 @@ namespace DP2.UIComponents
         private void buttonConfirmationContinue_Click(object sender, EventArgs e)
         {
             //TO-DO: ADD DATABASE CONNECTION HERE
-            /*SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\dingk\Documents\Data.mdf; Integrated Security = True; Connect Timeout = 30");
-            SqlDataAdapter sda = new SqlDataAdapter("Select Count(*) From Login where Username = '" + textLoginUsername.Text + "' and Password = '" + textLoginPassword.Text + "'", con);
-            DataTable Table2 = new DataTable();
-            sda.Fill(Table2);
+            connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=dp2;SslMode=none";
+            con = new MySqlConnection(connectionString);
+            MySqlDataAdapter sda = new MySqlDataAdapter("Select Count(*) From UserAccounts where Username = '" + textLoginUsername.Text + "' and Password = '" + textLoginPassword.Text + "'",con);
+           
+            DataTable UserAccounts = new DataTable();
+            sda.Fill(UserAccounts);
 
-            if(Table2.Rows[0][0].ToString() == "1")
+            if(UserAccounts.Rows[0][0].ToString() == "1")
             {
-                this.Hide();
-                formSales ss = new formSales();
-                ss.Show();
-            }
-            else
-            {
-                MessageBox.Show("Wrong Username or Password");
-            }*/
-
-            //TEMPORARY USER VERIFICATION
-            String userAdmin = "admin";
-            String passwordAdmin = "admin";
-            String userEmployee = "employee";
-            String passwordEmployee = "employee";
-
-            if(textLoginUsername.Text == userAdmin && textLoginPassword.Text == passwordAdmin)
-            {
-                //hide login screen and open Home window upon verification
                 this.Hide();
                 UIHome home = new UIHome();
                 home.Show();
             }
             else
             {
-                //show error message upon invalid credentials
                 MessageBox.Show("Wrong Username or Password");
             }
+
+        
 
 
             

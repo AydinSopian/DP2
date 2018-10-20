@@ -36,7 +36,6 @@
             this.labelSalesItem = new System.Windows.Forms.Label();
             this.labelSalesQty = new System.Windows.Forms.Label();
             this.dataGridSales = new System.Windows.Forms.DataGridView();
-            this.salesDeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelSalesTotal = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,13 +43,13 @@
             this.buttonSalesAdd = new System.Windows.Forms.Button();
             this.textSalesItem = new System.Windows.Forms.ComboBox();
             this.textSalesQty = new System.Windows.Forms.TextBox();
+            this.salesTransactionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.salesNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.salesCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.salesItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.salesQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.salesPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.salesSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.salesTransactionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.salesDeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSales)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.salesTransactionBindingSource)).BeginInit();
@@ -99,7 +98,6 @@
             this.dataGridSales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridSales.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.salesNum,
-            this.salesCategory,
             this.salesItem,
             this.salesQty,
             this.salesPrice,
@@ -143,14 +141,6 @@
             this.dataGridSales.TabStop = false;
             this.dataGridSales.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridSales_CellContentClick);
             // 
-            // salesDeleteRow
-            // 
-            this.salesDeleteRow.FillWeight = 55.50259F;
-            this.salesDeleteRow.HeaderText = "";
-            this.salesDeleteRow.Name = "salesDeleteRow";
-            this.salesDeleteRow.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.salesDeleteRow.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -173,7 +163,6 @@
             this.labelSalesTotal.Size = new System.Drawing.Size(45, 25);
             this.labelSalesTotal.TabIndex = 2;
             this.labelSalesTotal.Text = "RM";
-            this.labelSalesTotal.Click += new System.EventHandler(this.labelSalesTotal_Click);
             // 
             // label1
             // 
@@ -248,45 +237,47 @@
             this.textSalesQty.Size = new System.Drawing.Size(101, 19);
             this.textSalesQty.TabIndex = 3;
             // 
+            // salesTransactionBindingSource
+            // 
+            this.salesTransactionBindingSource.DataSource = typeof(DP2.Classes.salesTransaction);
+            // 
             // salesNum
             // 
             this.salesNum.DataPropertyName = "number";
-            this.salesNum.HeaderText = "number";
+            this.salesNum.HeaderText = "NO.";
             this.salesNum.Name = "salesNum";
-            // 
-            // salesCategory
-            // 
-            this.salesCategory.DataPropertyName = "category";
-            this.salesCategory.HeaderText = "category";
-            this.salesCategory.Name = "salesCategory";
             // 
             // salesItem
             // 
             this.salesItem.DataPropertyName = "item";
-            this.salesItem.HeaderText = "item";
+            this.salesItem.HeaderText = "ITEM";
             this.salesItem.Name = "salesItem";
             // 
             // salesQty
             // 
             this.salesQty.DataPropertyName = "qty";
-            this.salesQty.HeaderText = "qty";
+            this.salesQty.HeaderText = "QTY";
             this.salesQty.Name = "salesQty";
             // 
             // salesPrice
             // 
             this.salesPrice.DataPropertyName = "pricePerUnit";
-            this.salesPrice.HeaderText = "pricePerUnit";
+            this.salesPrice.HeaderText = "PRICE PER UNIT";
             this.salesPrice.Name = "salesPrice";
             // 
             // salesSubtotal
             // 
             this.salesSubtotal.DataPropertyName = "subtotal";
-            this.salesSubtotal.HeaderText = "subtotal";
+            this.salesSubtotal.HeaderText = "SUBTOTAL";
             this.salesSubtotal.Name = "salesSubtotal";
             // 
-            // salesTransactionBindingSource
+            // salesDeleteRow
             // 
-            this.salesTransactionBindingSource.DataSource = typeof(DP2.Classes.salesTransaction);
+            this.salesDeleteRow.FillWeight = 55.50259F;
+            this.salesDeleteRow.HeaderText = "";
+            this.salesDeleteRow.Name = "salesDeleteRow";
+            this.salesDeleteRow.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.salesDeleteRow.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // UISalesTransaction
             // 
@@ -325,15 +316,14 @@
         private System.Windows.Forms.Button buttonSalesCheckout;
         private System.Windows.Forms.Label labelSalesTotal;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.BindingSource salesTransactionBindingSource;
+        private System.Windows.Forms.ComboBox textSalesItem;
+        private System.Windows.Forms.TextBox textSalesQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn salesNum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn salesCategory;
         private System.Windows.Forms.DataGridViewTextBoxColumn salesItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn salesQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn salesPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn salesSubtotal;
         private System.Windows.Forms.DataGridViewButtonColumn salesDeleteRow;
-        private System.Windows.Forms.BindingSource salesTransactionBindingSource;
-        private System.Windows.Forms.ComboBox textSalesItem;
-        private System.Windows.Forms.TextBox textSalesQty;
     }
 }
