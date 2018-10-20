@@ -160,8 +160,8 @@ namespace DP2
                 errorMessage.ShowDialog();
             }
 
-            DataTable dt = new DataTable();
-            
+            SetComboBox();
+           
         }
 
         
