@@ -12,9 +12,11 @@ namespace DP2.UIComponents
 {
     public partial class UIPayment : Form
     {
+        private RequestLog log;
         private UISalesTransaction _parentForm;
         private decimal _amountPaid;
         private decimal _salesTotal;
+        private string values;
 
         //getter for _salesTotal
         public decimal SalesTotal {
@@ -59,13 +61,19 @@ namespace DP2.UIComponents
                         UIChange change = new UIChange(this);
                         change.ShowDialog();
                         this.Close();
-                        //INSERT into Sales Table dataTime & Total
 
-                        //foreach row in dataGridSales, Insert into ProductsSold (dateTime, productId, Qty)
+                        //INSERT into Sales table, dataTime & priceTotal
+                        DateTime currentDateTime = DateTime.Now;
+                        string dateTime = currentDateTime.ToString("yyyy-MM-dd HH:mm:ss");
+                        string priceTotal = _parentForm.SalesTotal.ToString();
+                        values = "\'" + dateTime + "\'" + "," + priceTotal;
+                        log.RunQuery(1, "Sales", "dateTime, priceTotal", "", values);
 
-                        //Clear dataGridSales
+                        //foreach row in dataGridSales, UPDATE Inventory table, quantity
 
-                        //reset Incrmenters
+
+                        //foreach row in dataGridSales, INSERT into ProductsSold (dateTime, productId, quantity)
+
 
                         //Clear dataGridSales
                         _parentForm.ClearData();

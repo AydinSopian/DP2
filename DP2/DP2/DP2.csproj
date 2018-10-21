@@ -87,7 +87,7 @@
     <Compile Include="QueryModule\InsertQueryBuilder.cs" />
     <Compile Include="QueryModule\IQueryBuilder.cs" />
     <Compile Include="QueryModule\IQueryPlan.cs" />
-    <Compile Include="QueryModule\Query.cs" />
+    <Compile Include="UIComponents\Query.cs" />
     <Compile Include="QueryModule\QueryDirector.cs" />
     <Compile Include="QueryModule\QueryFactory.cs" />
     <Compile Include="QueryModule\RequestLog.cs" />

@@ -64,15 +64,6 @@ namespace DP2
             textSalesItem.DataSource = log.GetOutputDataSet.Tables["outputDataTable"];
         }
 
-            private void buttonSalesCheckout_Click(object sender, EventArgs e)
-        {
-            //Open payment window
-            UIComponents.UIPayment paymentWindow = new UIComponents.UIPayment(this);
-            paymentWindow.ShowDialog();
-
-            _rowNum = 0;
-        }
-
         private void formSales_Load(object sender, EventArgs e)
         {
             foreach(var column in dataGridSales.Columns)
@@ -164,6 +155,15 @@ namespace DP2
 
             SetComboBox();
            
+        }
+
+        private void buttonSalesCheckout_Click(object sender, EventArgs e)
+        {
+            //Open payment window
+            UIComponents.UIPayment paymentWindow = new UIComponents.UIPayment(this);
+            paymentWindow.ShowDialog();
+
+            _rowNum = 0;
         }
 
         private void textSalesItem_Enter(object sender, EventArgs e)
