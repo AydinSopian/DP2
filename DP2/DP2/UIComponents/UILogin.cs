@@ -31,7 +31,7 @@ namespace DP2.UIComponents
         private void buttonConfirmationContinue_Click(object sender, EventArgs e)
         {
             //TO-DO: ADD DATABASE CONNECTION HERE
-            connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=dp2;SslMode=none";
+            connectionString = "datasource=127.0.0.1;port=3307;username=root;password=;database=dp2;SslMode=none";
             con = new MySqlConnection(connectionString);
             MySqlDataAdapter sda = new MySqlDataAdapter("Select Count(*) From UserAccounts where Username = '" + textLoginUsername.Text + "' and Password = '" + textLoginPassword.Text + "'",con);
            

@@ -93,19 +93,8 @@ namespace DP2
             {
                 salesTransactionBindingSource.RemoveCurrent();
             }
-            
-
         }
 
-        private void dataGridSales_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            
-        }
-
-        private void textSalesItem_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void buttonSalesAdd_Click(object sender, EventArgs e)
         {
@@ -123,6 +112,7 @@ namespace DP2
             //IF ALL DATA IS VALID, ADD NEW ROW TO DATAGRIDVIEW
             if (itemIsValid && qtyIsValid)
             {
+                //store values into temporary variables
                 selectedId = textSalesItem.SelectedValue.ToString();
                 log.RunQuery(1, "Inventory", "itemName", "itemId=" + selectedId, "");
                 _colItem = log.GetOutputValue.ToString();
@@ -132,27 +122,39 @@ namespace DP2
                 _colQty = int.Parse(textSalesQty.Text);
                 _colSubtotal = Convert.ToDecimal(_colQty) * _colPricePerUnit;
 
-                _rowNum++;
-                _colNum++;
-                salesTransactionBindingSource.Add(new Classes.salesTransaction()
+                //check to ensure items purchased do not exceed stock amount
+                log.RunQuery(1, "Inventory", "quantity", "itemId=" + selectedId, "");
+                int inventoryQty = Convert.ToInt32(log.GetOutputValue);
+
+                if(_colQty > inventoryQty)
                 {
-                    number = _colNum,
-                    item = _colItem,
-                    qty = _colQty,
-                    pricePerUnit = decimal.Round(_colPricePerUnit,2),
-                    subtotal = decimal.Round(_colSubtotal, 2)
-                });
+                    UIComponents.UIError errorMessage = new UIComponents.UIError("Qty exceeds inventory quantity", "Okay");
+                    errorMessage.ShowDialog();
+                }
+                else
+                {
+                    _rowNum++;
+                    _colNum++;
 
-                
-                _salesTotal += _colSubtotal;
-                
+                    //create new salesTransaction using temporaray variables
+                    salesTransactionBindingSource.Add(new Classes.salesTransaction()
+                    {
+                        number = _colNum,
+                        item = _colItem,
+                        qty = _colQty,
+                        pricePerUnit = decimal.Round(_colPricePerUnit, 2),
+                        subtotal = decimal.Round(_colSubtotal, 2)
+                    });
 
-                labelSalesTotal.Text = "RM " + decimal.Round(_salesTotal, 2, MidpointRounding.AwayFromZero).ToString();
 
-                //set cursor focus to category upon adding item AND clear text boxes
-                textSalesQty.Clear();
-                textSalesItem.Focus();
+                    _salesTotal += _colSubtotal;
 
+                    labelSalesTotal.Text = "RM " + decimal.Round(_salesTotal, 2, MidpointRounding.AwayFromZero).ToString();
+
+                    //set cursor focus to category upon adding item AND clear text boxes
+                    textSalesQty.Clear();
+                    textSalesItem.Focus();
+                }
             }
             else
             {
@@ -163,8 +165,6 @@ namespace DP2
             SetComboBox();
            
         }
-
-        
 
         private void textSalesItem_Enter(object sender, EventArgs e)
         {

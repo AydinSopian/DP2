@@ -141,7 +141,7 @@
             this.dataGridSales.TabIndex = 10;
             this.dataGridSales.TabStop = false;
             this.dataGridSales.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridSales_CellContentClick);
-            this.dataGridSales.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridSales_CellFormatting);
+            
             // 
             // panel1
             // 
@@ -188,7 +188,6 @@
             this.textSalesItem.Name = "textSalesItem";
             this.textSalesItem.Size = new System.Drawing.Size(223, 28);
             this.textSalesItem.TabIndex = 1;
-            this.textSalesItem.SelectedIndexChanged += new System.EventHandler(this.textSalesItem_SelectedIndexChanged);
             // 
             // textSalesQty
             // 
