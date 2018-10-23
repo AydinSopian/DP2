@@ -16,11 +16,13 @@ namespace DP2.UIComponents
 {
     public partial class UILogin : Form
     {
-        private string connectionString;
-        private MySqlConnection con;
+        private RequestLog log;
+
+
         public UILogin()
         {
             InitializeComponent();
+            log = RequestLog.Instance;
         }
 
         private void UILogin_Load(object sender, EventArgs e)
@@ -31,14 +33,12 @@ namespace DP2.UIComponents
         private void buttonConfirmationContinue_Click(object sender, EventArgs e)
         {
             //TO-DO: ADD DATABASE CONNECTION HERE
-            connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=dp2;SslMode=none";
-            con = new MySqlConnection(connectionString);
-            MySqlDataAdapter sda = new MySqlDataAdapter("Select Count(*) From UserAccounts where Username = '" + textLoginUsername.Text + "' and Password = '" + textLoginPassword.Text + "'",con);
+            log.RunQuery(1, "UserAccounts", "*", "Username = \"" + textLoginUsername.Text + "\" AND Password = \"" + textLoginPassword.Text + "\"", "");
            
             DataTable UserAccounts = new DataTable();
-            sda.Fill(UserAccounts);
+            UserAccounts = log.GetOutputDataSet.Tables["outputDataTable"];
 
-            if(UserAccounts.Rows[0][0].ToString() == "1")
+            if(UserAccounts.Rows.Count == 1)
             {
                 this.Hide();
                 UIHome home = new UIHome();
@@ -48,11 +48,6 @@ namespace DP2.UIComponents
             {
                 MessageBox.Show("Wrong Username or Password");
             }
-
-        
-
-
-            
 
         }
 

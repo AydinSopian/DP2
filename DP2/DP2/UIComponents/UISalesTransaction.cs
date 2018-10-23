@@ -21,8 +21,8 @@ namespace DP2
 
         private int _rowNum;
 
-
         //getters and setters for Form Data
+        
         public void ClearData()
         {
             dataGridSales.Rows.Clear();
@@ -52,7 +52,8 @@ namespace DP2
             SetComboBox();
 
             textSalesItem.SelectedIndex = -1;
-            
+
+            transactionConfirmed = false;
         }
 
         private void SetComboBox()

@@ -12,11 +12,11 @@ namespace DP2.UIComponents
 {
     public partial class UIPayment : Form
     {
-        private RequestLog log;
         private UISalesTransaction _parentForm;
         private decimal _amountPaid;
         private decimal _salesTotal;
         private string values;
+        private RequestLog log;
 
         //getter for _salesTotal
         public decimal SalesTotal {
@@ -34,6 +34,7 @@ namespace DP2.UIComponents
             _parentForm = parentForm;
             _salesTotal = _parentForm.SalesTotal;
             labelPaymentTotal.Text = "RM " + _parentForm.SalesTotal.ToString();
+            log = RequestLog.Instance;
         }
 
         private void buttonPaymentConfirm_Click(object sender, EventArgs e)
@@ -67,13 +68,12 @@ namespace DP2.UIComponents
                         string dateTime = currentDateTime.ToString("yyyy-MM-dd HH:mm:ss");
                         string priceTotal = _parentForm.SalesTotal.ToString();
                         values = "\'" + dateTime + "\'" + "," + priceTotal;
-                        log.RunQuery(1, "Sales", "dateTime, priceTotal", "", values);
-
-                        //foreach row in dataGridSales, UPDATE Inventory table, quantity
+                        log.RunQuery(3, "Sales", "dateTime, priceTotal", "", values);
 
 
                         //foreach row in dataGridSales, INSERT into ProductsSold (dateTime, productId, quantity)
 
+                        //foreach row in dataGridSales, UPDATE Inventory table, quantity
 
                         //Clear dataGridSales
                         _parentForm.ClearData();
