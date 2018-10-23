@@ -52,8 +52,6 @@ namespace DP2
             SetComboBox();
 
             textSalesItem.SelectedIndex = -1;
-
-            transactionConfirmed = false;
         }
 
         private void SetComboBox()
