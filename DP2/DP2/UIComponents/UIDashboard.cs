@@ -27,7 +27,7 @@ namespace DP2.UIComponents
 
         private void buttonDashboardGenerate_Click(object sender, EventArgs e)
         {
-            cn = new MySqlConnection("server=localhost;uid=root;pwd=;database=kuhchingtest;sslmode=none");
+            cn = new MySqlConnection("datasource=35.198.212.34;port=3306;username=root;password=;database=dp2;sslmode=none");
             da = new MySqlDataAdapter("select * from inventory", cn);
             ds = new DataSet();
             dt = new DataTable();
