@@ -13,6 +13,8 @@ namespace DP2
     public partial class UISalesTransaction: Form
     {
         private RequestLog log;
+        private DataTable dt;
+
 
         //declaring field variables
         private int _colNum, _colQty;
@@ -23,6 +25,16 @@ namespace DP2
 
         //getters and setters for Form Data
         
+        public DataTable GetDataTable()
+        {
+            return dt;
+        }
+
+        public int GetQuantity()
+        {
+            return _colQty;
+        }
+
         public void ClearData()
         {
             dataGridSales.Rows.Clear();
@@ -44,14 +56,17 @@ namespace DP2
         {
             InitializeComponent();
             log = RequestLog.Instance;
-           
+            dt = new DataTable();
+
+            dt.Columns.Add();
+            dt.Columns.Add();
+            dt.Columns.Add();
+
             _colNum = 0;
             _rowNum = 0;
 
             textSalesItem.ValueMember = "itemName";
             SetComboBox();
-
-            textSalesItem.SelectedIndex = -1;
         }
 
         private void SetComboBox()
@@ -61,6 +76,7 @@ namespace DP2
             textSalesItem.DisplayMember = "itemName";
             log.RunQuery(1, "Inventory", "itemName, itemId", "quantity>0", "");
             textSalesItem.DataSource = log.GetOutputDataSet.Tables["outputDataTable"];
+            textSalesItem.SelectedIndex = -1;
         }
 
         private void formSales_Load(object sender, EventArgs e)
@@ -82,6 +98,19 @@ namespace DP2
             if (dataGridSales.Columns[e.ColumnIndex].Name == "salesDeleteRow")
             {
                 salesTransactionBindingSource.RemoveCurrent();
+
+                _salesTotal -= 0;
+
+                foreach (DataRow dtr in dt.Rows)
+                {
+                    foreach(DataGridViewRow dgvr in dataGridSales.Rows)
+                    {
+                        if(dtr[1] == dgvr.Cells[1].Value)
+                        {
+                            dt.Rows.Remove(dtr);
+                        }
+                    }
+                }
             }
         }
 
@@ -152,6 +181,16 @@ namespace DP2
                 errorMessage.ShowDialog();
             }
 
+            log.RunQuery(1, "inventory", "itemid", "itemname=\"" + _colItem + "\"", "");
+
+            DataRow dr = dt.NewRow();
+
+            dr[0] = log.GetOutputValue;
+            dr[1] = _colItem;
+            dr[2] = _colQty;
+
+            dt.Rows.Add(dr);
+
             SetComboBox();
            
         }
@@ -161,7 +200,7 @@ namespace DP2
             //Open payment window
             UIComponents.UIPayment paymentWindow = new UIComponents.UIPayment(this);
             paymentWindow.ShowDialog();
-
+            SetComboBox();
             _rowNum = 0;
         }
 

@@ -23,6 +23,11 @@ namespace DP2
         private QueryDirector qDirector;
         private string query;
 
+        public string GetQuery()
+        {
+            return query;
+        }
+
         private object outputValue;
         public object GetOutputValue
         {

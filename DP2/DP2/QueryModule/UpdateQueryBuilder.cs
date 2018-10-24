@@ -22,7 +22,7 @@ namespace DP2
 
         public void BuildWhere(string condition)
         {
-            query.SetWhere("WHERE " + condition);
+            query.SetWhere(" WHERE " + condition);
         }
 
         public void BuildKeyword()

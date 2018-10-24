@@ -72,9 +72,17 @@ namespace DP2.UIComponents
 
 
                         //foreach row in dataGridSales, INSERT into ProductsSold (dateTime, productId, quantity)
+                       
+                        foreach(DataRow dr in _parentForm.GetDataTable().Rows)
+                        {
+                            log.RunQuery(3, "productssold", "datetime, itemid, quantity", "", "\'"+dateTime+"\', " + dr[0] +", "+ dr[2]);
+                        }
 
                         //foreach row in dataGridSales, UPDATE Inventory table, quantity
-
+                        foreach (DataRow dr in _parentForm.GetDataTable().Rows)
+                        {
+                            log.RunQuery(4, "inventory", "", "itemid=" + dr[0], "quantity = quantity - " + dr[2]);
+                        }
                         //Clear dataGridSales
                         _parentForm.ClearData();
                     }
