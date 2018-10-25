@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using MySql.Data.MySqlClient;
 using System.Data;
+using System.Windows.Forms;
 
 namespace DP2
 {
@@ -106,6 +107,8 @@ namespace DP2
                     {                       
                         command.ExecuteNonQuery();
                     }
+
+
                     dbConnect.Close();
                 }
             }
@@ -113,6 +116,7 @@ namespace DP2
             {
                 UIComponents.UIError error = new UIComponents.UIError("Error, could not connect to server", "OK");
                 error.ShowDialog();
+                MessageBox.Show(query);
             }
         }
 

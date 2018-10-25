@@ -181,7 +181,7 @@ namespace DP2
                 errorMessage.ShowDialog();
             }
 
-            log.RunQuery(1, "inventory", "itemid", "itemname=\"" + _colItem + "\"", "");
+            log.RunQuery(1, "Inventory", "itemid", "itemname=\"" + _colItem + "\"", "");
 
             DataRow dr = dt.NewRow();
 
