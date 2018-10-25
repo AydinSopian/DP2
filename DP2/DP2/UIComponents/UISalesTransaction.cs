@@ -142,7 +142,7 @@ namespace DP2
                 _colSubtotal = Convert.ToDecimal(_colQty) * _colPricePerUnit;
 
                 //check to ensure items purchased do not exceed stock amount
-                log.RunQuery(1, "I nventory", "quantity", "itemId=" + selectedId, "");
+                log.RunQuery(1, "Inventory", "quantity", "itemId=" + selectedId, "");
                 int inventoryQty = Convert.ToInt32(log.GetOutputValue);
 
                 if(_colQty > inventoryQty)
