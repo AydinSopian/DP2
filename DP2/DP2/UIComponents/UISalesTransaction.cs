@@ -97,20 +97,7 @@ namespace DP2
         {
             if (dataGridSales.Columns[e.ColumnIndex].Name == "salesDeleteRow")
             {
-                salesTransactionBindingSource.RemoveCurrent();
-
-                _salesTotal -= 0;
-
-                foreach (DataRow dtr in dt.Rows)
-                {
-                    foreach(DataGridViewRow dgvr in dataGridSales.Rows)
-                    {
-                        if(dtr[1] == dgvr.Cells[1].Value)
-                        {
-                            dt.Rows.Remove(dtr);
-                        }
-                    }
-                }
+                
             }
         }
 
@@ -193,6 +180,24 @@ namespace DP2
 
             SetComboBox();
            
+        }
+
+        private void buttonSalesDelete_Click(object sender, EventArgs e)
+        {
+            salesTransactionBindingSource.RemoveCurrent();
+
+            _salesTotal -= 0;
+
+            foreach (DataRow dtr in dt.Rows)
+            {
+                foreach (DataGridViewRow dgvr in dataGridSales.Rows)
+                {
+                    if (dtr[1] == dgvr.Cells[1].Value)
+                    {
+                        dt.Rows.Remove(dtr);
+                    }
+                }
+            }
         }
 
         private void buttonSalesCheckout_Click(object sender, EventArgs e)

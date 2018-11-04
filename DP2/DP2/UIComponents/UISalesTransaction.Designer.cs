@@ -42,15 +42,17 @@
             this.textSalesItem = new System.Windows.Forms.ComboBox();
             this.textSalesQty = new System.Windows.Forms.TextBox();
             this.buttonSalesAdd = new System.Windows.Forms.Button();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.buttonSalesIncrement = new System.Windows.Forms.Button();
+            this.buttonSalesDecrement = new System.Windows.Forms.Button();
+            this.buttonSalesDelete = new System.Windows.Forms.Button();
             this.buttonSalesCheckout = new System.Windows.Forms.Button();
-            this.salesDeleteRow = new System.Windows.Forms.DataGridViewImageColumn();
             this.salesNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.salesItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.salesQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.salesPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.salesSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.salesTransactionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSales)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.salesTransactionBindingSource)).BeginInit();
@@ -102,8 +104,7 @@
             this.salesItem,
             this.salesQty,
             this.salesPrice,
-            this.salesSubtotal,
-            this.salesDeleteRow});
+            this.salesSubtotal});
             this.dataGridSales.DataSource = this.salesTransactionBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
@@ -137,11 +138,10 @@
             this.dataGridSales.RowTemplate.Height = 30;
             this.dataGridSales.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridSales.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridSales.Size = new System.Drawing.Size(828, 446);
+            this.dataGridSales.Size = new System.Drawing.Size(828, 386);
             this.dataGridSales.TabIndex = 10;
             this.dataGridSales.TabStop = false;
             this.dataGridSales.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridSales_CellContentClick);
-            
             // 
             // panel1
             // 
@@ -219,15 +219,55 @@
             this.buttonSalesAdd.UseVisualStyleBackColor = false;
             this.buttonSalesAdd.Click += new System.EventHandler(this.buttonSalesAdd_Click);
             // 
-            // dataGridViewImageColumn1
+            // buttonSalesIncrement
             // 
-            this.dataGridViewImageColumn1.FillWeight = 55.50259F;
-            this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.Image = global::DP2.Properties.Resources.icons8_trash_25;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewImageColumn1.Width = 828;
+            this.buttonSalesIncrement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
+            this.buttonSalesIncrement.FlatAppearance.BorderSize = 0;
+            this.buttonSalesIncrement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSalesIncrement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSalesIncrement.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.buttonSalesIncrement.Image = global::DP2.Properties.Resources.icons8_plus_math_20;
+            this.buttonSalesIncrement.Location = new System.Drawing.Point(703, 559);
+            this.buttonSalesIncrement.Name = "buttonSalesIncrement";
+            this.buttonSalesIncrement.Size = new System.Drawing.Size(69, 47);
+            this.buttonSalesIncrement.TabIndex = 14;
+            this.buttonSalesIncrement.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonSalesIncrement.UseVisualStyleBackColor = false;
+            // 
+            // buttonSalesDecrement
+            // 
+            this.buttonSalesDecrement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
+            this.buttonSalesDecrement.FlatAppearance.BorderSize = 0;
+            this.buttonSalesDecrement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSalesDecrement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSalesDecrement.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.buttonSalesDecrement.Image = global::DP2.Properties.Resources.icons8_subtract_20;
+            this.buttonSalesDecrement.Location = new System.Drawing.Point(628, 559);
+            this.buttonSalesDecrement.Name = "buttonSalesDecrement";
+            this.buttonSalesDecrement.Size = new System.Drawing.Size(69, 47);
+            this.buttonSalesDecrement.TabIndex = 13;
+            this.buttonSalesDecrement.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonSalesDecrement.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.buttonSalesDecrement.UseVisualStyleBackColor = false;
+            // 
+            // buttonSalesDelete
+            // 
+            this.buttonSalesDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
+            this.buttonSalesDelete.FlatAppearance.BorderSize = 0;
+            this.buttonSalesDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSalesDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSalesDelete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.buttonSalesDelete.Image = global::DP2.Properties.Resources.icons8_trash_25;
+            this.buttonSalesDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSalesDelete.Location = new System.Drawing.Point(814, 559);
+            this.buttonSalesDelete.Name = "buttonSalesDelete";
+            this.buttonSalesDelete.Size = new System.Drawing.Size(121, 47);
+            this.buttonSalesDelete.TabIndex = 12;
+            this.buttonSalesDelete.Text = "DELETE";
+            this.buttonSalesDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonSalesDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.buttonSalesDelete.UseVisualStyleBackColor = false;
+            this.buttonSalesDelete.Click += new System.EventHandler(this.buttonSalesDelete_Click);
             // 
             // buttonSalesCheckout
             // 
@@ -247,15 +287,6 @@
             this.buttonSalesCheckout.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.buttonSalesCheckout.UseVisualStyleBackColor = false;
             this.buttonSalesCheckout.Click += new System.EventHandler(this.buttonSalesCheckout_Click);
-            // 
-            // salesDeleteRow
-            // 
-            this.salesDeleteRow.FillWeight = 55.50259F;
-            this.salesDeleteRow.HeaderText = "";
-            this.salesDeleteRow.Image = global::DP2.Properties.Resources.icons8_trash_25;
-            this.salesDeleteRow.Name = "salesDeleteRow";
-            this.salesDeleteRow.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.salesDeleteRow.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // salesNum
             // 
@@ -291,6 +322,16 @@
             // 
             this.salesTransactionBindingSource.DataSource = typeof(DP2.Classes.salesTransaction);
             // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.FillWeight = 55.50259F;
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = global::DP2.Properties.Resources.icons8_trash_25;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewImageColumn1.Width = 828;
+            // 
             // UISalesTransaction
             // 
             this.AcceptButton = this.buttonSalesAdd;
@@ -298,6 +339,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.ClientSize = new System.Drawing.Size(1040, 729);
+            this.Controls.Add(this.buttonSalesIncrement);
+            this.Controls.Add(this.buttonSalesDecrement);
+            this.Controls.Add(this.buttonSalesDelete);
             this.Controls.Add(this.textSalesQty);
             this.Controls.Add(this.textSalesItem);
             this.Controls.Add(this.panel1);
@@ -331,12 +375,14 @@
         private System.Windows.Forms.BindingSource salesTransactionBindingSource;
         private System.Windows.Forms.ComboBox textSalesItem;
         private System.Windows.Forms.TextBox textSalesQty;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn salesNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn salesItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn salesQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn salesPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn salesSubtotal;
-        private System.Windows.Forms.DataGridViewImageColumn salesDeleteRow;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.Button buttonSalesDelete;
+        private System.Windows.Forms.Button buttonSalesDecrement;
+        private System.Windows.Forms.Button buttonSalesIncrement;
     }
 }

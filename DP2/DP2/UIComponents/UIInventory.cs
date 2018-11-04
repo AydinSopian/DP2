@@ -74,7 +74,6 @@ namespace DP2
                 ViewInventory();
 
                 //set cursor focus to category upon adding item AND clear text boxes
-                textInventoryCategory.Clear();
                 textInventoryItem.Clear();
                 textInventoryCost.Clear();
                 textInventoryPrice.Clear();
