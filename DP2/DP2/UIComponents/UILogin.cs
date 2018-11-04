@@ -32,7 +32,7 @@ namespace DP2.UIComponents
 
         private void buttonConfirmationContinue_Click(object sender, EventArgs e)
         {
-            //TO-DO: ADD DATABASE CONNECTION HERE
+            //DATABASE CONNECTION
             log.RunQuery(1, "UserAccounts", "*", "Username = \"" + textLoginUsername.Text + "\" AND Password = \"" + textLoginPassword.Text + "\"", "");
            
             DataTable UserAccounts = new DataTable();
