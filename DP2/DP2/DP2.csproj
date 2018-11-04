@@ -120,6 +120,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryModule\SelectQueryBuilder.cs" />
     <Compile Include="QueryModule\UpdateQueryBuilder.cs" />
+    <Compile Include="UIComponents\UIUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIComponents\UIUsers.Designer.cs">
+      <DependentUpon>UIUsers.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="UIComponents\UIChange.resx">
       <DependentUpon>UIChange.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,6 +163,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UIComponents\UIUsers.resx">
+      <DependentUpon>UIUsers.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\DataSources\DP2.Classes.salesTransaction.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -218,6 +227,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-subtract-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

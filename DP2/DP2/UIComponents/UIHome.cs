@@ -83,6 +83,18 @@ namespace DP2
 
         }
 
+        private void buttonNavUsers_Click(object sender, EventArgs e)
+        {
+            navIndicator.Height = buttonNavUsers.Height;
+            navIndicator.Top = buttonNavUsers.Top;
+
+            UIComponents.UIUsers formUsers = new UIComponents.UIUsers();
+            formUsers.TopLevel = false;
+            content.Controls.Clear();
+            content.Controls.Add(formUsers);
+            formUsers.Show();
+        }
+
 
         //Movable title bar
 

@@ -83,6 +83,16 @@ namespace DP2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap edit_24 {
+            get {
+                object obj = ResourceManager.GetObject("edit_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_cash_register_40 {
             get {
                 object obj = ResourceManager.GetObject("icons8_cash_register_40", resourceCulture);

@@ -47,8 +47,8 @@
             this.inventoryPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inventoryQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelInventoryCategory = new System.Windows.Forms.Label();
-            this.buttonInventoryAdd = new System.Windows.Forms.Button();
             this.textInventoryCategory = new System.Windows.Forms.ComboBox();
+            this.buttonInventoryAdd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridInventory)).BeginInit();
             this.SuspendLayout();
             // 
@@ -236,6 +236,18 @@
             this.labelInventoryCategory.TabIndex = 11;
             this.labelInventoryCategory.Text = "Category :";
             // 
+            // textInventoryCategory
+            // 
+            this.textInventoryCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.textInventoryCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.textInventoryCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textInventoryCategory.ForeColor = System.Drawing.Color.White;
+            this.textInventoryCategory.FormattingEnabled = true;
+            this.textInventoryCategory.Location = new System.Drawing.Point(44, 62);
+            this.textInventoryCategory.Name = "textInventoryCategory";
+            this.textInventoryCategory.Size = new System.Drawing.Size(201, 28);
+            this.textInventoryCategory.TabIndex = 12;
+            // 
             // buttonInventoryAdd
             // 
             this.buttonInventoryAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
@@ -254,18 +266,6 @@
             this.buttonInventoryAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.buttonInventoryAdd.UseVisualStyleBackColor = false;
             this.buttonInventoryAdd.Click += new System.EventHandler(this.buttonInventoryAdd_Click);
-            // 
-            // textInventoryCategory
-            // 
-            this.textInventoryCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
-            this.textInventoryCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.textInventoryCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textInventoryCategory.ForeColor = System.Drawing.Color.White;
-            this.textInventoryCategory.FormattingEnabled = true;
-            this.textInventoryCategory.Location = new System.Drawing.Point(44, 62);
-            this.textInventoryCategory.Name = "textInventoryCategory";
-            this.textInventoryCategory.Size = new System.Drawing.Size(201, 28);
-            this.textInventoryCategory.TabIndex = 12;
             // 
             // UIInventory
             // 
