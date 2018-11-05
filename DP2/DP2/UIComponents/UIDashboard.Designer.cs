@@ -28,21 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelDashboardTitle = new System.Windows.Forms.Label();
-            this.dataGridDashboard = new System.Windows.Forms.DataGridView();
-            this.inventoryNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inventoryItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inventoryCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inventoryPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inventoryQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelDashboardReport = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.buttonDashboardGenerate = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridDashboard)).BeginInit();
+            this.buttonDashboardTables = new System.Windows.Forms.Button();
+            this.buttonDashboardCharts = new System.Windows.Forms.Button();
+            this.content = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // labelDashboardTitle
@@ -55,91 +47,6 @@
             this.labelDashboardTitle.Size = new System.Drawing.Size(179, 33);
             this.labelDashboardTitle.TabIndex = 14;
             this.labelDashboardTitle.Text = "DASHBOARD";
-            // 
-            // dataGridDashboard
-            // 
-            this.dataGridDashboard.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridDashboard.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.dataGridDashboard.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.dataGridDashboard.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridDashboard.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dataGridDashboard.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(20, 10, 0, 10);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridDashboard.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridDashboard.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridDashboard.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.inventoryNum,
-            this.inventoryItem,
-            this.inventoryCost,
-            this.inventoryPrice,
-            this.inventoryQty});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridDashboard.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridDashboard.EnableHeadersVisualStyles = false;
-            this.dataGridDashboard.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.dataGridDashboard.Location = new System.Drawing.Point(12, 109);
-            this.dataGridDashboard.Name = "dataGridDashboard";
-            this.dataGridDashboard.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridDashboard.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridDashboard.RowHeadersVisible = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(20, 10, 0, 10);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridDashboard.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridDashboard.RowTemplate.Height = 30;
-            this.dataGridDashboard.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridDashboard.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridDashboard.Size = new System.Drawing.Size(1016, 608);
-            this.dataGridDashboard.TabIndex = 15;
-            this.dataGridDashboard.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridDashboard_CellContentClick);
-            // 
-            // inventoryNum
-            // 
-            this.inventoryNum.HeaderText = "NO.";
-            this.inventoryNum.Name = "inventoryNum";
-            // 
-            // inventoryItem
-            // 
-            this.inventoryItem.HeaderText = "ITEM";
-            this.inventoryItem.Name = "inventoryItem";
-            // 
-            // inventoryCost
-            // 
-            this.inventoryCost.HeaderText = "COST PER UNIT";
-            this.inventoryCost.Name = "inventoryCost";
-            // 
-            // inventoryPrice
-            // 
-            this.inventoryPrice.HeaderText = "PRICE PER UNIT";
-            this.inventoryPrice.Name = "inventoryPrice";
-            // 
-            // inventoryQty
-            // 
-            this.inventoryQty.HeaderText = "QTY";
-            this.inventoryQty.Name = "inventoryQty";
             // 
             // labelDashboardReport
             // 
@@ -185,21 +92,65 @@
             this.buttonDashboardGenerate.UseVisualStyleBackColor = false;
             this.buttonDashboardGenerate.Click += new System.EventHandler(this.buttonDashboardGenerate_Click);
             // 
+            // buttonDashboardTables
+            // 
+            this.buttonDashboardTables.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
+            this.buttonDashboardTables.FlatAppearance.BorderSize = 0;
+            this.buttonDashboardTables.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDashboardTables.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDashboardTables.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.buttonDashboardTables.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonDashboardTables.Location = new System.Drawing.Point(12, 104);
+            this.buttonDashboardTables.Name = "buttonDashboardTables";
+            this.buttonDashboardTables.Size = new System.Drawing.Size(106, 47);
+            this.buttonDashboardTables.TabIndex = 20;
+            this.buttonDashboardTables.Text = "TABLES";
+            this.buttonDashboardTables.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.buttonDashboardTables.UseVisualStyleBackColor = false;
+            this.buttonDashboardTables.Click += new System.EventHandler(this.buttonDashboardTables_Click);
+            // 
+            // buttonDashboardCharts
+            // 
+            this.buttonDashboardCharts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
+            this.buttonDashboardCharts.FlatAppearance.BorderSize = 0;
+            this.buttonDashboardCharts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDashboardCharts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDashboardCharts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.buttonDashboardCharts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonDashboardCharts.Location = new System.Drawing.Point(118, 104);
+            this.buttonDashboardCharts.Name = "buttonDashboardCharts";
+            this.buttonDashboardCharts.Size = new System.Drawing.Size(106, 47);
+            this.buttonDashboardCharts.TabIndex = 21;
+            this.buttonDashboardCharts.Text = "CHARTS";
+            this.buttonDashboardCharts.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.buttonDashboardCharts.UseVisualStyleBackColor = false;
+            this.buttonDashboardCharts.Click += new System.EventHandler(this.buttonDashboardCharts_Click);
+            // 
+            // content
+            // 
+            this.content.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.content.Location = new System.Drawing.Point(12, 151);
+            this.content.Name = "content";
+            this.content.Size = new System.Drawing.Size(1016, 566);
+            this.content.TabIndex = 22;
+            // 
             // UIDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.ClientSize = new System.Drawing.Size(1040, 729);
+            this.Controls.Add(this.content);
+            this.Controls.Add(this.buttonDashboardCharts);
+            this.Controls.Add(this.buttonDashboardTables);
             this.Controls.Add(this.buttonDashboardGenerate);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.labelDashboardReport);
-            this.Controls.Add(this.dataGridDashboard);
             this.Controls.Add(this.labelDashboardTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UIDashboard";
             this.Text = "UIDashboard";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridDashboard)).EndInit();
+            this.Load += new System.EventHandler(this.UIDashboard_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,14 +159,11 @@
         #endregion
 
         private System.Windows.Forms.Label labelDashboardTitle;
-        private System.Windows.Forms.DataGridView dataGridDashboard;
-        private System.Windows.Forms.DataGridViewTextBoxColumn inventoryNum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn inventoryItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn inventoryCost;
-        private System.Windows.Forms.DataGridViewTextBoxColumn inventoryPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn inventoryQty;
         private System.Windows.Forms.Label labelDashboardReport;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button buttonDashboardGenerate;
+        private System.Windows.Forms.Button buttonDashboardTables;
+        private System.Windows.Forms.Button buttonDashboardCharts;
+        private System.Windows.Forms.Panel content;
     }
 }

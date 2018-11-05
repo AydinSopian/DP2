@@ -32,7 +32,7 @@ namespace DP2.UIComponents
 
         private void BindColumns()
         {
-            dataGridUsers.ColumnCount = 2;
+            dataGridUsers.ColumnCount = 3;
 
             dataGridUsers.AutoGenerateColumns = false;
 

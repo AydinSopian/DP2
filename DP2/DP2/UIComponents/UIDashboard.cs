@@ -24,6 +24,8 @@ namespace DP2.UIComponents
         MySqlDataAdapter da;
         DataSet ds;
         DataTable dt;
+        UIComponents.UIDashboardTable formDashboardTable;
+        UIComponents.UIDashboardCharts formDashboardCharts;
 
         private void buttonDashboardGenerate_Click(object sender, EventArgs e)
         {
@@ -60,6 +62,47 @@ namespace DP2.UIComponents
         private void dataGridDashboard_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void buttonDashboardTables_Click(object sender, EventArgs e)
+        {
+            Control ctrl = ((Control)sender);
+            ctrl.BackColor = System.Drawing.ColorTranslator.FromHtml("#404040");
+            buttonDashboardCharts.BackColor = System.Drawing.ColorTranslator.FromHtml("#232323");
+
+            
+            formDashboardTable.TopLevel = false;
+            content.Controls.Clear();
+            content.Controls.Add(formDashboardTable);
+            formDashboardTable.Show();
+        }
+
+        private void buttonDashboardCharts_Click(object sender, EventArgs e)
+        {
+            Control ctrl = ((Control)sender);
+            ctrl.BackColor = System.Drawing.ColorTranslator.FromHtml("#404040");
+            buttonDashboardTables.BackColor = System.Drawing.ColorTranslator.FromHtml("#232323");
+
+           
+            formDashboardCharts.TopLevel = false;
+            content.Controls.Clear();
+            content.Controls.Add(formDashboardCharts);
+            formDashboardCharts.Show();
+        }
+
+        private void UIDashboard_Load(object sender, EventArgs e)
+        {
+            formDashboardTable = new UIDashboardTable();
+            formDashboardCharts = new UIDashboardCharts();
+
+            buttonDashboardTables.BackColor = System.Drawing.ColorTranslator.FromHtml("#404040");
+            buttonDashboardCharts.BackColor = System.Drawing.ColorTranslator.FromHtml("#232323");
+
+
+            formDashboardTable.TopLevel = false;
+            content.Controls.Clear();
+            content.Controls.Add(formDashboardTable);
+            formDashboardTable.Show();
         }
     }
 }

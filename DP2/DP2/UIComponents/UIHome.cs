@@ -12,6 +12,11 @@ namespace DP2
 {
     public partial class UIHome: Form
     {
+        UISalesTransaction formSales;
+        UIInventory formInventory;
+        UIComponents.UIDashboard formDashboard;
+        UIComponents.UIUsers formUsers;
+
         public UIHome()
         {
             InitializeComponent();
@@ -21,7 +26,11 @@ namespace DP2
 
         private void home_Load(object sender, EventArgs e)
         {
-            UISalesTransaction formSales = new UISalesTransaction();
+            formSales = new UISalesTransaction();
+            formInventory = new UIInventory();
+            formDashboard = new UIComponents.UIDashboard();
+            formUsers = new UIComponents.UIUsers();
+
             formSales.TopLevel = false;
             content.Controls.Clear();
             content.Controls.Add(formSales);
@@ -33,21 +42,18 @@ namespace DP2
             navIndicator.Height = buttonNavSales.Height;
             navIndicator.Top = buttonNavSales.Top;
 
-            UISalesTransaction formSales = new UISalesTransaction();
+            
             formSales.TopLevel = false;
             content.Controls.Clear();
             content.Controls.Add(formSales);
             formSales.Show();
         }
 
-
-
         private void buttonNavInventory_Click(object sender, EventArgs e)
         {
             navIndicator.Height = buttonNavInventory.Height;
             navIndicator.Top = buttonNavInventory.Top;
 
-            UIInventory formInventory = new UIInventory();
             formInventory.TopLevel = false;
             content.Controls.Clear();
             content.Controls.Add(formInventory);
@@ -59,11 +65,21 @@ namespace DP2
             navIndicator.Height = buttonNavDashboard.Height;
             navIndicator.Top = buttonNavDashboard.Top;
 
-            UIComponents.UIDashboard uiDashboard = new UIComponents.UIDashboard();
-            uiDashboard.TopLevel = false;
+            formDashboard.TopLevel = false;
             content.Controls.Clear();
-            content.Controls.Add(uiDashboard);
-            uiDashboard.Show();
+            content.Controls.Add(formDashboard);
+            formDashboard.Show();
+        }
+
+        private void buttonNavUsers_Click(object sender, EventArgs e)
+        {
+            navIndicator.Height = buttonNavUsers.Height;
+            navIndicator.Top = buttonNavUsers.Top;
+
+            formUsers.TopLevel = false;
+            content.Controls.Clear();
+            content.Controls.Add(formUsers);
+            formUsers.Show();
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
@@ -83,17 +99,7 @@ namespace DP2
 
         }
 
-        private void buttonNavUsers_Click(object sender, EventArgs e)
-        {
-            navIndicator.Height = buttonNavUsers.Height;
-            navIndicator.Top = buttonNavUsers.Top;
-
-            UIComponents.UIUsers formUsers = new UIComponents.UIUsers();
-            formUsers.TopLevel = false;
-            content.Controls.Clear();
-            content.Controls.Add(formUsers);
-            formUsers.Show();
-        }
+        
 
 
         //Movable title bar
