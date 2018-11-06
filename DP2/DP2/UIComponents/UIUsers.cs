@@ -45,9 +45,27 @@ namespace DP2.UIComponents
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
 
+        private void buttonUsersCreate_Click(object sender, EventArgs e)
+        {
+            UIComponents.UINewUser newUser = new UIComponents.UINewUser();
+            newUser.ShowDialog();
+        }
+
+        private void buttonUsersEdit_Click(object sender, EventArgs e)
+        {
+            //OPEN EDIT WINDOW
+        }
+
+        private void buttonUsersDelete_Click(object sender, EventArgs e)
+        {
+            UIConfirmation confirmation = new UIConfirmation("Are you sure?", "Yes", "Cancel");
+            confirmation.ShowDialog();
+
+            if (confirmation.isConfirmed)
+            {
+                //DELETE ROW
+            }
         }
     }
 }

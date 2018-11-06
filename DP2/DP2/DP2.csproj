@@ -110,6 +110,12 @@
     <Compile Include="UIComponents\UILogin.Designer.cs">
       <DependentUpon>UILogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="UIComponents\UINewUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIComponents\UINewUser.Designer.cs">
+      <DependentUpon>UINewUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="UIComponents\UIPayment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UIComponents\UILogin.resx">
       <DependentUpon>UILogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIComponents\UINewUser.resx">
+      <DependentUpon>UINewUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UIComponents\UIPayment.resx">
       <DependentUpon>UIPayment.cs</DependentUpon>
