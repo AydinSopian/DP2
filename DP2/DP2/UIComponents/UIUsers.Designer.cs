@@ -33,15 +33,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridUsers = new System.Windows.Forms.DataGridView();
+            this.usersUsername = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usersPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usersPermissions = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textUsersUsername = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textUsersPassword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textUsersPermissions = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.usersUsername = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usersPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usersPermissions = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonUsersEdit = new System.Windows.Forms.Button();
             this.buttonUsersDelete = new System.Windows.Forms.Button();
             this.buttonUsersCreate = new System.Windows.Forms.Button();
@@ -104,6 +104,21 @@
             this.dataGridUsers.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridUsers.Size = new System.Drawing.Size(931, 412);
             this.dataGridUsers.TabIndex = 10;
+            // 
+            // usersUsername
+            // 
+            this.usersUsername.HeaderText = "USERNAME";
+            this.usersUsername.Name = "usersUsername";
+            // 
+            // usersPassword
+            // 
+            this.usersPassword.HeaderText = "PASSWORD";
+            this.usersPassword.Name = "usersPassword";
+            // 
+            // usersPermissions
+            // 
+            this.usersPermissions.HeaderText = "PERMISSIONS";
+            this.usersPermissions.Name = "usersPermissions";
             // 
             // textUsersUsername
             // 
@@ -173,21 +188,6 @@
             this.label3.Text = "Permissions :";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // usersUsername
-            // 
-            this.usersUsername.HeaderText = "USERNAME";
-            this.usersUsername.Name = "usersUsername";
-            // 
-            // usersPassword
-            // 
-            this.usersPassword.HeaderText = "PASSWORD";
-            this.usersPassword.Name = "usersPassword";
-            // 
-            // usersPermissions
-            // 
-            this.usersPermissions.HeaderText = "PERMISSIONS";
-            this.usersPermissions.Name = "usersPermissions";
-            // 
             // buttonUsersEdit
             // 
             this.buttonUsersEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
@@ -195,10 +195,11 @@
             this.buttonUsersEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUsersEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUsersEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.buttonUsersEdit.Image = global::DP2.Properties.Resources.icons8_edit_25;
             this.buttonUsersEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonUsersEdit.Location = new System.Drawing.Point(703, 623);
+            this.buttonUsersEdit.Location = new System.Drawing.Point(722, 623);
             this.buttonUsersEdit.Name = "buttonUsersEdit";
-            this.buttonUsersEdit.Size = new System.Drawing.Size(106, 47);
+            this.buttonUsersEdit.Size = new System.Drawing.Size(97, 47);
             this.buttonUsersEdit.TabIndex = 19;
             this.buttonUsersEdit.Text = "EDIT";
             this.buttonUsersEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
