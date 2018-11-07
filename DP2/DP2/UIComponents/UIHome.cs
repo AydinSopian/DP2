@@ -16,12 +16,18 @@ namespace DP2
         UIInventory formInventory;
         UIComponents.UIDashboard formDashboard;
         UIComponents.UIUsers formUsers;
+        Boolean _inventory;
+        Boolean _dashboard;
+        Boolean _users;
 
-        public UIHome()
+        public UIHome(Boolean inventory, Boolean dashboard, Boolean users)
         {
             InitializeComponent();
             navIndicator.Height = buttonNavSales.Height;
             navIndicator.Top = buttonNavSales.Top;
+            _inventory = inventory;
+            _dashboard = dashboard;
+            _users = users;
         }
 
         private void home_Load(object sender, EventArgs e)
@@ -35,6 +41,21 @@ namespace DP2
             content.Controls.Clear();
             content.Controls.Add(formSales);
             formSales.Show();
+
+            if(!_inventory)
+            {
+                buttonNavInventory.Visible = false;
+            }
+
+            if(!_dashboard)
+            {
+                buttonNavDashboard.Visible = false;
+            }
+
+            if(!_users)
+            {
+                buttonNavUsers.Visible = false;
+            }
         }
 
         private void buttonNavSales_Click(object sender, EventArgs e)

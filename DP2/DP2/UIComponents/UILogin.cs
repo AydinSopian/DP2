@@ -38,10 +38,19 @@ namespace DP2.UIComponents
             DataTable UserAccounts = new DataTable();
             UserAccounts = log.GetOutputDataSet.Tables["outputDataTable"];
 
-            if(UserAccounts.Rows.Count == 1)
+            log.RunQuery(1, "UserAccounts", "permissions", "Username = \"" + textLoginUsername.Text + "\" AND Password = \"" + textLoginPassword.Text + "\"", "");
+            string accountPermissions = log.GetOutputValue.ToString();
+
+            if(UserAccounts.Rows.Count == 1 && accountPermissions == "admin")
             {
                 this.Hide();
-                UIHome home = new UIHome();
+                UIHome home = new UIHome(true, true, true);
+                home.Show();
+            }
+            else if (UserAccounts.Rows.Count == 1 && accountPermissions == "employee")
+            {
+                this.Hide();
+                UIHome home = new UIHome(false, false, false);
                 home.Show();
             }
             else
