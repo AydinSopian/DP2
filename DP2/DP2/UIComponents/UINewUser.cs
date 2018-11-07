@@ -48,6 +48,7 @@ namespace DP2.UIComponents
                 string password = textNewUserPassword.Text;
                 string permissions = textNewUserPermissions.Text;
                 log.RunQuery(3, "UserAccounts", "username, password, permissions", "", "\'" + username + "\'" + "," + "\'" + password + "\'" + "," + "\'" + permissions + "\'");
+                this.Close();
             }
         }
     }

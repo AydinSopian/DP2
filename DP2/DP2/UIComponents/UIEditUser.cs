@@ -22,6 +22,7 @@ namespace DP2.UIComponents
         public UIEditUser(string username, string password, string permissions)
         {
             InitializeComponent();
+            log = RequestLog.Instance;
             _selectedRow = username;
             _username = username;
             _password = password;
@@ -70,9 +71,9 @@ namespace DP2.UIComponents
                 {
                     newPermissions = _permissions;
                 }
-
-                log.RunQuery(4, "UserAccounts", "", "username=" + _selectedRow, "username = " + newUsername + "," + "password =" + newPassword + "," + "permissions = " + newPermissions);
-                
+                string queryString = "username=" + "\'" + newUsername + "\'" + "," + "password =" + "\'" + newPassword + "\'" + "," + "permissions = " + "\'" + newPermissions + "\'";
+                log.RunQuery(4, "UserAccounts", "", "username=" + "\'" +  _selectedRow + "\'", queryString);
+                this.Close();
             }
         }
     }

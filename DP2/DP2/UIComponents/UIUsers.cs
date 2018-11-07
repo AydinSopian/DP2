@@ -57,21 +57,29 @@ namespace DP2.UIComponents
         {
             UIComponents.UINewUser newUser = new UIComponents.UINewUser();
             newUser.ShowDialog();
+
+            viewUsers();
         }
 
         private void buttonUsersEdit_Click(object sender, EventArgs e)
         {
             //OPEN EDIT WINDOW
-            
-            if (dataGridUsers.SelectedRows.Count == 1)
+            foreach (DataGridViewCell oneCell in dataGridUsers.SelectedCells)
             {
-                DataGridViewRow row = this.dataGridUsers.SelectedRows[0];
-                selectedRow = row.Cells["usersUsername"].Value.ToString();
-                _password = row.Cells["userPassword"].Value.ToString();
-                _permissions = row.Cells["userPermissions"].Value.ToString();
+                if (oneCell.Selected)
+                {
+                    int rowIndex = oneCell.RowIndex;
+                    selectedRow = dataGridUsers.Rows[rowIndex].Cells[0].Value.ToString();
+                    _password = dataGridUsers.Rows[rowIndex].Cells[1].Value.ToString();
+                    _permissions = dataGridUsers.Rows[rowIndex].Cells[2].Value.ToString();
 
-                UIEditUser editUserForm = new UIEditUser(selectedRow,_password,_permissions);
-                editUserForm.ShowDialog();
+                    UIEditUser editUserForm = new UIEditUser(selectedRow, _password, _permissions);
+                    editUserForm.ShowDialog();
+
+                    viewUsers();
+
+                }
+
             }
         }
 
@@ -83,13 +91,19 @@ namespace DP2.UIComponents
             if (confirmation.isConfirmed)
             {
                 //DELETE ROW
-               
-                if (dataGridUsers.SelectedRows.Count == 1)
+                foreach (DataGridViewCell oneCell in dataGridUsers.SelectedCells)
                 {
-                    DataGridViewRow row = this.dataGridUsers.SelectedRows[0];
-                    selectedRow = row.Cells["usersUsername"].Value.ToString();
-                    log.RunQuery(2, "UserAccounts", "", "username=" + selectedRow, "");
-                }                
+                    if (oneCell.Selected)
+                    {
+                        int rowIndex = oneCell.RowIndex;
+                        selectedRow = dataGridUsers.Rows[rowIndex].Cells[0].Value.ToString();
+                        log.RunQuery(2, "UserAccounts ", "", "username=" + "\'" + selectedRow + "\'", "");
+                        viewUsers();
+
+                    }
+
+                }
+         
             }
         }
 
