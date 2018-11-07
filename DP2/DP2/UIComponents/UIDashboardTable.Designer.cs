@@ -50,6 +50,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UIDashboardTable";
             this.Text = "UIDashboardTable";
+            this.Load += new System.EventHandler(this.UIDashboardTable_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

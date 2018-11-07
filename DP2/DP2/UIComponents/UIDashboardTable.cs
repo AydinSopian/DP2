@@ -16,5 +16,10 @@ namespace DP2.UIComponents
         {
             InitializeComponent();
         }
+
+        private void UIDashboardTable_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
