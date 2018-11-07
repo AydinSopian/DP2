@@ -14,6 +14,9 @@ namespace DP2.UIComponents
     {
         private RequestLog log;
         private DataTable dt;
+        private string selectedRow;
+        private string _password;
+        private string _permissions;
 
         public UIUsers()
         {
@@ -45,6 +48,10 @@ namespace DP2.UIComponents
 
         }
 
+        public DataTable GetDataTable()
+        {
+            return dt;
+        }
 
         private void buttonUsersCreate_Click(object sender, EventArgs e)
         {
@@ -55,6 +62,17 @@ namespace DP2.UIComponents
         private void buttonUsersEdit_Click(object sender, EventArgs e)
         {
             //OPEN EDIT WINDOW
+            
+            if (dataGridUsers.SelectedRows.Count == 1)
+            {
+                DataGridViewRow row = this.dataGridUsers.SelectedRows[0];
+                selectedRow = row.Cells["usersUsername"].Value.ToString();
+                _password = row.Cells["userPassword"].Value.ToString();
+                _permissions = row.Cells["userPermissions"].Value.ToString();
+
+                UIEditUser editUserForm = new UIEditUser(selectedRow,_password,_permissions);
+                editUserForm.ShowDialog();
+            }
         }
 
         private void buttonUsersDelete_Click(object sender, EventArgs e)
@@ -65,7 +83,19 @@ namespace DP2.UIComponents
             if (confirmation.isConfirmed)
             {
                 //DELETE ROW
+               
+                if (dataGridUsers.SelectedRows.Count == 1)
+                {
+                    DataGridViewRow row = this.dataGridUsers.SelectedRows[0];
+                    selectedRow = row.Cells["usersUsername"].Value.ToString();
+                    log.RunQuery(2, "UserAccounts", "", "username=" + selectedRow, "");
+                }                
             }
+        }
+
+        private void dataGridUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

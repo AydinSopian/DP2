@@ -12,9 +12,21 @@ namespace DP2.UIComponents
 {
     public partial class UIEditUser : Form
     {
-        public UIEditUser()
+        private RequestLog log;
+        private DataTable dt;
+        private string _selectedRow;
+        private string _username;
+        private string _password;
+        private string _permissions;
+
+        public UIEditUser(string username, string password, string permissions)
         {
             InitializeComponent();
+            _selectedRow = username;
+            _username = username;
+            _password = password;
+            _permissions = permissions;
+
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
@@ -40,6 +52,27 @@ namespace DP2.UIComponents
             if (confirmation.isConfirmed)
             {
                 //UPDATE DATABASE TO NEW VALUES
+                string newUsername = textEditUserUsername.Text;
+                string newPassword = textEditUserPassword.Text;
+                string newPermissions = textEditUserPermissions.Text;
+
+                if(textEditUserUsername.Text == "")
+                {
+                    newUsername = _username;
+                }
+
+                if (textEditUserPassword.Text == "")
+                {
+                    newPassword = _password;
+                }
+
+                if (textEditUserPermissions.Text == "")
+                {
+                    newPermissions = _permissions;
+                }
+
+                log.RunQuery(4, "UserAccounts", "", "username=" + _selectedRow, "username = " + newUsername + "," + "password =" + newPassword + "," + "permissions = " + newPermissions);
+                
             }
         }
     }
