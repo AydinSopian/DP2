@@ -19,7 +19,14 @@ namespace DP2.UIComponents
 
         private void UIDashboardTable_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dp2DataSet.ProductsSold' table. You can move, or remove it, as needed.
+            this.productsSoldTableAdapter.Fill(this.dp2DataSet.ProductsSold);
+            // TODO: This line of code loads data into the 'dp2DataSet.Sales' table. You can move, or remove it, as needed.
+            this.salesTableAdapter.Fill(this.dp2DataSet.Sales);
+            // TODO: This line of code loads data into the 'dp2DataSet.Inventory' table. You can move, or remove it, as needed.
+            this.inventoryTableAdapter.Fill(this.dp2DataSet.Inventory);
 
+            this.reportViewer1.RefreshReport();
         }
     }
 }

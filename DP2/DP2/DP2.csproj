@@ -52,7 +52,7 @@
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -69,6 +69,11 @@
     <Compile Include="Classes\DataValidation.cs" />
     <Compile Include="Classes\salesTransaction.cs" />
     <Compile Include="CsvModule\CsvUtility.cs" />
+    <Compile Include="dp2DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dp2DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="UIComponents\UIChange.cs">
       <SubType>Form</SubType>
@@ -219,6 +224,17 @@
     <EmbeddedResource Include="UIComponents\UIUsers.resx">
       <DependentUpon>UIUsers.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="dp2DataSet.xsc">
+      <DependentUpon>dp2DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="dp2DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dp2DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dp2DataSet.xss">
+      <DependentUpon>dp2DataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\DP2.Classes.salesTransaction.datasource" />
     <None Include="Properties\Settings.settings">
