@@ -91,5 +91,10 @@ namespace DP2
         {
 
         }
+
+        private void labelInventoryCategory_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
