@@ -108,6 +108,12 @@
     <Compile Include="UIComponents\UIDashboardTable.Designer.cs">
       <DependentUpon>UIDashboardTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="UIComponents\UIEditInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIComponents\UIEditInventory.Designer.cs">
+      <DependentUpon>UIEditInventory.cs</DependentUpon>
+    </Compile>
     <Compile Include="UIComponents\UIEditUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UIComponents\UIDashboardTable.resx">
       <DependentUpon>UIDashboardTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIComponents\UIEditInventory.resx">
+      <DependentUpon>UIEditInventory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UIComponents\UIEditUser.resx">
       <DependentUpon>UIEditUser.cs</DependentUpon>
