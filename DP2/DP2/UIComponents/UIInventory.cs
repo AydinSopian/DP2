@@ -14,6 +14,7 @@ namespace DP2
     {
         private RequestLog log;
         private DataTable dt;
+        private string values;
 
         public UIInventory()
         {
@@ -67,11 +68,14 @@ namespace DP2
             {
                 confirmation.Close();
 
-                string values = "\"" + textInventoryCategory.Text + "\"" + ", \"" + textInventoryItem.Text + "\", " + textInventoryCost.Text + ", " + textInventoryPrice.Text + ", " + textInventoryQty.Text;
-
+                //INSERT into inventory
+                values = "\"" + textInventoryCategory.Text + "\"" + ", \"" + textInventoryItem.Text + "\", " + textInventoryCost.Text + ", " + textInventoryPrice.Text + ", " + textInventoryQty.Text;
                 log.RunQuery(3, "Inventory", "category, itemName, costPerUnitBought, pricePerUnitSold, quantity", "", values);
-
                 ViewInventory();
+
+                //INSERT into notificationTable
+                values = "\""  + textInventoryItem.Text + "\"";
+                log.RunQuery(3, "notificationTable", "itemName", "", values);
 
                 //set cursor focus to category upon adding item AND clear text boxes
                 textInventoryItem.Clear();

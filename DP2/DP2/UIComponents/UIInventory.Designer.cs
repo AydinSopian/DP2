@@ -58,6 +58,8 @@
             this.notificationItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.notificationQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.notificationDateToOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonInventoryEdit = new System.Windows.Forms.Button();
+            this.buttonInventoryDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridInventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -206,7 +208,7 @@
             this.dataGridInventory.RowTemplate.Height = 30;
             this.dataGridInventory.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridInventory.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridInventory.Size = new System.Drawing.Size(1016, 441);
+            this.dataGridInventory.Size = new System.Drawing.Size(1016, 359);
             this.dataGridInventory.TabIndex = 9;
             this.dataGridInventory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridInventory_CellContentClick);
             // 
@@ -261,7 +263,7 @@
             // 
             // buttonInventoryAdd
             // 
-            this.buttonInventoryAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
+            this.buttonInventoryAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.buttonInventoryAdd.FlatAppearance.BorderSize = 0;
             this.buttonInventoryAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonInventoryAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -361,6 +363,42 @@
             this.notificationDateToOrder.HeaderText = "DATE TO ORDER";
             this.notificationDateToOrder.Name = "notificationDateToOrder";
             // 
+            // buttonInventoryEdit
+            // 
+            this.buttonInventoryEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
+            this.buttonInventoryEdit.FlatAppearance.BorderSize = 0;
+            this.buttonInventoryEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInventoryEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonInventoryEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.buttonInventoryEdit.Image = global::DP2.Properties.Resources.icons8_edit_25;
+            this.buttonInventoryEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonInventoryEdit.Location = new System.Drawing.Point(776, 656);
+            this.buttonInventoryEdit.Name = "buttonInventoryEdit";
+            this.buttonInventoryEdit.Size = new System.Drawing.Size(97, 47);
+            this.buttonInventoryEdit.TabIndex = 20;
+            this.buttonInventoryEdit.Text = "EDIT";
+            this.buttonInventoryEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonInventoryEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.buttonInventoryEdit.UseVisualStyleBackColor = false;
+            // 
+            // buttonInventoryDelete
+            // 
+            this.buttonInventoryDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
+            this.buttonInventoryDelete.FlatAppearance.BorderSize = 0;
+            this.buttonInventoryDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInventoryDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonInventoryDelete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.buttonInventoryDelete.Image = global::DP2.Properties.Resources.icons8_trash_25;
+            this.buttonInventoryDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonInventoryDelete.Location = new System.Drawing.Point(907, 656);
+            this.buttonInventoryDelete.Name = "buttonInventoryDelete";
+            this.buttonInventoryDelete.Size = new System.Drawing.Size(121, 47);
+            this.buttonInventoryDelete.TabIndex = 21;
+            this.buttonInventoryDelete.Text = "DELETE";
+            this.buttonInventoryDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonInventoryDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.buttonInventoryDelete.UseVisualStyleBackColor = false;
+            // 
             // UIInventory
             // 
             this.AcceptButton = this.buttonInventoryAdd;
@@ -368,6 +406,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.ClientSize = new System.Drawing.Size(1040, 729);
+            this.Controls.Add(this.buttonInventoryDelete);
+            this.Controls.Add(this.buttonInventoryEdit);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.labelNotificationTitle);
             this.Controls.Add(this.textInventoryCategory);
@@ -418,5 +458,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn notificationItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn notificationQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn notificationDateToOrder;
+        private System.Windows.Forms.Button buttonInventoryEdit;
+        private System.Windows.Forms.Button buttonInventoryDelete;
     }
 }
