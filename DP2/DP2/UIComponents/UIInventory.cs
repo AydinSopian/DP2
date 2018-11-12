@@ -72,10 +72,7 @@ namespace DP2
                 values = "\"" + textInventoryCategory.Text + "\"" + ", \"" + textInventoryItem.Text + "\", " + textInventoryCost.Text + ", " + textInventoryPrice.Text + ", " + textInventoryQty.Text;
                 log.RunQuery(3, "Inventory", "category, itemName, costPerUnitBought, pricePerUnitSold, quantity", "", values);
                 ViewInventory();
-
-                //INSERT into notificationTable
-                values = "\""  + textInventoryItem.Text + "\"";
-                log.RunQuery(3, "notificationTable", "itemName", "", values);
+               
 
                 //set cursor focus to category upon adding item AND clear text boxes
                 textInventoryItem.Clear();
