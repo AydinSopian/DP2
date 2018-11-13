@@ -12,9 +12,28 @@ namespace DP2.UIComponents
 {
     public partial class UIEditInventory : Form
     {
-        public UIEditInventory()
+        private RequestLog log;
+        private DataTable dt;
+        private string values;
+        private string selectedRow;
+        private string _itemID;
+        private string _itemCategory;
+        private string _itemName;
+        private string _itemCost;
+        private string _itemPrice;
+        private string _itemQty;
+
+        public UIEditInventory(string itemId, string itemCategory, string itemName, string itemCost, string itemPrice, string itemQty)
         {
             InitializeComponent();
+            log = RequestLog.Instance;
+            _itemID = itemId;
+            _itemCategory = itemCategory;
+            _itemName = itemName;
+            _itemCost = itemCost;
+            _itemPrice = itemPrice;
+            _itemQty = itemQty;
+
         }
 
         private void buttonEditInventoryCancel_Click(object sender, EventArgs e)
@@ -34,7 +53,50 @@ namespace DP2.UIComponents
 
         private void buttonEditInventoryEdit_Click(object sender, EventArgs e)
         {
+            UIConfirmation confirmation = new UIConfirmation("Are you sure?", "Yes", "Cancel");
+            confirmation.ShowDialog();
 
+            if (confirmation.isConfirmed)
+            {
+                //UPDATE DATABASE TO NEW VALUES
+                string newCategory = textInventoryCategory.Text;
+                string newItemName = textInventoryItem.Text;
+                string newCost = textInventoryCost.Text;
+                string newPrice = textInventoryPrice.ToString();
+                string newQty = textInventoryQty.ToString();
+
+                if (textInventoryCategory.Text == "")
+                {
+                    newCategory = _itemCategory;
+                }
+
+                if (textInventoryItem.Text == "")
+                {
+                    newItemName = _itemName;
+                }
+
+                if (textInventoryCost.Text == "")
+                {
+                    newCost = _itemCost;
+                }
+
+                if (textInventoryPrice.Text == "")
+                {
+                    newPrice = _itemPrice;
+                }
+
+                if (textInventoryQty.Text == "")
+                {
+                    newQty = _itemQty;
+                }
+
+                string queryString = "category=" + "\'" + newCategory + "\'" + "," + "itemName =" + "\'" + newItemName + "\'" + "," + "costPerUnitBought = " + "\'" + newCost + "\'" 
+                    + "," + "pricePerUnitSold = " + "\'" + newPrice + "\'"
+                    + "," + "quantity = " + "\'" + newQty + "\'";
+
+                log.RunQuery(4, "Inventory", "", "itemID=" + "\'" + _itemID + "\'", queryString);
+                this.Close();
+            }
         }
     }
 }

@@ -120,10 +120,11 @@ namespace DP2
             {
                 //store values into temporary variables
                 selectedId = textSalesItem.SelectedValue.ToString();
-                log.RunQuery(1, "Inventory", "itemName", "itemId=" + selectedId, "");
+
+                log.RunQuery(1, "Inventory", "itemName", "itemID=" + selectedId, "");
                 _colItem = log.GetOutputValue.ToString();
 
-                log.RunQuery(1, "Inventory", "pricePerUnitSold", "itemId=" + selectedId, "");
+                log.RunQuery(1, "Inventory", "pricePerUnitSold", "itemID=" + selectedId, "");
                 _colPricePerUnit = Convert.ToDecimal(log.GetOutputValue);
                 _colQty = int.Parse(textSalesQty.Text);
                 _colSubtotal = Convert.ToDecimal(_colQty) * _colPricePerUnit;
