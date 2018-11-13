@@ -54,14 +54,14 @@
             this.textInventoryCategory = new System.Windows.Forms.ComboBox();
             this.buttonInventoryAdd = new System.Windows.Forms.Button();
             this.labelNotificationTitle = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridNotifications = new System.Windows.Forms.DataGridView();
             this.notificationItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.notificationQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.notificationDateToOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonInventoryEdit = new System.Windows.Forms.Button();
             this.buttonInventoryDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridInventory)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridNotifications)).BeginInit();
             this.SuspendLayout();
             // 
             // textInventoryItem
@@ -291,14 +291,14 @@
             this.labelNotificationTitle.TabIndex = 15;
             this.labelNotificationTitle.Text = "NOTIFICATIONS";
             // 
-            // dataGridView1
+            // dataGridNotifications
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridNotifications.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridNotifications.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dataGridNotifications.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dataGridNotifications.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridNotifications.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dataGridNotifications.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -307,9 +307,9 @@
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridNotifications.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridNotifications.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridNotifications.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.notificationItem,
             this.notificationQty,
             this.notificationDateToOrder});
@@ -320,12 +320,12 @@
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.dataGridView1.Location = new System.Drawing.Point(594, 66);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridNotifications.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridNotifications.EnableHeadersVisualStyles = false;
+            this.dataGridNotifications.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dataGridNotifications.Location = new System.Drawing.Point(594, 66);
+            this.dataGridNotifications.Name = "dataGridNotifications";
+            this.dataGridNotifications.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -333,20 +333,21 @@
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridNotifications.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridNotifications.RowHeadersVisible = false;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(20, 10, 0, 10);
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridView1.RowTemplate.Height = 30;
-            this.dataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView1.Size = new System.Drawing.Size(434, 185);
-            this.dataGridView1.TabIndex = 16;
+            this.dataGridNotifications.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridNotifications.RowTemplate.Height = 30;
+            this.dataGridNotifications.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridNotifications.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGridNotifications.Size = new System.Drawing.Size(434, 185);
+            this.dataGridNotifications.TabIndex = 16;
+            this.dataGridNotifications.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // notificationItem
             // 
@@ -408,7 +409,7 @@
             this.ClientSize = new System.Drawing.Size(1040, 729);
             this.Controls.Add(this.buttonInventoryDelete);
             this.Controls.Add(this.buttonInventoryEdit);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridNotifications);
             this.Controls.Add(this.labelNotificationTitle);
             this.Controls.Add(this.textInventoryCategory);
             this.Controls.Add(this.labelInventoryCategory);
@@ -428,7 +429,7 @@
             this.Text = "Inventory Managent";
             this.Load += new System.EventHandler(this.UIInventory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridInventory)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridNotifications)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -454,7 +455,7 @@
         private System.Windows.Forms.Label labelInventoryCategory;
         private System.Windows.Forms.ComboBox textInventoryCategory;
         private System.Windows.Forms.Label labelNotificationTitle;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridNotifications;
         private System.Windows.Forms.DataGridViewTextBoxColumn notificationItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn notificationQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn notificationDateToOrder;

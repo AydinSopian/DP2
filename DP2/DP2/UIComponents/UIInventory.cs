@@ -14,6 +14,7 @@ namespace DP2
     {
         private RequestLog log;
         private DataTable dt;
+        private DataTable ndt;
         private string values;
 
         public UIInventory()
@@ -24,6 +25,7 @@ namespace DP2
             log = RequestLog.Instance;
 
             ViewInventory();
+            viewNotifications();
         }
 
         private void ViewInventory()
@@ -31,6 +33,14 @@ namespace DP2
             log.RunQuery(1, "Inventory", "*", "", "");
             dt = log.GetOutputDataSet.Tables["outputDataTable"];
             dataGridInventory.DataSource = dt;
+        }
+
+        private void viewNotifications()
+        {
+            string dateRange = "";
+            log.RunQuery(1, "Inventory", "itemName, quantity, dateToOrder", dateRange, "");
+            ndt = log.GetOutputDataSet.Tables["notificationDataTable"];
+            dataGridNotifications.DataSource = ndt;
         }
 
         private void BindColumns()
@@ -72,6 +82,7 @@ namespace DP2
                 values = "\"" + textInventoryCategory.Text + "\"" + ", \"" + textInventoryItem.Text + "\", " + textInventoryCost.Text + ", " + textInventoryPrice.Text + ", " + textInventoryQty.Text;
                 log.RunQuery(3, "Inventory", "category, itemName, costPerUnitBought, pricePerUnitSold, quantity", "", values);
                 ViewInventory();
+                viewNotifications();
                
 
                 //set cursor focus to category upon adding item AND clear text boxes
@@ -94,6 +105,11 @@ namespace DP2
         }
 
         private void labelInventoryCategory_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
