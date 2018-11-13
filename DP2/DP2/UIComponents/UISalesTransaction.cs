@@ -74,8 +74,8 @@ namespace DP2
             textSalesItem.DropDownStyle = ComboBoxStyle.DropDownList;
             textSalesItem.ValueMember = "itemId";
             textSalesItem.DisplayMember = "itemName";
-            log.RunQuery(1, "Inventory", "itemName, itemId", "quantity>0", "");
-            textSalesItem.DataSource = log.GetOutputDataSet.Tables["outputDataTable"];
+            log.RunSelectQuery(textSalesItem.Name.ToString(), "Inventory", "itemName, itemId", "quantity>0", "");
+            textSalesItem.DataSource = log.GetOutputDataSet.Tables[textSalesItem.Name.ToString()];
             textSalesItem.SelectedIndex = -1;
         }
 

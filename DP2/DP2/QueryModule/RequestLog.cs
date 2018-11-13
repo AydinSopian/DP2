@@ -75,12 +75,15 @@ namespace DP2
         /// <param name="condition"></param>
         /// <param name="values"></param>
         /// <returns></returns>
-        public void RunQuery(int id, string tables, string columns, string condition, string values)
+        public void RunSelectQuery(string sender, string tables, string columns, string condition, string values)
         {
-            outputDataSet.Clear();
             outputValue = null;
-
-            qDirector = new QueryDirector(qFactory.CreateQueryBuilder(id));
+            if(outputDataSet.Tables[sender] !=  null)
+            {
+                outputDataSet.Tables[sender].Clear();
+            }
+            
+            qDirector = new QueryDirector(qFactory.CreateQueryBuilder(1));
 
             qDirector.MakeQuery(tables, columns, condition, values);
 
@@ -93,21 +96,43 @@ namespace DP2
                 using (adp = new MySqlDataAdapter(command))
                 {
                     dbConnect.Open();
-                    if (id == 1)
+
+                    adp.Fill(outputDataSet, "outputDataTable");
+
+                    adp.Fill(outputDataSet, sender);
+
+                    if (outputDataSet.Tables["outputDataTable"].Rows.Count == 1 && outputDataSet.Tables["outputDataTable"].Columns.Count == 1)
                     {
-                        adp.Fill(outputDataSet, "outputDataTable");
-
-                        if (outputDataSet.Tables[0].Rows.Count == 1)
-                        {
-                            outputValue = command.ExecuteScalar();
-                        }
-
-                    }
-                    else
-                    {                       
-                        command.ExecuteNonQuery();
+                        outputValue = command.ExecuteScalar();
                     }
 
+                    dbConnect.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                UIComponents.UIError error = new UIComponents.UIError("Error, could not connect to server", "OK");
+                error.ShowDialog();
+                MessageBox.Show(query);
+            }
+        }
+
+        public void RunQuery(int queryId, string tables, string columns, string condition, string values)
+        {
+            qDirector = new QueryDirector(qFactory.CreateQueryBuilder(queryId));
+
+            qDirector.MakeQuery(tables, columns, condition, values);
+
+            query = qDirector.GetQuery;
+
+            try
+            {
+                using (dbConnect)
+                using (command = new MySqlCommand(query, dbConnect))
+                using (adp = new MySqlDataAdapter(command))
+                {
+
+                    command.ExecuteNonQuery();
 
                     dbConnect.Close();
                 }

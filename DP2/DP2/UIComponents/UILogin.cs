@@ -33,25 +33,28 @@ namespace DP2.UIComponents
         private void buttonConfirmationContinue_Click(object sender, EventArgs e)
         {
             //DATABASE CONNECTION
-            log.RunQuery(1, "UserAccounts", "*", "Username = \"" + textLoginUsername.Text + "\" AND Password = \"" + textLoginPassword.Text + "\"", "");
+            log.RunSelectQuery("loginUnamePass", "UserAccounts", "*", "Username = \"" + textLoginUsername.Text + "\" AND Password = \"" + textLoginPassword.Text + "\"", "");
            
             DataTable UserAccounts = new DataTable();
-            UserAccounts = log.GetOutputDataSet.Tables["outputDataTable"];
+            UserAccounts = log.GetOutputDataSet.Tables["loginUnamePass"];
 
-            log.RunQuery(1, "UserAccounts", "permissions", "Username = \"" + textLoginUsername.Text + "\" AND Password = \"" + textLoginPassword.Text + "\"", "");
-            string accountPermissions = log.GetOutputValue.ToString();
+            //log.RunSelectQuery(1, "UserAccounts", "permissions", "Username = \"" + textLoginUsername.Text + "\" AND Password = \"" + textLoginPassword.Text + "\"", "");
+            string accountPermissions = UserAccounts.Rows[0][2].ToString(); //log.GetOutputValue.ToString();
 
-            if(UserAccounts.Rows.Count == 1 && accountPermissions == "admin")
+            if(UserAccounts.Rows.Count == 1)
             {
-                this.Hide();
-                UIHome home = new UIHome(true, true, true);
-                home.Show();
-            }
-            else if (UserAccounts.Rows.Count == 1 && accountPermissions == "employee")
-            {
-                this.Hide();
-                UIHome home = new UIHome(false, false, false);
-                home.Show();
+                if (accountPermissions == "admin")
+                {
+                    this.Hide();
+                    UIHome home = new UIHome(true, true, true);
+                    home.Show();
+                }
+                else if (accountPermissions == "employee")
+                {
+                    this.Hide();
+                    UIHome home = new UIHome(false, false, false);
+                    home.Show();
+                }
             }
             else
             {

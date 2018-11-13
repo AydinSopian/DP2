@@ -20,7 +20,6 @@ namespace DP2
         public UIInventory()
         {
             InitializeComponent();
-            BindColumns();
 
             log = RequestLog.Instance;
 
@@ -30,20 +29,36 @@ namespace DP2
 
         private void ViewInventory()
         {
-            log.RunQuery(1, "Inventory", "*", "", "");
-            dt = log.GetOutputDataSet.Tables["outputDataTable"];
+            BindInventoryColumns();
+            log.RunSelectQuery(dataGridInventory.Name, "Inventory", "itemID, itemName, costPerUnitBought, pricePerUnitSold, quantity, category", "", "");
+            dt = log.GetOutputDataSet.Tables[dataGridInventory.Name];
             dataGridInventory.DataSource = dt;
         }
 
         private void viewNotifications()
         {
+            BindNotificationsColumns();
             string dateRange = "";
-            log.RunQuery(1, "Inventory", "itemName, quantity, dateToOrder", dateRange, "");
-            ndt = log.GetOutputDataSet.Tables["notificationDataTable"];
+            log.RunSelectQuery(dataGridNotifications.Name.ToString(), "Inventory", "itemName, quantity, dateToOrder", dateRange, "");
+            ndt = log.GetOutputDataSet.Tables[dataGridNotifications.Name];
             dataGridNotifications.DataSource = ndt;
         }
 
-        private void BindColumns()
+        private void BindNotificationsColumns()
+        {
+            dataGridNotifications.ColumnCount = 3;
+
+            dataGridNotifications.AutoGenerateColumns = false;
+
+            dataGridNotifications.Columns[0].Name = "ITEM";
+            dataGridNotifications.Columns[0].DataPropertyName = "itemName";
+            dataGridNotifications.Columns[1].Name = "QTY";
+            dataGridNotifications.Columns[1].DataPropertyName = "quantity";
+            dataGridNotifications.Columns[2].Name = "DATE TO ORDER";
+            dataGridNotifications.Columns[2].DataPropertyName = "dateToOrder";
+        }
+
+        private void BindInventoryColumns()
         {
             dataGridInventory.ColumnCount = 6;
 
