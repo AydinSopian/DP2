@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data;
+using MySql.Data.MySqlClient;
+using System.IO;
 
 namespace DP2.UIComponents
 {
@@ -17,16 +20,49 @@ namespace DP2.UIComponents
             InitializeComponent();
         }
 
+        MySqlConnection cn;
+        MySqlDataAdapter da;
+        DataSet ds;
+        DataTable dt;
+
         private void UIDashboardTable_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dp2DataSet.ProductsSold' table. You can move, or remove it, as needed.
-            this.productsSoldTableAdapter.Fill(this.dp2DataSet.ProductsSold);
-            // TODO: This line of code loads data into the 'dp2DataSet.Sales' table. You can move, or remove it, as needed.
-            this.salesTableAdapter.Fill(this.dp2DataSet.Sales);
-            // TODO: This line of code loads data into the 'dp2DataSet.Inventory' table. You can move, or remove it, as needed.
-            this.inventoryTableAdapter.Fill(this.dp2DataSet.Inventory);
+          
+        }
 
-            this.reportViewer1.RefreshReport();
+        private void Weekb_Click(object sender, EventArgs e)
+        {
+            cn = new MySqlConnection("datasource=35.198.212.34;port=3306;username=root;password=;database=dp2;sslmode=none");
+            da = new MySqlDataAdapter("SELECT DAYNAME(dateTime) as 'Day', dateTime as 'Date & Time', ProductsSold.itemID as 'Item ID', ProductsSold.quantity as 'Item Quantity', ROUND(SUM((pricePerUnitSold - costPerUnitBought) * ProductsSold.quantity), 2) as 'Profit' FROM ProductsSold INNER JOIN Inventory ON ProductsSold.itemID = Inventory.itemID WHERE WEEK(dateTime) = WEEK(CURDATE()) GROUP BY ProductsSold.dateTime, ProductsSold.itemID", cn);
+            ds = new DataSet();
+            dt = new DataTable();
+
+            dt.Rows.Clear();
+            dataGridView1.Refresh();
+
+            da.Fill(ds, "data");
+            dt = ds.Tables["data"];
+            dataGridView1.DataSource = dt;
+        }
+
+        private void Monthb_Click(object sender, EventArgs e)
+        {
+            cn = new MySqlConnection("datasource=35.198.212.34;port=3306;username=root;password=;database=dp2;sslmode=none");
+            da = new MySqlDataAdapter("SELECT dateTime as 'Date & Time', ProductsSold.itemID as 'Item ID', ProductsSold.quantity as 'Item Quantity', ROUND(SUM((pricePerUnitSold - costPerUnitBought) * ProductsSold.quantity), 2) as 'Profit' FROM ProductsSold INNER JOIN Inventory ON ProductsSold.itemID = Inventory.itemID WHERE MONTH(dateTime) = MONTH(CURDATE()) GROUP BY ProductsSold.dateTime, ProductsSold.itemID", cn);
+            ds = new DataSet();
+            dt = new DataTable();
+
+            dt.Rows.Clear();
+            dataGridView1.Refresh();
+
+            da.Fill(ds, "data");
+            dt = ds.Tables["data"];
+            dataGridView1.DataSource = dt;
+        }
+
+        private void labelDashboardReport_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

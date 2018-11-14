@@ -50,13 +50,14 @@
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Installer for Windows\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -71,11 +72,6 @@
     <Compile Include="Classes\DataValidation.cs" />
     <Compile Include="Classes\salesTransaction.cs" />
     <Compile Include="CsvModule\CsvUtility.cs" />
-    <Compile Include="dp2DataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dp2DataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="UIComponents\UIChange.cs">
       <SubType>Form</SubType>
@@ -179,7 +175,6 @@
     <Compile Include="UIComponents\UIUsers.Designer.cs">
       <DependentUpon>UIUsers.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="UIComponents\UIChange.resx">
       <DependentUpon>UIChange.cs</DependentUpon>
     </EmbeddedResource>
@@ -235,17 +230,6 @@
     <EmbeddedResource Include="UIComponents\UIUsers.resx">
       <DependentUpon>UIUsers.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="dp2DataSet.xsc">
-      <DependentUpon>dp2DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="dp2DataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dp2DataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="dp2DataSet.xss">
-      <DependentUpon>dp2DataSet.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\DP2.Classes.salesTransaction.datasource" />
     <None Include="Properties\Settings.settings">
@@ -338,6 +322,9 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Chart DataSource\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
