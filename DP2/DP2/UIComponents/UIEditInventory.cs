@@ -13,9 +13,6 @@ namespace DP2.UIComponents
     public partial class UIEditInventory : Form
     {
         private RequestLog log;
-        private DataTable dt;
-        private string values;
-        private string selectedRow;
         private string _itemID;
         private string _itemCategory;
         private string _itemName;

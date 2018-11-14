@@ -68,6 +68,7 @@ namespace DP2
             content.Controls.Clear();
             content.Controls.Add(formSales);
             formSales.Show();
+            formSales.SetComboBox();
         }
 
         private void buttonNavInventory_Click(object sender, EventArgs e)
@@ -75,10 +76,12 @@ namespace DP2
             navIndicator.Height = buttonNavInventory.Height;
             navIndicator.Top = buttonNavInventory.Top;
 
+            
             formInventory.TopLevel = false;
             content.Controls.Clear();
             content.Controls.Add(formInventory);
             formInventory.Show();
+            formInventory.ViewInventory();
         }
 
         private void buttonNavDashboard_Click(object sender, EventArgs e)

@@ -69,7 +69,7 @@ namespace DP2
             SetComboBox();
         }
 
-        private void SetComboBox()
+        public void SetComboBox()
         {
             textSalesItem.DropDownStyle = ComboBoxStyle.DropDownList;
             textSalesItem.ValueMember = "itemId";

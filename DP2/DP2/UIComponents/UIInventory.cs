@@ -33,12 +33,12 @@ namespace DP2
 
             ViewInventory();
             viewNotifications();
-            textInventoryCategory.Items.Add("Supplements");
+            textInventoryCategory.Items.Add("Supplement");
             textInventoryCategory.Items.Add("Medicine");
             textInventoryCategory.Items.Add("Equipment");
         }
 
-        private void ViewInventory()
+        public void ViewInventory()
         {
             BindInventoryColumns();
             log.RunSelectQuery(dataGridInventory.Name, "Inventory", "itemID, category, itemName, costPerUnitBought, pricePerUnitSold, quantity", "", "");

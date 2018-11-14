@@ -13,7 +13,6 @@ namespace DP2.UIComponents
     public partial class UIEditUser : Form
     {
         private RequestLog log;
-        private DataTable dt;
         private string _selectedRow;
         private string _username;
         private string _password;

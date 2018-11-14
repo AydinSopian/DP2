@@ -40,10 +40,11 @@ namespace DP2.UIComponents
             UserAccounts = log.GetOutputDataSet.Tables["loginUnamePass"];
 
             //log.RunSelectQuery(1, "UserAccounts", "permissions", "Username = \"" + textLoginUsername.Text + "\" AND Password = \"" + textLoginPassword.Text + "\"", "");
-            string accountPermissions = UserAccounts.Rows[0][2].ToString(); //log.GetOutputValue.ToString();
+            
 
             if(UserAccounts.Rows.Count == 1)
             {
+                string accountPermissions = UserAccounts.Rows[0][2].ToString(); //log.GetOutputValue.ToString();
                 if (accountPermissions == "admin")
                 {
                     this.Hide();
