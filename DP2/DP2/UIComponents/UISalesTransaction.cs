@@ -12,38 +12,19 @@ namespace DP2
 {
     public partial class UISalesTransaction: Form
     {
-        private RequestLog log;
-        private DataTable dt;
-
-
         //declaring field variables
-        private int _colNum, _colQty;
+        private int _rowNum, selectedRowIndex, selectedItemInventoryQty, _colQty;
+        private decimal _salesTotal, _colSubtotal;
+        private DataTable dt;
+        private RequestLog log;
         private string _colItem;
-        private decimal _colPricePerUnit, _colSubtotal, _salesTotal;
-
-        private int _rowNum;
+        private decimal _colPricePerUnit;
 
         //getters and setters for Form Data
-        
-        public DataTable GetDataTable()
-        {
-            return dt;
-        }
 
-        public int GetQuantity()
+        public DataTable GetDataTable
         {
-            return _colQty;
-        }
-
-        public void ClearData()
-        {
-            dataGridSales.Rows.Clear();
-        }
-
-        public int ColNum
-        {
-            get { return _colNum; }
-            set { _colNum = value; }
+            get { return dt; }
         }
 
         public decimal SalesTotal
@@ -58,29 +39,48 @@ namespace DP2
             log = RequestLog.Instance;
             dt = new DataTable();
 
-            dt.Columns.Add();
-            dt.Columns.Add();
-            dt.Columns.Add();
-
-            _colNum = 0;
             _rowNum = 0;
 
-            textSalesItem.ValueMember = "itemName";
-            SetComboBox();
-            textSalesCategory.DropDownStyle = ComboBoxStyle.DropDownList;
-            textSalesCategory.Items.Add("Supplement");
-            textSalesCategory.Items.Add("Medicine");
-            textSalesCategory.Items.Add("Equipment");
+            dt.Columns.Add("NO.", typeof(int));
+            dt.Columns.Add("itemName", typeof(string));
+            dt.Columns.Add("QTY", typeof(int));
+            dt.Columns.Add("pricePerUnitSold", typeof(decimal));
+            dt.Columns.Add("SUBTOTAL", typeof(decimal));
+            dt.Columns.Add("itemID", typeof(int));
+            
+            dataGridSales.DataSource = dt;
+            BindColumns();
+            dataGridSales.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridSales.ReadOnly = true;
+
+            SetComboBoxes();
+
         }
 
-        public void SetComboBox()
+        public void ClearData()
+        {
+            dt.Rows.Clear();
+        }
+
+        private void setSalesItemsEvent(object sender, EventArgs e)
+        {
+            textSalesItem.DataSource = log.RunSelectQuery("Inventory", "itemName, itemId", "quantity>0 AND category=\"" + textSalesCategory.SelectedValue.ToString() + "\"");
+            textSalesItem.SelectedIndex = -1;
+        }
+
+        public void SetComboBoxes()
         {
             textSalesItem.DropDownStyle = ComboBoxStyle.DropDownList;
-            textSalesItem.ValueMember = "itemId";
+            textSalesItem.ValueMember = "itemID";
             textSalesItem.DisplayMember = "itemName";
-            log.RunSelectQuery(textSalesItem.Name.ToString(), "Inventory", "itemName, itemId", "quantity>0", "");
-            textSalesItem.DataSource = log.GetOutputDataSet.Tables[textSalesItem.Name.ToString()];
             textSalesItem.SelectedIndex = -1;
+
+            textSalesCategory.DropDownStyle = ComboBoxStyle.DropDownList;
+            textSalesCategory.ValueMember = "category";
+            textSalesCategory.DataSource = log.RunSelectQuery("Inventory GROUP BY category", "category", "");
+            textSalesCategory.SelectedIndex = -1;
+            textSalesCategory.SelectionChangeCommitted += setSalesItemsEvent;
+
         }
 
         private void formSales_Load(object sender, EventArgs e)
@@ -96,133 +96,197 @@ namespace DP2
           
         }
 
-
         private void dataGridSales_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridSales.Columns[e.ColumnIndex].Name == "salesDeleteRow")
+            if (e.RowIndex != -1)
             {
-                
+                if (dataGridSales.CurrentCell != null)
+                {
+                    selectedRowIndex = dataGridSales.CurrentCell.RowIndex;
+                    selectedItemInventoryQty = Convert.ToInt32(log.RunSelectQuery("Inventory", "quantity", "itemName=\""+dt.Rows[selectedRowIndex][1]+"\"").Rows[0][0]);
+                }
+                    
             }
         }
 
-
-        private void buttonSalesAdd_Click(object sender, EventArgs e)
+        private void BindColumns()
         {
-            
-            //VALIDATE DATA
+            dataGridSales.AutoGenerateColumns = false;
+
+            dataGridSales.Columns[0].Name = "NO.";
+            dataGridSales.Columns[0].DataPropertyName = "NO.";
+            dataGridSales.Columns[1].Name = "ITEM";
+            dataGridSales.Columns[1].DataPropertyName = "itemName";
+            dataGridSales.Columns[2].Name = "QTY";
+            dataGridSales.Columns[2].DataPropertyName = "QTY";
+            dataGridSales.Columns[3].Name = "PRICE PER UNIT";
+            dataGridSales.Columns[3].DataPropertyName = "pricePerUnitSold";
+            dataGridSales.Columns[4].Name = "SUBTOTAL";
+            dataGridSales.Columns[4].DataPropertyName = "SUBTOTAL";
+        }
+
+        private bool ValidateEntry(DataRow validationRow)
+        {
+            bool isValid = false;
+
+            _colItem = validationRow[0].ToString();
+            _colPricePerUnit = Convert.ToDecimal(validationRow[1]);
+            int inventoryQty = Convert.ToInt32(validationRow[2]);
             Classes.DataValidation dataValidation = new Classes.DataValidation();
 
-            bool itemIsValid = dataValidation.ValidateString(textSalesItem.Text);
-            bool qtyIsValid = dataValidation.ValidateInteger(textSalesQty.Text);
+            bool qtyIsValidType = dataValidation.ValidateInteger(textSalesQty.Text);
 
-              
-            string selectedId = "";
-
-
-            //IF ALL DATA IS VALID, ADD NEW ROW TO DATAGRIDVIEW
-            if (itemIsValid && qtyIsValid)
+            if (qtyIsValidType)
             {
-                //store values into temporary variables
-                selectedId = textSalesItem.SelectedValue.ToString();
-
-                log.RunQuery(1, "Inventory", "itemName", "itemID=" + selectedId, "");
-                _colItem = log.GetOutputValue.ToString();
-
-                log.RunQuery(1, "Inventory", "pricePerUnitSold", "itemID=" + selectedId, "");
-                _colPricePerUnit = Convert.ToDecimal(log.GetOutputValue);
                 _colQty = int.Parse(textSalesQty.Text);
                 _colSubtotal = Convert.ToDecimal(_colQty) * _colPricePerUnit;
+                bool qtyIsValidNum = _colQty <= inventoryQty;
 
-                //check to ensure items purchased do not exceed stock amount
-                log.RunQuery(1, "Inventory", "quantity", "itemId=" + selectedId, "");
-                int inventoryQty = Convert.ToInt32(log.GetOutputValue);
-
-                if(_colQty > inventoryQty)
+                if (qtyIsValidNum)
                 {
-                    UIComponents.UIError errorMessage = new UIComponents.UIError("Qty exceeds inventory quantity", "Okay");
-                    errorMessage.ShowDialog();
+                    isValid = true;
                 }
                 else
                 {
-                    _rowNum++;
-                    _colNum++;
-
-                    //create new salesTransaction using temporaray variables
-                    salesTransactionBindingSource.Add(new Classes.salesTransaction()
-                    {
-                        number = _colNum,
-                        item = _colItem,
-                        qty = _colQty,
-                        pricePerUnit = decimal.Round(_colPricePerUnit, 2),
-                        subtotal = decimal.Round(_colSubtotal, 2)
-                    });
-
-
-                    _salesTotal += _colSubtotal;
-
-                    setPriceTotal();
-
-                    //set cursor focus to category upon adding item AND clear text boxes
-                    textSalesQty.Clear();
-                    textSalesItem.Focus();
+                    UIComponents.UIError errorMessage = new UIComponents.UIError("Qty exceeds inventory quantity.", "Okay");
+                    errorMessage.ShowDialog();
                 }
             }
             else
             {
                 UIComponents.UIError errorMessage = new UIComponents.UIError("Invalid Input. Please try again.", "Okay");
                 errorMessage.ShowDialog();
+
             }
 
-            log.RunQuery(1, "Inventory", "itemid", "itemname=\"" + _colItem + "\"", "");
+            return isValid;
+        }
 
-            DataRow dr = dt.NewRow();
+        private void buttonSalesAdd_Click(object sender, EventArgs e)
+        {
+            //VALIDATE DATA
+            DataRow validationRow = log.RunSelectQuery("Inventory", "itemName, pricePerUnitSold, quantity", "itemID=" + textSalesItem.SelectedValue.ToString()).Rows[0];
+            bool isValid = ValidateEntry(validationRow);
 
-            dr[0] = log.GetOutputValue;
-            dr[1] = _colItem;
-            dr[2] = _colQty;
+            //IF ALL DATA IS VALID, ADD NEW ROW TO DATAGRIDVIEW
+            if (isValid)
+            {
+                _rowNum++;
+                dt.Rows.Add(_rowNum, _colItem, _colQty, decimal.Round(_colPricePerUnit, 2), decimal.Round(_colSubtotal, 2), textSalesItem.SelectedValue);
 
-            dt.Rows.Add(dr);
+                setPriceTotal();
 
-            SetComboBox();
-           
+                //set cursor focus to category upon adding item AND clear text boxes
+                textSalesQty.Clear();
+                textSalesItem.Focus();
+            }
+
+            dataGridSales.ClearSelection();
         }
 
         private void setPriceTotal()
         {
+            _salesTotal = 0;
+            foreach(DataRow r in dt.Rows)
+            {
+                _salesTotal += Convert.ToDecimal(r[4]);
+            }
+
             labelSalesTotal.Text = "RM " + decimal.Round(_salesTotal, 2, MidpointRounding.AwayFromZero).ToString();
         }
-        private void buttonSalesDelete_Click(object sender, EventArgs e)
+
+        private void buttonSalesDecrement_Click(object sender, EventArgs e)
         {
-            salesTransactionBindingSource.RemoveCurrent();
+            int tempQty = Convert.ToInt32(dt.Rows[selectedRowIndex][2]); ;
+            decimal tempSubTotal = Convert.ToDecimal(dt.Rows[selectedRowIndex][4]);
 
-            _salesTotal -= 0;
+            bool rowSelected = dataGridSales.SelectedRows.Count == 1 && dt.Rows.Count != 0;
+            bool canDecrement = tempQty != 1;
 
-            foreach (DataRow dtr in dt.Rows)
+            if (rowSelected && canDecrement)
             {
-                foreach (DataGridViewRow dgvr in dataGridSales.Rows)
+                tempSubTotal -= Convert.ToDecimal(dt.Rows[selectedRowIndex][3]);
+                tempQty--;
+
+                dt.Rows[selectedRowIndex][2] = tempQty;
+                dt.Rows[selectedRowIndex][4] = tempSubTotal;
+
+                setPriceTotal();
+
+            }
+            else
+            {
+                if(!rowSelected)
                 {
-                    if (dtr[1] == dgvr.Cells[1].Value)
-                    {
-                        dt.Rows.Remove(dtr);
-                    }
+                    UIComponents.UIError errorMessage = new UIComponents.UIError("Please select a row to decrement.", "Okay");
+                    errorMessage.ShowDialog();
                 }
             }
         }
 
-        private void textSalesQty_TextChanged(object sender, EventArgs e)
+        private void buttonSalesIncrement_Click(object sender, EventArgs e)
         {
+            int tempQty = Convert.ToInt32(dt.Rows[selectedRowIndex][2]); ;
+            decimal tempSubTotal = Convert.ToDecimal(dt.Rows[selectedRowIndex][4]);
 
+            bool rowSelected = dataGridSales.SelectedRows.Count == 1 && dt.Rows.Count != 0;
+            bool canIncrement = tempQty != selectedItemInventoryQty;
+
+            if (rowSelected && canIncrement)
+            {
+                tempSubTotal += Convert.ToDecimal(dt.Rows[selectedRowIndex][3]);
+                tempQty++;
+
+                dt.Rows[selectedRowIndex][2] = tempQty;
+                dt.Rows[selectedRowIndex][4] = tempSubTotal;
+
+                setPriceTotal();
+
+            }
+            else
+            {
+                if (!rowSelected)
+                {
+                    UIComponents.UIError errorMessage = new UIComponents.UIError("Please select a row to increment.", "Okay");
+                    errorMessage.ShowDialog();
+                }
+                if (!canIncrement)
+                {
+                    UIComponents.UIError errorMessage = new UIComponents.UIError("Qty exceeds inventory quantity.", "Okay");
+                    errorMessage.ShowDialog();
+                }
+            }
+        }
+
+        private void buttonSalesDelete_Click(object sender, EventArgs e)
+        {
+            if(dataGridSales.SelectedRows.Count == 1 && dt.Rows.Count != 0)
+            {
+                _rowNum = 0;
+                _salesTotal -= Convert.ToDecimal(dt.Rows[selectedRowIndex][4]);
+                dt.Rows[selectedRowIndex].Delete();
+                setPriceTotal();
+
+                foreach (DataRow r in dt.Rows)
+                {
+                    _rowNum++;
+                    r[0] = _rowNum;
+                }
+            }
+            else
+            {
+                UIComponents.UIError errorMessage = new UIComponents.UIError("Please select a row to delete.", "Okay");
+                errorMessage.ShowDialog();
+            }
         }
 
         private void buttonSalesCheckout_Click(object sender, EventArgs e)
         {
-            if(dataGridSales.Rows.Count > 0)
+            if(dt.Rows.Count != 0)
             {
                 //Open payment window
                 UIComponents.UIPayment paymentWindow = new UIComponents.UIPayment(this);
                 paymentWindow.ShowDialog();
-                SetComboBox();
-                _rowNum = 0;
                 _salesTotal = 0;
                 setPriceTotal();
             }

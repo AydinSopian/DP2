@@ -29,24 +29,11 @@ namespace DP2
             return query;
         }
 
-        private object outputValue;
-        public object GetOutputValue
-        {
-            get { return this.outputValue; }
-        }
-
-        private DataSet outputDataSet;
-        public DataSet GetOutputDataSet
-        {
-            get { return this.outputDataSet; }
-        }
-
         private RequestLog()
         {
             qFactory = new QueryBuilderFactory();
             connectionString = "datasource=35.198.212.34;port=3306;username=root;password=;database=dp2;sslmode=none";
             dbConnect = new MySqlConnection(connectionString);
-            outputDataSet = new DataSet();
         }
 
         /// <summary>
@@ -75,17 +62,11 @@ namespace DP2
         /// <param name="condition"></param>
         /// <param name="values"></param>
         /// <returns></returns>
-        public void RunSelectQuery(string sender, string tables, string columns, string condition, string values)
+        public DataTable RunSelectQuery(string tables, string columns, string condition)
         {
-            outputValue = null;
-            if(outputDataSet.Tables[sender] !=  null)
-            {
-                outputDataSet.Tables[sender].Clear();
-            }
-            
-            qDirector = new QueryDirector(qFactory.CreateQueryBuilder(1));
-
-            qDirector.MakeQuery(tables, columns, condition, values);
+            DataTable dt = new DataTable();
+            qDirector = new QueryDirector(new SelectQueryBuilder());
+            qDirector.MakeQuery(tables, columns, condition, "");
 
             query = qDirector.GetQuery;
 
@@ -96,18 +77,11 @@ namespace DP2
                 using (adp = new MySqlDataAdapter(command))
                 {
                     dbConnect.Open();
-
-                    adp.Fill(outputDataSet, "outputDataTable");
-
-                    adp.Fill(outputDataSet, sender);
-
-                    if (outputDataSet.Tables["outputDataTable"].Rows.Count == 1 && outputDataSet.Tables["outputDataTable"].Columns.Count == 1)
-                    {
-                        outputValue = command.ExecuteScalar();
-                    }
-
+                    adp.Fill(dt);
                     dbConnect.Close();
                 }
+
+                return dt;
             }
             catch (Exception e)
             {
@@ -115,6 +89,8 @@ namespace DP2
                 error.ShowDialog();
                 MessageBox.Show(query);
             }
+
+            return null;
         }
 
         public void RunQuery(int queryId, string tables, string columns, string condition, string values)
@@ -132,12 +108,6 @@ namespace DP2
                 {
                     dbConnect.Open();
                     command.ExecuteNonQuery();
-
-                    if(queryId == 1)
-                    {
-                        outputValue = command.ExecuteScalar();
-                    }
-
                     dbConnect.Close();
                 }
             }

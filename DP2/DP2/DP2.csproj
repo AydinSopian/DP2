@@ -70,7 +70,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\DataValidation.cs" />
-    <Compile Include="Classes\salesTransaction.cs" />
     <Compile Include="CsvModule\CsvUtility.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="UIComponents\UIChange.cs">

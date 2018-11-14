@@ -68,7 +68,7 @@ namespace DP2
             content.Controls.Clear();
             content.Controls.Add(formSales);
             formSales.Show();
-            formSales.SetComboBox();
+            formSales.SetComboBoxes();
         }
 
         private void buttonNavInventory_Click(object sender, EventArgs e)
