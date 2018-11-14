@@ -23,6 +23,7 @@ namespace DP2.UIComponents
         {
             InitializeComponent();
             log = RequestLog.Instance;
+            textLoginPassword.PasswordChar = '*';
         }
 
         private void UILogin_Load(object sender, EventArgs e)

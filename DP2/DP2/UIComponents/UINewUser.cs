@@ -19,6 +19,7 @@ namespace DP2.UIComponents
             InitializeComponent();
 
             log = RequestLog.Instance;
+            textNewUserPassword.PasswordChar = '*';
         }
 
         private void buttonClose_Click(object sender, EventArgs e)

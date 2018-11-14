@@ -27,6 +27,7 @@ namespace DP2.UIComponents
             _username = username;
             _password = password;
             _permissions = permissions;
+            textEditUserPassword.PasswordChar = '*';
 
         }
 
