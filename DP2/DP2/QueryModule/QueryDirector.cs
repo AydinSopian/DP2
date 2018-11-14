@@ -20,6 +20,7 @@ namespace DP2
             get { return this.queryBuilder; }
         }
 
+
         /// <summary>
         /// Director constructor.
         /// </summary>

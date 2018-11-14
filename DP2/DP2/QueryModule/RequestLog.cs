@@ -133,6 +133,11 @@ namespace DP2
                     dbConnect.Open();
                     command.ExecuteNonQuery();
 
+                    if(queryId == 1)
+                    {
+                        outputValue = command.ExecuteScalar();
+                    }
+
                     dbConnect.Close();
                 }
             }

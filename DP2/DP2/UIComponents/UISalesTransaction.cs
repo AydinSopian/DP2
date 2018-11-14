@@ -156,7 +156,7 @@ namespace DP2
 
                     _salesTotal += _colSubtotal;
 
-                    labelSalesTotal.Text = "RM " + decimal.Round(_salesTotal, 2, MidpointRounding.AwayFromZero).ToString();
+                    setPriceTotal();
 
                     //set cursor focus to category upon adding item AND clear text boxes
                     textSalesQty.Clear();
@@ -183,6 +183,10 @@ namespace DP2
            
         }
 
+        private void setPriceTotal()
+        {
+            labelSalesTotal.Text = "RM " + decimal.Round(_salesTotal, 2, MidpointRounding.AwayFromZero).ToString();
+        }
         private void buttonSalesDelete_Click(object sender, EventArgs e)
         {
             salesTransactionBindingSource.RemoveCurrent();
@@ -203,11 +207,22 @@ namespace DP2
 
         private void buttonSalesCheckout_Click(object sender, EventArgs e)
         {
-            //Open payment window
-            UIComponents.UIPayment paymentWindow = new UIComponents.UIPayment(this);
-            paymentWindow.ShowDialog();
-            SetComboBox();
-            _rowNum = 0;
+            if(dataGridSales.Rows.Count > 0)
+            {
+                //Open payment window
+                UIComponents.UIPayment paymentWindow = new UIComponents.UIPayment(this);
+                paymentWindow.ShowDialog();
+                SetComboBox();
+                _rowNum = 0;
+                _salesTotal = 0;
+                setPriceTotal();
+            }
+            else
+            {
+                UIComponents.UIError errorMessage = new UIComponents.UIError("Please enter items", "Okay");
+                errorMessage.ShowDialog();
+            }
+            
         }
 
         private void textSalesItem_Enter(object sender, EventArgs e)

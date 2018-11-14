@@ -33,6 +33,9 @@ namespace DP2
 
             ViewInventory();
             viewNotifications();
+            textInventoryCategory.Items.Add("Supplements");
+            textInventoryCategory.Items.Add("Medicine");
+            textInventoryCategory.Items.Add("Equipment");
         }
 
         private void ViewInventory()
