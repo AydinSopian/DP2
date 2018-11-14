@@ -67,6 +67,10 @@ namespace DP2
 
             textSalesItem.ValueMember = "itemName";
             SetComboBox();
+            textSalesCategory.DropDownStyle = ComboBoxStyle.DropDownList;
+            textSalesCategory.Items.Add("Supplement");
+            textSalesCategory.Items.Add("Medicine");
+            textSalesCategory.Items.Add("Equipment");
         }
 
         public void SetComboBox()
@@ -203,6 +207,11 @@ namespace DP2
                     }
                 }
             }
+        }
+
+        private void textSalesQty_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void buttonSalesCheckout_Click(object sender, EventArgs e)
