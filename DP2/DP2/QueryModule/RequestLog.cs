@@ -129,9 +129,8 @@ namespace DP2
             {
                 using (dbConnect)
                 using (command = new MySqlCommand(query, dbConnect))
-                using (adp = new MySqlDataAdapter(command))
                 {
-
+                    dbConnect.Open();
                     command.ExecuteNonQuery();
 
                     dbConnect.Close();
