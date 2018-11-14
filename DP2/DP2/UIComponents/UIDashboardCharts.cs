@@ -40,6 +40,8 @@ namespace DP2.UIComponents
             chart1.Series["Products Sold"].XValueMember = "Item ID";
             chart1.Series["Products Sold"].YValueMembers = "Item Quantity";
             this.chart1.Titles.Add("Weekly Report (Products Sold)");
+            chart1.ChartAreas[0].AxisX.Title = "Item ID";
+            chart1.ChartAreas[0].AxisY.Title = "Item Quantity";
             chart1.Series["Products Sold"].ChartType = SeriesChartType.Line;
             chart1.Series["Products Sold"].IsValueShownAsLabel = true;
 
@@ -48,6 +50,8 @@ namespace DP2.UIComponents
             chart2.Series["Profit"].XValueMember = "Item ID";
             chart2.Series["Profit"].YValueMembers = "Profit";
             this.chart2.Titles.Add("Weekly Report (Profit)");
+            chart2.ChartAreas[0].AxisX.Title = "Item ID";
+            chart2.ChartAreas[0].AxisY.Title = "Profit";
             chart2.Series["Profit"].ChartType = SeriesChartType.Line;
             chart2.Series["Profit"].IsValueShownAsLabel = true;
         }
@@ -66,6 +70,8 @@ namespace DP2.UIComponents
             chart1.Series["Products Sold"].XValueMember = "Item ID";
             chart1.Series["Products Sold"].YValueMembers = "Item Quantity";
             this.chart1.Titles.Add("Monthly Report (Products Sold)");
+            chart1.ChartAreas[0].AxisX.Title = "Item ID";
+            chart1.ChartAreas[0].AxisY.Title = "Item Quantity";
             chart1.Series["Products Sold"].ChartType = SeriesChartType.Line;
             chart1.Series["Products Sold"].IsValueShownAsLabel = true;
 
@@ -74,6 +80,8 @@ namespace DP2.UIComponents
             chart2.Series["Profit"].XValueMember = "Item ID";
             chart2.Series["Profit"].YValueMembers = "Profit";
             this.chart2.Titles.Add("Monthly Report (Profit)");
+            chart2.ChartAreas[0].AxisX.Title = "Item ID";
+            chart2.ChartAreas[0].AxisY.Title = "Profit";
             chart2.Series["Profit"].ChartType = SeriesChartType.Line;
             chart2.Series["Profit"].IsValueShownAsLabel = true;
         }

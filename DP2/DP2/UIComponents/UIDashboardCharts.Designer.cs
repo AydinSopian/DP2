@@ -87,6 +87,7 @@
             // 
             // chart1
             // 
+            this.chart1.BackColor = System.Drawing.Color.DimGray;
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
@@ -105,6 +106,7 @@
             // 
             // chart2
             // 
+            this.chart2.BackColor = System.Drawing.Color.DimGray;
             chartArea2.Name = "ChartArea1";
             this.chart2.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
