@@ -33,16 +33,26 @@ namespace DP2
 
             ViewInventory();
             viewNotifications();
-            textInventoryCategory.Items.Add("Supplement");
-            textInventoryCategory.Items.Add("Medicine");
-            textInventoryCategory.Items.Add("Equipment");
+            SetComboBox();
+
+            dataGridNotifications.ReadOnly = true;
+            dataGridInventory.ReadOnly = true;
+
+            dataGridInventory.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridNotifications.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
+
+        private void SetComboBox()
+        {
+            textInventoryCategory.ValueMember = "category";
+            textInventoryCategory.DataSource = log.RunSelectQuery("Inventory GROUP BY category", "category", "");
+            textInventoryCategory.SelectedIndex = -1;
         }
 
         public void ViewInventory()
         {
             BindInventoryColumns();
-            log.RunSelectQuery(dataGridInventory.Name, "Inventory", "itemID, category, itemName, costPerUnitBought, pricePerUnitSold, quantity", "", "");
-            dt = log.GetOutputDataSet.Tables[dataGridInventory.Name];
+            dt = log.RunSelectQuery("Inventory", "itemID, category, itemName, costPerUnitBought, pricePerUnitSold, quantity", "");
             dataGridInventory.DataSource = dt;
         }
 
@@ -50,14 +60,12 @@ namespace DP2
         {
             BindNotificationsColumns();
             string dateRange = "dateToOrder BETWEEN NOW() AND NOW() + INTERVAL 30 DAY ";
-            log.RunSelectQuery(dataGridNotifications.Name.ToString(), "Inventory", "itemName, quantity, dateToOrder", dateRange, "");
-            ndt = log.GetOutputDataSet.Tables[dataGridNotifications.Name];
+            ndt = log.RunSelectQuery("Inventory", "itemName, quantity, dateToOrder", dateRange);
             dataGridNotifications.DataSource = ndt;
         }
 
         private void BindNotificationsColumns()
         {
-            dataGridNotifications.DataSource = null;
             dataGridNotifications.ColumnCount = 3;
 
             dataGridNotifications.AutoGenerateColumns = false;
@@ -72,9 +80,6 @@ namespace DP2
 
         private void BindInventoryColumns()
         {
-            dataGridInventory.DataSource = null;
-            dataGridInventory.ColumnCount = 6;
-
             dataGridInventory.AutoGenerateColumns = false;
 
             dataGridInventory.Columns[0].Name = "NO.";
@@ -90,11 +95,6 @@ namespace DP2
             dataGridInventory.Columns[5].Name = "QTY";
             dataGridInventory.Columns[5].DataPropertyName = "quantity";
             
-
-        }
-
-        private void dataGridInventory_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
         }
 
@@ -189,6 +189,11 @@ namespace DP2
                 }
 
             }
+        }
+
+        private void dataGridInventory_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -28,8 +28,7 @@ namespace DP2.UIComponents
 
         private void viewUsers()
         {
-            log.RunSelectQuery(dataGridUsers.Name, "UserAccounts", "*", "", "");
-            dt = log.GetOutputDataSet.Tables[dataGridUsers.Name];
+            dt = log.RunSelectQuery("UserAccounts", "*", "");
             dataGridUsers.DataSource = dt;
         }
 
