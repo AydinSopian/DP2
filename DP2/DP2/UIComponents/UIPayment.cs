@@ -55,9 +55,6 @@ namespace DP2.UIComponents
 
                     if (confirmation.isConfirmed)
                     {
-
-                        
-                        _parentForm.ColNum = 0;
                         //Show change
                         UIChange change = new UIChange(this);
                         change.ShowDialog();
@@ -73,15 +70,15 @@ namespace DP2.UIComponents
 
                         //foreach row in dataGridSales, INSERT into ProductsSold (dateTime, productId, quantity)
                        
-                        foreach(DataRow dr in _parentForm.GetDataTable().Rows)
+                        foreach(DataRow dr in _parentForm.GetDataTable.Rows)
                         {
-                            log.RunQuery(3, "ProductsSold", "datetime, itemid, quantity", "", "\'"+dateTime+"\', " + dr[0] +", "+ dr[2]);
+                            log.RunQuery(3, "ProductsSold", "datetime, itemid, quantity", "", "\'"+dateTime+"\', " + dr[5] +", "+ dr[2]);
                         }
 
                         //foreach row in dataGridSales, UPDATE Inventory table, quantity
-                        foreach (DataRow dr in _parentForm.GetDataTable().Rows)
+                        foreach (DataRow dr in _parentForm.GetDataTable.Rows)
                         {
-                            log.RunQuery(4, "Inventory", "", "itemid=" + dr[0], "quantity = quantity - " + dr[2]);
+                            log.RunQuery(4, "Inventory", "", "itemid=" + dr[5], "quantity = quantity - " + dr[2]);
                         }
                         //Clear dataGridSales
                         _parentForm.ClearData();

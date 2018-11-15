@@ -33,18 +33,12 @@ namespace DP2.UIComponents
 
         private void buttonConfirmationContinue_Click(object sender, EventArgs e)
         {
-            //DATABASE CONNECTION
-            log.RunSelectQuery("loginUnamePass", "UserAccounts", "*", "Username = \"" + textLoginUsername.Text + "\" AND Password = \"" + textLoginPassword.Text + "\"", "");
-           
             DataTable UserAccounts = new DataTable();
-            UserAccounts = log.GetOutputDataSet.Tables["loginUnamePass"];
+            UserAccounts = log.RunSelectQuery("UserAccounts", "*", "Username = \"" + textLoginUsername.Text + "\" AND Password = \"" + textLoginPassword.Text + "\"");
 
-            //log.RunSelectQuery(1, "UserAccounts", "permissions", "Username = \"" + textLoginUsername.Text + "\" AND Password = \"" + textLoginPassword.Text + "\"", "");
-            
-        
-            if (UserAccounts.Rows.Count == 1)
+            if(UserAccounts.Rows.Count == 1)
             {
-                string accountPermissions = UserAccounts.Rows[0][2].ToString(); //log.GetOutputValue.ToString();
+                string accountPermissions = UserAccounts.Rows[0][2].ToString();
                 if (accountPermissions == "admin")
                 {
                     this.Hide();
@@ -62,8 +56,6 @@ namespace DP2.UIComponents
             {
                 MessageBox.Show("Wrong Username or Password");
             }
-           
-            
 
         }
 
