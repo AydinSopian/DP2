@@ -20,6 +20,10 @@ namespace DP2.UIComponents
 
             log = RequestLog.Instance;
             textNewUserPassword.PasswordChar = '*';
+
+            textNewUserPermissions.Items.Add("admin");
+            textNewUserPermissions.Items.Add("employee");
+            this.textNewUserPermissions.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void buttonClose_Click(object sender, EventArgs e)

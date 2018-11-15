@@ -27,7 +27,12 @@ namespace DP2.UIComponents
             _password = password;
             _permissions = permissions;
             textEditUserPassword.PasswordChar = '*';
+            textEditUserUsername.Text = username;
+            textEditUserPassword.Text = password;
+            textEditUserPermissions.Text = permissions;
 
+            textEditUserPermissions.Items.Add("admin");
+            textEditUserPermissions.Items.Add("employee");
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
@@ -75,6 +80,11 @@ namespace DP2.UIComponents
                 log.RunQuery(4, "UserAccounts", "", "username=" + "\'" +  _selectedRow + "\'", queryString);
                 this.Close();
             }
+        }
+
+        private void UIEditUser_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

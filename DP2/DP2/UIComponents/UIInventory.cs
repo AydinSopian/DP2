@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace DP2
 {
@@ -110,9 +111,25 @@ namespace DP2
                 //INSERT into inventory
                 values = "\"" + textInventoryCategory.Text + "\"" + ", \"" + textInventoryItem.Text + "\", " + textInventoryCost.Text + ", " + textInventoryPrice.Text + ", " + textInventoryQty.Text;
                 log.RunQuery(3, "Inventory", "category, itemName, costPerUnitBought, pricePerUnitSold, quantity", "", values);
+                
                 ViewInventory();
                 viewNotifications();
-               
+
+                MySqlConnection sqlConn = new MySqlConnection("datasource=35.198.212.34;port=3306;username=root;password=;database=dp2;sslmode=none");
+                MySqlCommand callEvent = new MySqlCommand("call update_allRateOfSales();", sqlConn);
+                sqlConn.Open();
+
+                callEvent.ExecuteScalar();
+
+                callEvent = new MySqlCommand("call update_allDaysUntilDepletion();", sqlConn);
+
+                callEvent.ExecuteScalar();
+
+                callEvent = new MySqlCommand("call update_allDateToOrder();", sqlConn);
+
+                callEvent.ExecuteScalar();
+
+                sqlConn.Close();
 
                 //set cursor focus to category upon adding item AND clear text boxes
                 textInventoryItem.Clear();
@@ -192,6 +209,16 @@ namespace DP2
         }
 
         private void dataGridInventory_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

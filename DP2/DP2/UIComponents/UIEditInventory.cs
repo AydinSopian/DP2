@@ -31,6 +31,13 @@ namespace DP2.UIComponents
             _itemPrice = itemPrice;
             _itemQty = itemQty;
 
+            textInventoryCategory.Text = itemCategory;
+            textInventoryItem.Text = itemName;
+            textInventoryCost.Text = itemCost;
+            textInventoryPrice.Text = itemPrice;
+            textInventoryQty.Text = itemQty;
+            this.textInventoryCategory.DropDownStyle = ComboBoxStyle.DropDownList;
+
         }
 
         private void buttonEditInventoryCancel_Click(object sender, EventArgs e)

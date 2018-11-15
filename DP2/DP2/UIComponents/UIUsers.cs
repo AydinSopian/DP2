@@ -24,6 +24,8 @@ namespace DP2.UIComponents
             BindColumns();
             log = RequestLog.Instance;
             viewUsers();
+            dataGridUsers.ReadOnly = true;
+            dataGridUsers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         private void viewUsers()
@@ -107,6 +109,11 @@ namespace DP2.UIComponents
         }
 
         private void dataGridUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void UIUsers_Load(object sender, EventArgs e)
         {
 
         }

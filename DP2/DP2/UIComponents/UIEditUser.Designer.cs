@@ -210,6 +210,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UIEditUser";
             this.Text = "UIEditUser";
+            this.Load += new System.EventHandler(this.UIEditUser_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

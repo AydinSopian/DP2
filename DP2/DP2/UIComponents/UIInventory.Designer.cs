@@ -61,8 +61,14 @@
             this.notificationDateToOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonInventoryEdit = new System.Windows.Forms.Button();
             this.buttonInventoryDelete = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textSearchItem = new System.Windows.Forms.TextBox();
+            this.textSearchCategory = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridInventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridNotifications)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textInventoryItem
@@ -409,6 +415,68 @@
             this.buttonInventoryDelete.UseVisualStyleBackColor = false;
             this.buttonInventoryDelete.Click += new System.EventHandler(this.buttonInventoryDelete_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.textSearchItem);
+            this.groupBox1.Controls.Add(this.textSearchCategory);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(12, 645);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(727, 72);
+            this.groupBox1.TabIndex = 27;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "SEARCH";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.label2.Location = new System.Drawing.Point(394, 27);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(49, 20);
+            this.label2.TabIndex = 30;
+            this.label2.Text = "Item :";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // textSearchItem
+            // 
+            this.textSearchItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.textSearchItem.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textSearchItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textSearchItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.textSearchItem.Location = new System.Drawing.Point(449, 28);
+            this.textSearchItem.Name = "textSearchItem";
+            this.textSearchItem.Size = new System.Drawing.Size(201, 19);
+            this.textSearchItem.TabIndex = 29;
+            this.textSearchItem.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // textSearchCategory
+            // 
+            this.textSearchCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.textSearchCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.textSearchCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textSearchCategory.ForeColor = System.Drawing.Color.White;
+            this.textSearchCategory.FormattingEnabled = true;
+            this.textSearchCategory.Location = new System.Drawing.Point(152, 25);
+            this.textSearchCategory.Name = "textSearchCategory";
+            this.textSearchCategory.Size = new System.Drawing.Size(201, 28);
+            this.textSearchCategory.TabIndex = 28;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.label1.Location = new System.Drawing.Point(65, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(81, 20);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "Category :";
+            // 
             // UIInventory
             // 
             this.AcceptButton = this.buttonInventoryAdd;
@@ -416,6 +484,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.ClientSize = new System.Drawing.Size(1040, 729);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonInventoryDelete);
             this.Controls.Add(this.buttonInventoryEdit);
             this.Controls.Add(this.dataGridNotifications);
@@ -439,6 +508,8 @@
             this.Load += new System.EventHandler(this.UIInventory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridInventory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridNotifications)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -471,5 +542,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn inventoryCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn inventoryPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn inventoryQty;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textSearchItem;
+        private System.Windows.Forms.ComboBox textSearchCategory;
+        private System.Windows.Forms.Label label1;
     }
 }

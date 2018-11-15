@@ -34,6 +34,8 @@ namespace DP2.UIComponents
         private void buttonConfirmationContinue_Click(object sender, EventArgs e)
         {
             DataTable UserAccounts = new DataTable();
+       
+       
             UserAccounts = log.RunSelectQuery("UserAccounts", "*", "Username = \"" + textLoginUsername.Text + "\" AND Password = \"" + textLoginPassword.Text + "\"");
 
             if(UserAccounts.Rows.Count == 1)
@@ -56,6 +58,8 @@ namespace DP2.UIComponents
             {
                 MessageBox.Show("Wrong Username or Password");
             }
+           
+            
 
         }
 

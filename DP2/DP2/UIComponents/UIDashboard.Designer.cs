@@ -76,7 +76,7 @@
             this.buttonDashboardTables.Name = "buttonDashboardTables";
             this.buttonDashboardTables.Size = new System.Drawing.Size(106, 47);
             this.buttonDashboardTables.TabIndex = 20;
-            this.buttonDashboardTables.Text = "TABLES";
+            this.buttonDashboardTables.Text = "AMIR";
             this.buttonDashboardTables.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.buttonDashboardTables.UseVisualStyleBackColor = false;
             this.buttonDashboardTables.Click += new System.EventHandler(this.buttonDashboardTables_Click);
@@ -93,7 +93,7 @@
             this.buttonDashboardCharts.Name = "buttonDashboardCharts";
             this.buttonDashboardCharts.Size = new System.Drawing.Size(106, 47);
             this.buttonDashboardCharts.TabIndex = 21;
-            this.buttonDashboardCharts.Text = "CHARTS";
+            this.buttonDashboardCharts.Text = "MOBI";
             this.buttonDashboardCharts.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.buttonDashboardCharts.UseVisualStyleBackColor = false;
             this.buttonDashboardCharts.Click += new System.EventHandler(this.buttonDashboardCharts_Click);

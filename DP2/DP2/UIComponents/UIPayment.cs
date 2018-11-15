@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace DP2.UIComponents
 {
@@ -80,6 +81,26 @@ namespace DP2.UIComponents
                         {
                             log.RunQuery(4, "Inventory", "", "itemid=" + dr[5], "quantity = quantity - " + dr[2]);
                         }
+
+                        MySqlConnection sqlConn = new MySqlConnection("datasource=35.198.212.34;port=3306;username=root;password=;database=dp2;sslmode=none");
+                        MySqlCommand callEvent = new MySqlCommand("call update_allRateOfSales();", sqlConn);
+                        sqlConn.Open();
+
+                        callEvent.ExecuteScalar();
+
+                        callEvent = new MySqlCommand("call update_allDaysUntilDepletion();", sqlConn);
+
+                        callEvent.ExecuteScalar();
+
+                        callEvent = new MySqlCommand("call update_allDateToOrder();", sqlConn);
+
+                        callEvent.ExecuteScalar();
+
+                        sqlConn.Close();
+
+
+
+
                         //Clear dataGridSales
                         _parentForm.ClearData();
                     }
