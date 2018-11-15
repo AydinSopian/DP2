@@ -29,7 +29,7 @@ namespace DP2.UIComponents
         private void Weekb_Click(object sender, EventArgs e)
         {
             cn = new MySqlConnection("datasource=35.198.212.34;port=3306;username=root;password=;database=dp2;sslmode=none");
-            da = new MySqlDataAdapter("SELECT DAYNAME(dateTime) as 'Day', dateTime as 'Date & Time', ProductsSold.itemID as 'Item ID', ProductsSold.quantity as 'Item Quantity', ROUND(SUM((pricePerUnitSold - costPerUnitBought) * ProductsSold.quantity), 2) as 'Profit' FROM ProductsSold INNER JOIN Inventory ON ProductsSold.itemID = Inventory.itemID WHERE WEEK(dateTime) = WEEK(CURDATE()) GROUP BY ProductsSold.dateTime, ProductsSold.itemID", cn);
+            da = new MySqlDataAdapter("SELECT DAYNAME(ProductsSold.dateTime) as 'Day', ProductsSold.dateTime as 'Date & Time', ProductsSold.itemID as 'Item ID', Inventory.itemName as 'Item Name', Sales.priceTotal as 'Price Total', ProductsSold.quantity as 'Item Quantity', ROUND(SUM((pricePerUnitSold - costPerUnitBought) * ProductsSold.quantity), 2) as 'Profit' FROM Inventory INNER JOIN ProductsSold ON Inventory.itemID = ProductsSold.itemID INNER JOIN Sales ON ProductsSold.dateTime = Sales.dateTime WHERE WEEK(ProductsSold.dateTime) = WEEK(CURDATE()) GROUP BY ProductsSold.dateTime, ProductsSold.itemID", cn);
             ds = new DataSet();
             dt = new DataTable();
 
@@ -37,11 +37,11 @@ namespace DP2.UIComponents
 
             this.chart1.Titles.Clear();
             chart1.DataSource = ds.Tables["data"];
-            chart1.Series["Products Sold"].XValueMember = "Item ID";
-            chart1.Series["Products Sold"].YValueMembers = "Item Quantity";
+            chart1.Series["Products Sold"].XValueMember = "Date & Time";
+            chart1.Series["Products Sold"].YValueMembers = "Price Total";
             this.chart1.Titles.Add("Weekly Report (Products Sold)");
-            chart1.ChartAreas[0].AxisX.Title = "Item ID";
-            chart1.ChartAreas[0].AxisY.Title = "Item Quantity";
+            chart1.ChartAreas[0].AxisX.Title = "Day";
+            chart1.ChartAreas[0].AxisY.Title = "Price Total";
             chart1.Series["Products Sold"].ChartType = SeriesChartType.Line;
             chart1.Series["Products Sold"].IsValueShownAsLabel = true;
 
@@ -59,7 +59,7 @@ namespace DP2.UIComponents
         private void Monthb_Click(object sender, EventArgs e)
         {
             cn = new MySqlConnection("datasource=35.198.212.34;port=3306;username=root;password=;database=dp2;sslmode=none");
-            da = new MySqlDataAdapter("SELECT dateTime as 'Date & Time', ProductsSold.itemID as 'Item ID', ProductsSold.quantity as 'Item Quantity', ROUND(SUM((pricePerUnitSold - costPerUnitBought) * ProductsSold.quantity), 2) as 'Profit' FROM ProductsSold INNER JOIN Inventory ON ProductsSold.itemID = Inventory.itemID WHERE MONTH(dateTime) = MONTH(CURDATE()) GROUP BY ProductsSold.dateTime, ProductsSold.itemID", cn);
+            da = new MySqlDataAdapter("SELECT DAYNAME(ProductsSold.dateTime) as 'Day', ProductsSold.dateTime as 'Date & Time', ProductsSold.itemID as 'Item ID', Inventory.itemName as 'Item Name', Sales.priceTotal as 'Price Total', ProductsSold.quantity as 'Item Quantity', ROUND(SUM((pricePerUnitSold - costPerUnitBought) * ProductsSold.quantity), 2) as 'Profit' FROM Inventory INNER JOIN ProductsSold ON Inventory.itemID = ProductsSold.itemID INNER JOIN Sales ON ProductsSold.dateTime = Sales.dateTime WHERE MONTH(ProductsSold.dateTime) = MONTH(CURDATE()) GROUP BY ProductsSold.dateTime, ProductsSold.itemID", cn);
             ds = new DataSet();
             dt = new DataTable();
 
@@ -67,11 +67,11 @@ namespace DP2.UIComponents
 
             this.chart1.Titles.Clear();
             chart1.DataSource = ds.Tables["data"];
-            chart1.Series["Products Sold"].XValueMember = "Item ID";
-            chart1.Series["Products Sold"].YValueMembers = "Item Quantity";
+            chart1.Series["Products Sold"].XValueMember = "Date & Time";
+            chart1.Series["Products Sold"].YValueMembers = "Price Total";
             this.chart1.Titles.Add("Monthly Report (Products Sold)");
-            chart1.ChartAreas[0].AxisX.Title = "Item ID";
-            chart1.ChartAreas[0].AxisY.Title = "Item Quantity";
+            chart1.ChartAreas[0].AxisX.Title = "Day";
+            chart1.ChartAreas[0].AxisY.Title = "Price Total";
             chart1.Series["Products Sold"].ChartType = SeriesChartType.Line;
             chart1.Series["Products Sold"].IsValueShownAsLabel = true;
 
