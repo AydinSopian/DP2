@@ -180,6 +180,22 @@ namespace DP2
 
                     ViewInventory();
 
+                    MySqlConnection sqlConn = new MySqlConnection("datasource=35.198.212.34;port=3306;username=root;password=;database=dp2;sslmode=none");
+                    MySqlCommand callEvent = new MySqlCommand("call update_allRateOfSales();", sqlConn);
+                    sqlConn.Open();
+
+                    callEvent.ExecuteScalar();
+
+                    callEvent = new MySqlCommand("call update_allDaysUntilDepletion();", sqlConn);
+
+                    callEvent.ExecuteScalar();
+
+                    callEvent = new MySqlCommand("call update_allDateToOrder();", sqlConn);
+
+                    callEvent.ExecuteScalar();
+
+                    sqlConn.Close();
+
                 }
 
             }
