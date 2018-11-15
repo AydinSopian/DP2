@@ -41,8 +41,8 @@ namespace DP2.UIComponents
 
             //log.RunSelectQuery(1, "UserAccounts", "permissions", "Username = \"" + textLoginUsername.Text + "\" AND Password = \"" + textLoginPassword.Text + "\"", "");
             
-
-            if(UserAccounts.Rows.Count == 1)
+        
+            if (UserAccounts.Rows.Count == 1)
             {
                 string accountPermissions = UserAccounts.Rows[0][2].ToString(); //log.GetOutputValue.ToString();
                 if (accountPermissions == "admin")
@@ -62,6 +62,8 @@ namespace DP2.UIComponents
             {
                 MessageBox.Show("Wrong Username or Password");
             }
+           
+            
 
         }
 

@@ -133,6 +133,7 @@
             this.content.Name = "content";
             this.content.Size = new System.Drawing.Size(1016, 566);
             this.content.TabIndex = 22;
+            this.content.Paint += new System.Windows.Forms.PaintEventHandler(this.content_Paint);
             // 
             // UIDashboard
             // 

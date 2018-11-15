@@ -18,6 +18,7 @@ namespace DP2.UIComponents
         public UIDashboard()
         {
             InitializeComponent();
+            this.content.AutoScroll = true;
         }
 
         MySqlConnection cn;
@@ -103,6 +104,11 @@ namespace DP2.UIComponents
             content.Controls.Clear();
             content.Controls.Add(formDashboardTable);
             formDashboardTable.Show();
+        }
+
+        private void content_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
