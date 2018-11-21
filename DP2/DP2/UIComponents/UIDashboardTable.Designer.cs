@@ -28,23 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.labelDashboardReport = new System.Windows.Forms.Label();
             this.Weekb = new System.Windows.Forms.Button();
             this.Monthb = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "TABLES";
             // 
             // dataGridView1
             // 
@@ -96,7 +85,6 @@
             this.Controls.Add(this.Weekb);
             this.Controls.Add(this.labelDashboardReport);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UIDashboardTable";
             this.Text = "UIDashboardTable";
@@ -108,8 +96,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label labelDashboardReport;
         private System.Windows.Forms.Button Weekb;

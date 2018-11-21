@@ -97,6 +97,12 @@
     <Compile Include="UIComponents\UIDashboardCharts.Designer.cs">
       <DependentUpon>UIDashboardCharts.cs</DependentUpon>
     </Compile>
+    <Compile Include="UIComponents\UIDashboardCharts2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIComponents\UIDashboardCharts2.Designer.cs">
+      <DependentUpon>UIDashboardCharts2.cs</DependentUpon>
+    </Compile>
     <Compile Include="UIComponents\UIDashboardTable.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UIComponents\UIDashboardCharts.resx">
       <DependentUpon>UIDashboardCharts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIComponents\UIDashboardCharts2.resx">
+      <DependentUpon>UIDashboardCharts2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UIComponents\UIDashboardTable.resx">
       <DependentUpon>UIDashboardTable.cs</DependentUpon>

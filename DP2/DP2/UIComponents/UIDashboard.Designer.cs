@@ -34,6 +34,7 @@
             this.buttonDashboardCharts = new System.Windows.Forms.Button();
             this.content = new System.Windows.Forms.Panel();
             this.buttonDashboardWCSV = new System.Windows.Forms.Button();
+            this.buttonDashboardCharts2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelDashboardTitle
@@ -124,12 +125,30 @@
             this.buttonDashboardWCSV.UseVisualStyleBackColor = false;
             this.buttonDashboardWCSV.Click += new System.EventHandler(this.buttonDashboardWCSV_Click);
             // 
+            // buttonDashboardCharts2
+            // 
+            this.buttonDashboardCharts2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
+            this.buttonDashboardCharts2.FlatAppearance.BorderSize = 0;
+            this.buttonDashboardCharts2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDashboardCharts2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDashboardCharts2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.buttonDashboardCharts2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonDashboardCharts2.Location = new System.Drawing.Point(224, 104);
+            this.buttonDashboardCharts2.Name = "buttonDashboardCharts2";
+            this.buttonDashboardCharts2.Size = new System.Drawing.Size(106, 47);
+            this.buttonDashboardCharts2.TabIndex = 24;
+            this.buttonDashboardCharts2.Text = "MOBI2";
+            this.buttonDashboardCharts2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.buttonDashboardCharts2.UseVisualStyleBackColor = false;
+            this.buttonDashboardCharts2.Click += new System.EventHandler(this.buttonDashboardCharts2_Click);
+            // 
             // UIDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.ClientSize = new System.Drawing.Size(1040, 729);
+            this.Controls.Add(this.buttonDashboardCharts2);
             this.Controls.Add(this.buttonDashboardWCSV);
             this.Controls.Add(this.content);
             this.Controls.Add(this.buttonDashboardCharts);
@@ -153,5 +172,6 @@
         private System.Windows.Forms.Button buttonDashboardCharts;
         private System.Windows.Forms.Panel content;
         private System.Windows.Forms.Button buttonDashboardWCSV;
+        private System.Windows.Forms.Button buttonDashboardCharts2;
     }
 }
