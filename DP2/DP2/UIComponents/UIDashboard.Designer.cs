@@ -123,7 +123,6 @@
             this.buttonDashboardWCSV.Text = "Weekly CSV";
             this.buttonDashboardWCSV.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.buttonDashboardWCSV.UseVisualStyleBackColor = false;
-            this.buttonDashboardWCSV.Click += new System.EventHandler(this.buttonDashboardWCSV_Click);
             // 
             // buttonDashboardCharts2
             // 

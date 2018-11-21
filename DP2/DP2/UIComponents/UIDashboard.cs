@@ -23,6 +23,7 @@ namespace DP2.UIComponents
 
         UIComponents.UIDashboardTable formDashboardTable;
         UIComponents.UIDashboardCharts formDashboardCharts;
+        UIComponents.UIDashboardCharts2 formDashboardCharts2;
 
         private void buttonDashboardGenerate_Click(object sender, EventArgs e)
         {
@@ -59,8 +60,9 @@ namespace DP2.UIComponents
             Control ctrl = ((Control)sender);
             ctrl.BackColor = System.Drawing.ColorTranslator.FromHtml("#404040");
             buttonDashboardCharts.BackColor = System.Drawing.ColorTranslator.FromHtml("#232323");
+            buttonDashboardCharts2.BackColor = System.Drawing.ColorTranslator.FromHtml("#232323");
 
-            
+
             formDashboardTable.TopLevel = false;
             content.Controls.Clear();
             content.Controls.Add(formDashboardTable);
@@ -72,8 +74,9 @@ namespace DP2.UIComponents
             Control ctrl = ((Control)sender);
             ctrl.BackColor = System.Drawing.ColorTranslator.FromHtml("#404040");
             buttonDashboardTables.BackColor = System.Drawing.ColorTranslator.FromHtml("#232323");
+            buttonDashboardCharts2.BackColor = System.Drawing.ColorTranslator.FromHtml("#232323");
 
-           
+
             formDashboardCharts.TopLevel = false;
             content.Controls.Clear();
             content.Controls.Add(formDashboardCharts);
@@ -84,9 +87,11 @@ namespace DP2.UIComponents
         {
             formDashboardTable = new UIDashboardTable();
             formDashboardCharts = new UIDashboardCharts();
+            formDashboardCharts2 = new UIDashboardCharts2();
 
             buttonDashboardTables.BackColor = System.Drawing.ColorTranslator.FromHtml("#404040");
             buttonDashboardCharts.BackColor = System.Drawing.ColorTranslator.FromHtml("#232323");
+            buttonDashboardCharts2.BackColor = System.Drawing.ColorTranslator.FromHtml("#232323");
 
 
             formDashboardTable.TopLevel = false;
@@ -103,6 +108,20 @@ namespace DP2.UIComponents
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonDashboardCharts2_Click(object sender, EventArgs e)
+        {
+            Control ctrl = ((Control)sender);
+            ctrl.BackColor = System.Drawing.ColorTranslator.FromHtml("#404040");
+            buttonDashboardTables.BackColor = System.Drawing.ColorTranslator.FromHtml("#232323");
+            buttonDashboardCharts.BackColor = System.Drawing.ColorTranslator.FromHtml("#232323");
+
+
+            formDashboardCharts2.TopLevel = false;
+            content.Controls.Clear();
+            content.Controls.Add(formDashboardCharts2);
+            formDashboardCharts2.Show();
         }
     }
 }
