@@ -28,7 +28,7 @@ namespace DP2.UIComponents
         private void UIDashboardTable_Load(object sender, EventArgs e)
         {
             cn = new MySqlConnection("datasource=35.198.212.34;port=3306;username=root;password=;database=dp2;sslmode=none");
-            da = new MySqlDataAdapter("SELECT DAYNAME(ProductsSold.dateTime) as 'Day', ProductsSold.dateTime as 'Date & Time', ProductsSold.itemID as 'Item ID', Inventory.itemName as 'Item Name', Sales.priceTotal as 'Price Total', ProductsSold.quantity as 'Item Quantity', ROUND(SUM((pricePerUnitSold - costPerUnitBought) * ProductsSold.quantity), 2) as 'Profit' FROM Inventory INNER JOIN ProductsSold ON Inventory.itemID = ProductsSold.itemID INNER JOIN Sales ON ProductsSold.dateTime = Sales.dateTime WHERE MONTH(ProductsSold.dateTime) = MONTH(CURDATE()) GROUP BY ProductsSold.dateTime, ProductsSold.itemID", cn);
+            da = new MySqlDataAdapter("SELECT DAYNAME(ProductsSold.dateTime) as 'Day', ProductsSold.dateTime as 'Date & Time', ProductsSold.itemID as 'Item ID', Inventory.itemName as 'Item Name', Sales.priceTotal as 'Price Total', ProductsSold.quantity as 'Item Quantity', ROUND(SUM((pricePerUnitSold - costPerUnitBought) * ProductsSold.quantity), 2) as 'Profit' FROM Inventory INNER JOIN ProductsSold ON Inventory.itemID = ProductsSold.itemID INNER JOIN Sales ON ProductsSold.dateTime = Sales.dateTime WHERE WEEK(ProductsSold.dateTime) = WEEK(CURDATE()) GROUP BY ProductsSold.dateTime, ProductsSold.itemID", cn);
             ds = new DataSet();
             dt = new DataTable();
 

@@ -21,84 +21,77 @@ namespace DP2.UIComponents
             InitializeComponent();
         }
 
-        MySqlConnection cn;
-        MySqlDataAdapter da;
-        DataSet ds;
-        DataTable dt;
-
-        private void Weekb_Click(object sender, EventArgs e)
-        {
-            cn = new MySqlConnection("datasource=35.198.212.34;port=3306;username=root;password=;database=dp2;sslmode=none");
-            da = new MySqlDataAdapter("SELECT DAYNAME(ProductsSold.dateTime) as 'Day', ProductsSold.dateTime as 'Date & Time', ProductsSold.itemID as 'Item ID', Inventory.itemName as 'Item Name', Sales.priceTotal as 'Price Total', ProductsSold.quantity as 'Item Quantity', ROUND(SUM((pricePerUnitSold - costPerUnitBought) * ProductsSold.quantity), 2) as 'Profit' FROM Inventory INNER JOIN ProductsSold ON Inventory.itemID = ProductsSold.itemID INNER JOIN Sales ON ProductsSold.dateTime = Sales.dateTime WHERE WEEK(ProductsSold.dateTime) = WEEK(CURDATE()) GROUP BY ProductsSold.dateTime, ProductsSold.itemID", cn);
-            ds = new DataSet();
-            dt = new DataTable();
-
-            da.Fill(ds, "data");
-
-            this.chart1.Titles.Clear();
-            chart1.DataSource = ds.Tables["data"];
-            chart1.Series["Products Sold"].XValueMember = "Date & Time";
-            chart1.Series["Products Sold"].YValueMembers = "Price Total";
-            this.chart1.Titles.Add("Weekly Report (Products Sold)");
-            chart1.ChartAreas[0].AxisX.Title = "Day";
-            chart1.ChartAreas[0].AxisY.Title = "Price Total";
-            chart1.Series["Products Sold"].ChartType = SeriesChartType.Line;
-            chart1.Series["Products Sold"].IsValueShownAsLabel = true;
-
-            this.chart2.Titles.Clear();
-            chart2.DataSource = ds.Tables["data"];
-            chart2.Series["Profit"].XValueMember = "Item ID";
-            chart2.Series["Profit"].YValueMembers = "Profit";
-            this.chart2.Titles.Add("Weekly Report (Profit)");
-            chart2.ChartAreas[0].AxisX.Title = "Item ID";
-            chart2.ChartAreas[0].AxisY.Title = "Profit";
-            chart2.Series["Profit"].ChartType = SeriesChartType.Line;
-            chart2.Series["Profit"].IsValueShownAsLabel = true;
-        }
-
-        private void Monthb_Click(object sender, EventArgs e)
-        {
-            cn = new MySqlConnection("datasource=35.198.212.34;port=3306;username=root;password=;database=dp2;sslmode=none");
-            da = new MySqlDataAdapter("SELECT DAYNAME(ProductsSold.dateTime) as 'Day', ProductsSold.dateTime as 'Date & Time', ProductsSold.itemID as 'Item ID', Inventory.itemName as 'Item Name', Sales.priceTotal as 'Price Total', ProductsSold.quantity as 'Item Quantity', ROUND(SUM((pricePerUnitSold - costPerUnitBought) * ProductsSold.quantity), 2) as 'Profit' FROM Inventory INNER JOIN ProductsSold ON Inventory.itemID = ProductsSold.itemID INNER JOIN Sales ON ProductsSold.dateTime = Sales.dateTime WHERE MONTH(ProductsSold.dateTime) = MONTH(CURDATE()) GROUP BY ProductsSold.dateTime, ProductsSold.itemID", cn);
-            ds = new DataSet();
-            dt = new DataTable();
-
-            da.Fill(ds, "data");
-
-            this.chart1.Titles.Clear();
-            chart1.DataSource = ds.Tables["data"];
-            chart1.Series["Products Sold"].XValueMember = "Date & Time";
-            chart1.Series["Products Sold"].YValueMembers = "Price Total";
-            this.chart1.Titles.Add("Monthly Report (Products Sold)");
-            chart1.ChartAreas[0].AxisX.Title = "Day";
-            chart1.ChartAreas[0].AxisY.Title = "Price Total";
-            chart1.Series["Products Sold"].ChartType = SeriesChartType.Line;
-            chart1.Series["Products Sold"].IsValueShownAsLabel = true;
-
-            this.chart2.Titles.Clear();
-            chart2.DataSource = ds.Tables["data"];
-            chart2.Series["Profit"].XValueMember = "Item ID";
-            chart2.Series["Profit"].YValueMembers = "Profit";
-            this.chart2.Titles.Add("Monthly Report (Profit)");
-            chart2.ChartAreas[0].AxisX.Title = "Item ID";
-            chart2.ChartAreas[0].AxisY.Title = "Profit";
-            chart2.Series["Profit"].ChartType = SeriesChartType.Line;
-            chart2.Series["Profit"].IsValueShownAsLabel = true;
-        }
-
         private void UIDashboardCharts_Load(object sender, EventArgs e)
         {
-           
+            this.chart1.Titles.Clear();
+            chart1.DataSource = UIDashboardTable.ds.Tables["data"];
+            chart1.Series["Products Sold"].XValueType = ChartValueType.Date;
+            chart1.Series["Products Sold"].XValueMember = "Date & Time";
+            chart1.Series["Products Sold"].YValueMembers = "Price Total";
+            this.chart1.Titles.Add("Price Total");
+            chart1.ChartAreas[0].AxisX.Title = "Date";
+            chart1.ChartAreas[0].AxisY.Title = "Price Total";
+            chart1.Series["Products Sold"].ChartType = SeriesChartType.Line;
+            chart1.Series["Products Sold"].Color = System.Drawing.Color.FromArgb(130, 25, 25);
+            chart1.ChartAreas[0].AxisY.LabelStyle.Format = "{0:0,}K";
+            chart1.Series["Products Sold"].IsValueShownAsLabel = true;
+
+            this.chart2.Titles.Clear();
+            chart2.DataSource = UIDashboardTable.ds.Tables["data"];
+            chart2.Series["Profit"].XValueType = ChartValueType.Date;
+            chart2.Series["Profit"].XValueMember = "Date & Time";
+            chart2.Series["Profit"].YValueMembers = "Profit";
+            this.chart2.Titles.Add("Profit");
+            chart2.ChartAreas[0].AxisX.Title = "Date";
+            chart2.ChartAreas[0].AxisY.Title = "Profit";
+            chart2.Series["Profit"].ChartType = SeriesChartType.Line;
+            chart2.Series["Profit"].Color = System.Drawing.Color.FromArgb(130, 25, 25);
+            chart2.ChartAreas[0].AxisY.LabelStyle.Format = "{0:0,}K";
+            chart2.Series["Profit"].IsValueShownAsLabel = true;
         }
 
         private void chart1_Click(object sender, EventArgs e)
         {
-    
+            
         }
 
         private void chart2_Click(object sender, EventArgs e)
         {
+           
+        }
 
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.chart1.Titles.Clear();
+            chart1.DataSource = UIDashboardTable.ds.Tables["data"];
+            chart1.Series["Products Sold"].XValueType = ChartValueType.Date;
+            chart1.Series["Products Sold"].XValueMember = "Date & Time";
+            chart1.Series["Products Sold"].YValueMembers = "Price Total";
+            this.chart1.Titles.Add("Price Total");
+            chart1.ChartAreas[0].AxisX.Title = "Date";
+            chart1.ChartAreas[0].AxisY.Title = "Price Total";
+            chart1.Series["Products Sold"].ChartType = SeriesChartType.Line;
+            chart1.Series["Products Sold"].Color = System.Drawing.Color.FromArgb(130, 25, 25);
+            chart1.ChartAreas[0].AxisY.LabelStyle.Format = "{0:0,}K";
+            chart1.Series["Products Sold"].IsValueShownAsLabel = true;
+
+            this.chart2.Titles.Clear();
+            chart2.DataSource = UIDashboardTable.ds.Tables["data"];
+            chart2.Series["Profit"].XValueType = ChartValueType.Date;
+            chart2.Series["Profit"].XValueMember = "Date & Time";
+            chart2.Series["Profit"].YValueMembers = "Profit";
+            this.chart2.Titles.Add("Profit");
+            chart2.ChartAreas[0].AxisX.Title = "Date";
+            chart2.ChartAreas[0].AxisY.Title = "Profit";
+            chart2.Series["Profit"].ChartType = SeriesChartType.Line;
+            chart2.Series["Profit"].Color = System.Drawing.Color.FromArgb(130, 25, 25);
+            chart2.ChartAreas[0].AxisY.LabelStyle.Format = "{0:0,}K";
+            chart2.Series["Profit"].IsValueShownAsLabel = true;
         }
     }
 }
