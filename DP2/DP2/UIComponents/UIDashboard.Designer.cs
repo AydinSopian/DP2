@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.labelDashboardTitle = new System.Windows.Forms.Label();
-            this.buttonDashboardMCSV = new System.Windows.Forms.Button();
+            this.buttonDashboardGenerate = new System.Windows.Forms.Button();
             this.buttonDashboardTables = new System.Windows.Forms.Button();
             this.buttonDashboardCharts = new System.Windows.Forms.Button();
             this.content = new System.Windows.Forms.Panel();
-            this.buttonDashboardWCSV = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelDashboardTitle
@@ -47,22 +47,22 @@
             this.labelDashboardTitle.TabIndex = 14;
             this.labelDashboardTitle.Text = "DASHBOARD";
             // 
-            // buttonDashboardMCSV
+            // buttonDashboardGenerate
             // 
-            this.buttonDashboardMCSV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.buttonDashboardMCSV.FlatAppearance.BorderSize = 0;
-            this.buttonDashboardMCSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDashboardMCSV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDashboardMCSV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.buttonDashboardMCSV.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDashboardMCSV.Location = new System.Drawing.Point(875, 38);
-            this.buttonDashboardMCSV.Name = "buttonDashboardMCSV";
-            this.buttonDashboardMCSV.Size = new System.Drawing.Size(127, 47);
-            this.buttonDashboardMCSV.TabIndex = 18;
-            this.buttonDashboardMCSV.Text = "Monthly CSV";
-            this.buttonDashboardMCSV.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.buttonDashboardMCSV.UseVisualStyleBackColor = false;
-            this.buttonDashboardMCSV.Click += new System.EventHandler(this.buttonDashboardGenerate_Click);
+            this.buttonDashboardGenerate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.buttonDashboardGenerate.FlatAppearance.BorderSize = 0;
+            this.buttonDashboardGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDashboardGenerate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDashboardGenerate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.buttonDashboardGenerate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonDashboardGenerate.Location = new System.Drawing.Point(858, 38);
+            this.buttonDashboardGenerate.Name = "buttonDashboardGenerate";
+            this.buttonDashboardGenerate.Size = new System.Drawing.Size(144, 47);
+            this.buttonDashboardGenerate.TabIndex = 18;
+            this.buttonDashboardGenerate.Text = "GENERATE CSV";
+            this.buttonDashboardGenerate.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.buttonDashboardGenerate.UseVisualStyleBackColor = false;
+            this.buttonDashboardGenerate.Click += new System.EventHandler(this.buttonDashboardGenerate_Click);
             // 
             // buttonDashboardTables
             // 
@@ -76,7 +76,7 @@
             this.buttonDashboardTables.Name = "buttonDashboardTables";
             this.buttonDashboardTables.Size = new System.Drawing.Size(106, 47);
             this.buttonDashboardTables.TabIndex = 20;
-            this.buttonDashboardTables.Text = "AMIR";
+            this.buttonDashboardTables.Text = "TABLE";
             this.buttonDashboardTables.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.buttonDashboardTables.UseVisualStyleBackColor = false;
             this.buttonDashboardTables.Click += new System.EventHandler(this.buttonDashboardTables_Click);
@@ -91,9 +91,9 @@
             this.buttonDashboardCharts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonDashboardCharts.Location = new System.Drawing.Point(118, 104);
             this.buttonDashboardCharts.Name = "buttonDashboardCharts";
-            this.buttonDashboardCharts.Size = new System.Drawing.Size(106, 47);
+            this.buttonDashboardCharts.Size = new System.Drawing.Size(125, 47);
             this.buttonDashboardCharts.TabIndex = 21;
-            this.buttonDashboardCharts.Text = "MOBI";
+            this.buttonDashboardCharts.Text = "LINE CHARTS";
             this.buttonDashboardCharts.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.buttonDashboardCharts.UseVisualStyleBackColor = false;
             this.buttonDashboardCharts.Click += new System.EventHandler(this.buttonDashboardCharts_Click);
@@ -107,22 +107,21 @@
             this.content.TabIndex = 22;
             this.content.Paint += new System.Windows.Forms.PaintEventHandler(this.content_Paint);
             // 
-            // buttonDashboardWCSV
+            // button1
             // 
-            this.buttonDashboardWCSV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.buttonDashboardWCSV.FlatAppearance.BorderSize = 0;
-            this.buttonDashboardWCSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDashboardWCSV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDashboardWCSV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.buttonDashboardWCSV.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDashboardWCSV.Location = new System.Drawing.Point(722, 38);
-            this.buttonDashboardWCSV.Name = "buttonDashboardWCSV";
-            this.buttonDashboardWCSV.Size = new System.Drawing.Size(127, 47);
-            this.buttonDashboardWCSV.TabIndex = 23;
-            this.buttonDashboardWCSV.Text = "Weekly CSV";
-            this.buttonDashboardWCSV.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.buttonDashboardWCSV.UseVisualStyleBackColor = false;
-            this.buttonDashboardWCSV.Click += new System.EventHandler(this.buttonDashboardWCSV_Click);
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(243, 104);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(106, 47);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "MOBI";
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // UIDashboard
             // 
@@ -130,11 +129,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.ClientSize = new System.Drawing.Size(1040, 729);
-            this.Controls.Add(this.buttonDashboardWCSV);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.content);
             this.Controls.Add(this.buttonDashboardCharts);
             this.Controls.Add(this.buttonDashboardTables);
-            this.Controls.Add(this.buttonDashboardMCSV);
+            this.Controls.Add(this.buttonDashboardGenerate);
             this.Controls.Add(this.labelDashboardTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UIDashboard";
@@ -148,10 +147,10 @@
         #endregion
 
         private System.Windows.Forms.Label labelDashboardTitle;
-        private System.Windows.Forms.Button buttonDashboardMCSV;
+        private System.Windows.Forms.Button buttonDashboardGenerate;
         private System.Windows.Forms.Button buttonDashboardTables;
         private System.Windows.Forms.Button buttonDashboardCharts;
         private System.Windows.Forms.Panel content;
-        private System.Windows.Forms.Button buttonDashboardWCSV;
+        private System.Windows.Forms.Button button1;
     }
 }
