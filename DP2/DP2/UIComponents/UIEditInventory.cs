@@ -30,6 +30,7 @@ namespace DP2.UIComponents
             _itemCost = itemCost;
             _itemPrice = itemPrice;
             _itemQty = itemQty;
+            SetComboBox();
 
             textInventoryCategory.Text = itemCategory;
             textInventoryItem.Text = itemName;
@@ -38,6 +39,13 @@ namespace DP2.UIComponents
             textInventoryQty.Text = itemQty;
             this.textInventoryCategory.DropDownStyle = ComboBoxStyle.DropDownList;
 
+        }
+
+        private void SetComboBox()
+        {
+            textInventoryCategory.ValueMember = "category";
+            textInventoryCategory.DataSource = log.RunSelectQuery("Inventory GROUP BY category", "category", "");
+            textInventoryCategory.SelectedIndex = -1;
         }
 
         private void buttonEditInventoryCancel_Click(object sender, EventArgs e)
@@ -66,8 +74,8 @@ namespace DP2.UIComponents
                 string newCategory = textInventoryCategory.Text;
                 string newItemName = textInventoryItem.Text;
                 string newCost = textInventoryCost.Text;
-                string newPrice = textInventoryPrice.ToString();
-                string newQty = textInventoryQty.ToString();
+                string newPrice = textInventoryPrice.Text;
+                string newQty = textInventoryQty.Text;
 
                 if (textInventoryCategory.Text == "")
                 {

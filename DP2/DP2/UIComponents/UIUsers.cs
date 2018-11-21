@@ -24,8 +24,10 @@ namespace DP2.UIComponents
             BindColumns();
             log = RequestLog.Instance;
             viewUsers();
+            
             dataGridUsers.ReadOnly = true;
             dataGridUsers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            
         }
 
         private void viewUsers()
@@ -46,7 +48,7 @@ namespace DP2.UIComponents
             dataGridUsers.Columns[1].DataPropertyName = "password";
             dataGridUsers.Columns[2].Name = "PERMISSIONS";
             dataGridUsers.Columns[2].DataPropertyName = "permissions";
-
+            
         }
 
         public DataTable GetDataTable()
@@ -60,6 +62,7 @@ namespace DP2.UIComponents
             newUser.ShowDialog();
 
             viewUsers();
+            dataGridUsers.CurrentCell.Selected = false;
         }
 
         private void buttonUsersEdit_Click(object sender, EventArgs e)
@@ -78,7 +81,7 @@ namespace DP2.UIComponents
                     editUserForm.ShowDialog();
 
                     viewUsers();
-
+                    dataGridUsers.CurrentCell.Selected = false;
                 }
 
             }
@@ -89,23 +92,37 @@ namespace DP2.UIComponents
             UIConfirmation confirmation = new UIConfirmation("Are you sure?", "Yes", "Cancel");
             confirmation.ShowDialog();
 
-            if (confirmation.isConfirmed)
+            if (dataGridUsers.SelectedRows.Count < 1)
             {
-                //DELETE ROW
-                foreach (DataGridViewCell oneCell in dataGridUsers.SelectedCells)
+                UIError error1 = new UIError("Please select a user","OK");
+                error1.ShowDialog();
+            }else if(dataGridUsers.SelectedRows.Count > 1)
+            {
+                UIError error2 = new UIError("Select only ONE user", "OK");
+                error2.ShowDialog();
+            }
+            else
+            {
+                if (confirmation.isConfirmed)
                 {
-                    if (oneCell.Selected)
+                    //DELETE ROW
+                    foreach (DataGridViewCell oneCell in dataGridUsers.SelectedCells)
                     {
-                        int rowIndex = oneCell.RowIndex;
-                        selectedRow = dataGridUsers.Rows[rowIndex].Cells[0].Value.ToString();
-                        log.RunQuery(2, "UserAccounts ", "", "username=" + "\'" + selectedRow + "\'", "");
-                        viewUsers();
+                        if (oneCell.Selected)
+                        {
+                            int rowIndex = oneCell.RowIndex;
+                            selectedRow = dataGridUsers.Rows[rowIndex].Cells[0].Value.ToString();
+                            log.RunQuery(2, "UserAccounts ", "", "username=" + "\'" + selectedRow + "\'", "");
+                            viewUsers();
+
+                        }
 
                     }
-
+                    dataGridUsers.CurrentCell.Selected = false;
                 }
-         
             }
+
+            
         }
 
         private void dataGridUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -115,7 +132,7 @@ namespace DP2.UIComponents
 
         private void UIUsers_Load(object sender, EventArgs e)
         {
-
+            dataGridUsers.CurrentCell.Selected = false;
         }
     }
 }

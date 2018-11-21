@@ -48,12 +48,21 @@ namespace DP2.UIComponents
 
             if (confirmation.isConfirmed)
             {
-                //INSERT new user into UserAccounts Table in DATABASE
-                string username = textNewUserUsername.Text;
-                string password = textNewUserPassword.Text;
-                string permissions = textNewUserPermissions.Text;
-                log.RunQuery(3, "UserAccounts", "username, password, permissions", "", "\'" + username + "\'" + "," + "\'" + password + "\'" + "," + "\'" + permissions + "\'");
-                this.Close();
+                //check if fields are empty
+                if(textNewUserUsername.Text == "" || textNewUserPassword.Text == "" || textNewUserPermissions.Text == "")
+                {
+                    UIError error = new UIError("Please fill all fields","OK");
+                    error.ShowDialog();
+                }else
+                {
+                    //INSERT new user into UserAccounts Table in DATABASE
+                    string username = textNewUserUsername.Text;
+                    string password = textNewUserPassword.Text;
+                    string permissions = textNewUserPermissions.Text;
+                    log.RunQuery(3, "UserAccounts", "username, password, permissions", "", "\'" + username + "\'" + "," + "\'" + password + "\'" + "," + "\'" + permissions + "\'");
+                    this.Close();
+                }
+                
             }
         }
     }
