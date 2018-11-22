@@ -33,7 +33,7 @@ namespace DP2.UIComponents
             chart1.ChartAreas[0].AxisY.Title = "Price Total";
             chart1.Series["Products Sold"].ChartType = SeriesChartType.Line;
             chart1.Series["Products Sold"].Color = System.Drawing.Color.FromArgb(130, 25, 25);
-            chart1.ChartAreas[0].AxisY.LabelStyle.Format = "{0:0,}K";
+            chart1.ChartAreas[0].AxisY.LabelStyle.Format = "{0:0,,}M";
             chart1.Series["Products Sold"].IsValueShownAsLabel = true;
 
             this.chart2.Titles.Clear();
@@ -46,7 +46,7 @@ namespace DP2.UIComponents
             chart2.ChartAreas[0].AxisY.Title = "Profit";
             chart2.Series["Profit"].ChartType = SeriesChartType.Line;
             chart2.Series["Profit"].Color = System.Drawing.Color.FromArgb(130, 25, 25);
-            chart2.ChartAreas[0].AxisY.LabelStyle.Format = "{0:0,}K";
+            chart2.ChartAreas[0].AxisY.LabelStyle.Format = "{0:0,,}M";
             chart2.Series["Profit"].IsValueShownAsLabel = true;
         }
 
@@ -77,7 +77,7 @@ namespace DP2.UIComponents
             chart1.ChartAreas[0].AxisY.Title = "Price Total";
             chart1.Series["Products Sold"].ChartType = SeriesChartType.Line;
             chart1.Series["Products Sold"].Color = System.Drawing.Color.FromArgb(130, 25, 25);
-            chart1.ChartAreas[0].AxisY.LabelStyle.Format = "{0:0,}K";
+            chart1.ChartAreas[0].AxisY.LabelStyle.Format = "{0:0,,}M";
             chart1.Series["Products Sold"].IsValueShownAsLabel = true;
 
             this.chart2.Titles.Clear();
@@ -90,7 +90,7 @@ namespace DP2.UIComponents
             chart2.ChartAreas[0].AxisY.Title = "Profit";
             chart2.Series["Profit"].ChartType = SeriesChartType.Line;
             chart2.Series["Profit"].Color = System.Drawing.Color.FromArgb(130, 25, 25);
-            chart2.ChartAreas[0].AxisY.LabelStyle.Format = "{0:0,}K";
+            chart2.ChartAreas[0].AxisY.LabelStyle.Format = "{0:0,,}M";
             chart2.Series["Profit"].IsValueShownAsLabel = true;
         }
     }
