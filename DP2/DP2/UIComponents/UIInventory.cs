@@ -49,6 +49,7 @@ namespace DP2
             textInventoryCategory.DataSource = log.RunSelectQuery("Inventory GROUP BY category", "category", "");
             textInventoryCategory.SelectedIndex = -1;
 
+            textSearchCategory.DropDownStyle = ComboBoxStyle.DropDownList;
             textSearchCategory.ValueMember = "category";
             textSearchCategory.DataSource = log.RunSelectQuery("Inventory GROUP BY category", "category", "");
             textSearchCategory.SelectedIndex = -1;
@@ -244,5 +245,15 @@ namespace DP2
 
         }
 
+        private void buttonInventorySearch_Click(object sender, EventArgs e)
+        {
+            dataGridInventory.DataSource = log.RunSelectQuery("Inventory", "*", "category=\"" + textSearchCategory.Text + "\"");
+        }
+
+        private void buttonInventoryClear_Click(object sender, EventArgs e)
+        {
+            ViewInventory();
+            textSearchCategory.SelectedIndex = -1;
+        }
     }
 }
