@@ -40,8 +40,12 @@ namespace DP2.UIComponents
             if (checkBox2.Checked)
             {
                 check2 = true;
+                checkBox5.Checked = false;
+                checkBox3.Checked = false;
+                checkBox4.Checked = false;
             }
             else { check2 = false; }
+            
         }
 
         private void checkBox4_CheckedChanged(object sender, EventArgs e)
@@ -49,8 +53,12 @@ namespace DP2.UIComponents
             if (checkBox4.Checked)
             {
                 check4 = true;
+                checkBox2.Checked = false;
+                checkBox3.Checked = false;
+                checkBox5.Checked = false;
             }
             else { check4 = false; }
+            
         }
 
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
@@ -58,8 +66,12 @@ namespace DP2.UIComponents
             if (checkBox3.Checked)
             {
                 check1 = true;
+                checkBox2.Checked = false;
+                checkBox5.Checked = false;
+                checkBox4.Checked = false;
             }
             else { check1 = false; }
+            
         }
 
         private void checkBox5_CheckedChanged(object sender, EventArgs e)
@@ -67,23 +79,15 @@ namespace DP2.UIComponents
             if (checkBox5.Checked)
             {
                 check3 = true;
+                checkBox2.Checked = false;
+                checkBox3.Checked = false;
+                checkBox4.Checked = false;
             }
             else { check3 = false; }
+            
         }
 
-        private void chart2_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox2.Checked)
-            {
-                check2 = true;
-            }
-            else { check2 = false; }
-        }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
