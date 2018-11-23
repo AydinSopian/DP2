@@ -320,6 +320,10 @@
     <Folder Include="Chart DataSource\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\icons8-search-25.png" />
+    <None Include="Resources\icons8-delete-25.png" />
+    <None Include="Resources\icons8-delete-15.png" />
+    <None Include="Resources\icons8-search-15.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
