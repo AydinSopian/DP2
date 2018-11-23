@@ -48,6 +48,11 @@ namespace DP2
             textInventoryCategory.ValueMember = "category";
             textInventoryCategory.DataSource = log.RunSelectQuery("Inventory GROUP BY category", "category", "");
             textInventoryCategory.SelectedIndex = -1;
+
+            textSearchCategory.ValueMember = "category";
+            textSearchCategory.DataSource = log.RunSelectQuery("Inventory GROUP BY category", "category", "");
+            textSearchCategory.SelectedIndex = -1;
+
         }
 
         public void ViewInventory()
@@ -238,5 +243,6 @@ namespace DP2
         {
 
         }
+
     }
 }
