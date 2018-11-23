@@ -113,6 +113,26 @@ namespace DP2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_delete_15 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_delete_15", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_delete_25 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_delete_25", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_edit_25 {
             get {
                 object obj = ResourceManager.GetObject("icons8_edit_25", resourceCulture);
@@ -166,6 +186,26 @@ namespace DP2.Properties {
         internal static System.Drawing.Bitmap icons8_right_35 {
             get {
                 object obj = ResourceManager.GetObject("icons8_right_35", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_search_15 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_search_15", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_search_25 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_search_25", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

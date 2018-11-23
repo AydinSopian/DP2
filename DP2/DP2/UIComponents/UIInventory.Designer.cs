@@ -53,19 +53,19 @@
             this.inventoryQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelInventoryCategory = new System.Windows.Forms.Label();
             this.textInventoryCategory = new System.Windows.Forms.ComboBox();
-            this.buttonInventoryAdd = new System.Windows.Forms.Button();
             this.labelNotificationTitle = new System.Windows.Forms.Label();
             this.dataGridNotifications = new System.Windows.Forms.DataGridView();
             this.notificationItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.notificationQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.notificationDateToOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonInventoryEdit = new System.Windows.Forms.Button();
-            this.buttonInventoryDelete = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textSearchItem = new System.Windows.Forms.TextBox();
             this.textSearchCategory = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.buttonInventoryAdd = new System.Windows.Forms.Button();
+            this.buttonInventoryClear = new System.Windows.Forms.Button();
+            this.buttonInventorySearch = new System.Windows.Forms.Button();
+            this.buttonInventoryDelete = new System.Windows.Forms.Button();
+            this.buttonInventoryEdit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridInventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridNotifications)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -274,25 +274,6 @@
             this.textInventoryCategory.Size = new System.Drawing.Size(201, 28);
             this.textInventoryCategory.TabIndex = 12;
             // 
-            // buttonInventoryAdd
-            // 
-            this.buttonInventoryAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.buttonInventoryAdd.FlatAppearance.BorderSize = 0;
-            this.buttonInventoryAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonInventoryAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonInventoryAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.buttonInventoryAdd.Image = global::DP2.Properties.Resources.icons8_plus_math_20;
-            this.buttonInventoryAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonInventoryAdd.Location = new System.Drawing.Point(396, 204);
-            this.buttonInventoryAdd.Name = "buttonInventoryAdd";
-            this.buttonInventoryAdd.Size = new System.Drawing.Size(121, 47);
-            this.buttonInventoryAdd.TabIndex = 8;
-            this.buttonInventoryAdd.Text = "ADD ITEM";
-            this.buttonInventoryAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonInventoryAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.buttonInventoryAdd.UseVisualStyleBackColor = false;
-            this.buttonInventoryAdd.Click += new System.EventHandler(this.buttonInventoryAdd_Click);
-            // 
             // labelNotificationTitle
             // 
             this.labelNotificationTitle.AutoSize = true;
@@ -377,24 +358,98 @@
             this.notificationDateToOrder.HeaderText = "DATE TO ORDER";
             this.notificationDateToOrder.Name = "notificationDateToOrder";
             // 
-            // buttonInventoryEdit
+            // groupBox1
             // 
-            this.buttonInventoryEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
-            this.buttonInventoryEdit.FlatAppearance.BorderSize = 0;
-            this.buttonInventoryEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonInventoryEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonInventoryEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.buttonInventoryEdit.Image = global::DP2.Properties.Resources.icons8_edit_25;
-            this.buttonInventoryEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonInventoryEdit.Location = new System.Drawing.Point(776, 656);
-            this.buttonInventoryEdit.Name = "buttonInventoryEdit";
-            this.buttonInventoryEdit.Size = new System.Drawing.Size(97, 47);
-            this.buttonInventoryEdit.TabIndex = 20;
-            this.buttonInventoryEdit.Text = "EDIT";
-            this.buttonInventoryEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonInventoryEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.buttonInventoryEdit.UseVisualStyleBackColor = false;
-            this.buttonInventoryEdit.Click += new System.EventHandler(this.buttonInventoryEdit_Click);
+            this.groupBox1.Controls.Add(this.buttonInventoryClear);
+            this.groupBox1.Controls.Add(this.buttonInventorySearch);
+            this.groupBox1.Controls.Add(this.textSearchCategory);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(12, 645);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(693, 72);
+            this.groupBox1.TabIndex = 27;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "SEARCH";
+            // 
+            // textSearchCategory
+            // 
+            this.textSearchCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.textSearchCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.textSearchCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textSearchCategory.ForeColor = System.Drawing.Color.White;
+            this.textSearchCategory.FormattingEnabled = true;
+            this.textSearchCategory.Location = new System.Drawing.Point(152, 25);
+            this.textSearchCategory.Name = "textSearchCategory";
+            this.textSearchCategory.Size = new System.Drawing.Size(225, 28);
+            this.textSearchCategory.TabIndex = 28;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.label1.Location = new System.Drawing.Point(65, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(81, 20);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "Category :";
+            // 
+            // buttonInventoryAdd
+            // 
+            this.buttonInventoryAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.buttonInventoryAdd.FlatAppearance.BorderSize = 0;
+            this.buttonInventoryAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInventoryAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonInventoryAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.buttonInventoryAdd.Image = global::DP2.Properties.Resources.icons8_plus_math_20;
+            this.buttonInventoryAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonInventoryAdd.Location = new System.Drawing.Point(396, 204);
+            this.buttonInventoryAdd.Name = "buttonInventoryAdd";
+            this.buttonInventoryAdd.Size = new System.Drawing.Size(121, 47);
+            this.buttonInventoryAdd.TabIndex = 8;
+            this.buttonInventoryAdd.Text = "ADD ITEM";
+            this.buttonInventoryAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonInventoryAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.buttonInventoryAdd.UseVisualStyleBackColor = false;
+            this.buttonInventoryAdd.Click += new System.EventHandler(this.buttonInventoryAdd_Click);
+            // 
+            // buttonInventoryClear
+            // 
+            this.buttonInventoryClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
+            this.buttonInventoryClear.FlatAppearance.BorderSize = 0;
+            this.buttonInventoryClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInventoryClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonInventoryClear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.buttonInventoryClear.Image = global::DP2.Properties.Resources.icons8_delete_15;
+            this.buttonInventoryClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonInventoryClear.Location = new System.Drawing.Point(547, 21);
+            this.buttonInventoryClear.Name = "buttonInventoryClear";
+            this.buttonInventoryClear.Size = new System.Drawing.Size(104, 36);
+            this.buttonInventoryClear.TabIndex = 28;
+            this.buttonInventoryClear.Text = "CLEAR";
+            this.buttonInventoryClear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonInventoryClear.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.buttonInventoryClear.UseVisualStyleBackColor = false;
+            // 
+            // buttonInventorySearch
+            // 
+            this.buttonInventorySearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.buttonInventorySearch.FlatAppearance.BorderSize = 0;
+            this.buttonInventorySearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInventorySearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonInventorySearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.buttonInventorySearch.Image = global::DP2.Properties.Resources.icons8_search_15;
+            this.buttonInventorySearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonInventorySearch.Location = new System.Drawing.Point(426, 21);
+            this.buttonInventorySearch.Name = "buttonInventorySearch";
+            this.buttonInventorySearch.Size = new System.Drawing.Size(104, 36);
+            this.buttonInventorySearch.TabIndex = 30;
+            this.buttonInventorySearch.Text = "SEARCH";
+            this.buttonInventorySearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonInventorySearch.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.buttonInventorySearch.UseVisualStyleBackColor = false;
             // 
             // buttonInventoryDelete
             // 
@@ -415,67 +470,24 @@
             this.buttonInventoryDelete.UseVisualStyleBackColor = false;
             this.buttonInventoryDelete.Click += new System.EventHandler(this.buttonInventoryDelete_Click);
             // 
-            // groupBox1
+            // buttonInventoryEdit
             // 
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textSearchItem);
-            this.groupBox1.Controls.Add(this.textSearchCategory);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(12, 645);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(727, 72);
-            this.groupBox1.TabIndex = 27;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "SEARCH";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.label2.Location = new System.Drawing.Point(394, 27);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 20);
-            this.label2.TabIndex = 30;
-            this.label2.Text = "Item :";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // textSearchItem
-            // 
-            this.textSearchItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
-            this.textSearchItem.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textSearchItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textSearchItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.textSearchItem.Location = new System.Drawing.Point(449, 28);
-            this.textSearchItem.Name = "textSearchItem";
-            this.textSearchItem.Size = new System.Drawing.Size(201, 19);
-            this.textSearchItem.TabIndex = 29;
-            this.textSearchItem.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // textSearchCategory
-            // 
-            this.textSearchCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
-            this.textSearchCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.textSearchCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textSearchCategory.ForeColor = System.Drawing.Color.White;
-            this.textSearchCategory.FormattingEnabled = true;
-            this.textSearchCategory.Location = new System.Drawing.Point(152, 25);
-            this.textSearchCategory.Name = "textSearchCategory";
-            this.textSearchCategory.Size = new System.Drawing.Size(201, 28);
-            this.textSearchCategory.TabIndex = 28;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.label1.Location = new System.Drawing.Point(65, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 20);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "Category :";
+            this.buttonInventoryEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
+            this.buttonInventoryEdit.FlatAppearance.BorderSize = 0;
+            this.buttonInventoryEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInventoryEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonInventoryEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.buttonInventoryEdit.Image = global::DP2.Properties.Resources.icons8_edit_25;
+            this.buttonInventoryEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonInventoryEdit.Location = new System.Drawing.Point(776, 656);
+            this.buttonInventoryEdit.Name = "buttonInventoryEdit";
+            this.buttonInventoryEdit.Size = new System.Drawing.Size(97, 47);
+            this.buttonInventoryEdit.TabIndex = 20;
+            this.buttonInventoryEdit.Text = "EDIT";
+            this.buttonInventoryEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonInventoryEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.buttonInventoryEdit.UseVisualStyleBackColor = false;
+            this.buttonInventoryEdit.Click += new System.EventHandler(this.buttonInventoryEdit_Click);
             // 
             // UIInventory
             // 
@@ -543,9 +555,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn inventoryPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn inventoryQty;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textSearchItem;
         private System.Windows.Forms.ComboBox textSearchCategory;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonInventoryClear;
+        private System.Windows.Forms.Button buttonInventorySearch;
     }
 }
